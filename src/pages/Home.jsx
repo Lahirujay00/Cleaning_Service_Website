@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import AboutSection from '../components/AboutSection';
@@ -8,6 +9,7 @@ import ContactSection from '../components/ContactSection';
 const Home = () => {
     return (
         <div className="flex flex-col bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
+            <Header />
             <HeroSection />
             <div className="w-full h-24 overflow-hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
