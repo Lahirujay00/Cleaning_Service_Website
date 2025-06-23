@@ -17,16 +17,6 @@ const HeroSection = () => {
         return () => clearInterval(interval);
     }, [images.length]);
 
-    // Previous slide handler
-    const prevSlide = () => {
-        setCurrentIndex(prevIndex => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
-    };
-
-    // Next slide handler
-    const nextSlide = () => {
-        setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
-    };
-
     return (
         <div className="relative h-screen">
             {/* Image Slider with overlay */}
@@ -43,38 +33,6 @@ const HeroSection = () => {
                         />
                         <div className="absolute inset-0 bg-gradient-to-r from-cyan-800 to-cyan-600 opacity-70"></div>
                     </div>
-                ))}
-            </div>
-            
-            {/* Slider controls */}
-            <div className="absolute inset-x-0 bottom-1/2 flex justify-between items-center px-4 z-20">
-                <button 
-                    onClick={prevSlide}
-                    className="bg-white/30 backdrop-blur-sm p-2 rounded-full text-white hover:bg-white/50 transition-colors"
-                >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                </button>
-                <button 
-                    onClick={nextSlide}
-                    className="bg-white/30 backdrop-blur-sm p-2 rounded-full text-white hover:bg-white/50 transition-colors"
-                >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
-            </div>
-
-            {/* Slide indicators */}
-            <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2 z-20">
-                {images.map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => setCurrentIndex(index)}
-                        className={`w-3 h-3 rounded-full transition-colors ${index === currentIndex ? 'bg-white' : 'bg-white/50'}`}
-                        aria-label={`Go to slide ${index + 1}`}
-                    />
                 ))}
             </div>
             
