@@ -1,28 +1,57 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const AboutSection = () => {
-  return (
-    <section className="py-12 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">About Our Cleaning Service</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="flex flex-col justify-center">
-            <p className="text-lg mb-4">
-              Our professional cleaning team is dedicated to making your space spotless. 
-              We use eco-friendly products and proven techniques to deliver exceptional results.
-            </p>
-            <Link to="/about" className="text-blue-600 font-medium hover:underline">
-              Learn more about us →
-            </Link>
-          </div>
-          <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-            <p className="text-gray-500">Image Placeholder</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+    return (
+        <section className="py-20 px-4 bg-white">
+            <div className="max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div className="order-2 lg:order-1">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
+                            Professional Cleaning Service You Can Trust
+                        </h2>
+                        <div className="h-1 w-24 bg-cyan-600 mb-8"></div>
+                        <p className="text-lg text-gray-600 mb-6">
+                            With over 10 years of experience, our team of trained professionals delivers 
+                            exceptional cleaning services for homes and businesses. We use eco-friendly 
+                            products that are safe for your family, pets, and the environment.
+                        </p>
+                        <p className="text-lg text-gray-600 mb-8">
+                            Our attention to detail and commitment to quality have earned us the 
+                            trust of thousands of satisfied customers throughout the area.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <div className="flex items-center">
+                                <div className="bg-cyan-50 p-3 rounded-full mr-4">
+                                    <svg className="w-8 h-8 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <span className="font-medium text-gray-700">Trained Professionals</span>
+                            </div>
+                            <div className="flex items-center">
+                                <div className="bg-cyan-50 p-3 rounded-full mr-4">
+                                    <svg className="w-8 h-8 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <span className="font-medium text-gray-700">Eco-Friendly Products</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="order-1 lg:order-2 relative">
+                        <div className="bg-cyan-600 rounded-tl-[100px] rounded-br-[100px] h-80 w-80 absolute -z-10 -bottom-10 -right-10"></div>
+                        <div className="bg-gray-100 rounded-tr-[80px] rounded-bl-[80px] p-6">
+                            <img 
+                                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
+                                alt="Cleaning Team" 
+                                className="rounded-tr-[70px] rounded-bl-[70px] shadow-lg h-full object-cover"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 };
 
 export default AboutSection;
