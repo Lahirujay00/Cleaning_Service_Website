@@ -1,13 +1,81 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import heroBg from '../assets/images/herobg.JPG';
+import img4182 from '../assets/images/IMG_4182.JPG';
+import img4183 from '../assets/images/IMG_4183.JPG';
+import img4914 from '../assets/images/IMG_4914.JPG';
 
 const HeroSection = () => {
+    const images = [heroBg, img4182, img4183, img4914];
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    // Auto-slide effect
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+        }, 5000); // Change slide every 5 seconds
+
+        return () => clearInterval(interval);
+    }, [images.length]);
+
+    // Previous slide handler
+    const prevSlide = () => {
+        setCurrentIndex(prevIndex => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+    };
+
+    // Next slide handler
+    const nextSlide = () => {
+        setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+    };
+
     return (
         <div className="relative h-screen">
-            {/* Background with overlay */}
-            <div className="absolute inset-0">
-                <img src={heroBg} alt="Clean Home" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-800 to-cyan-600 opacity-80"></div>
+            {/* Image Slider with overlay */}
+            <div className="absolute inset-0 overflow-hidden">
+                {images.map((image, index) => (
+                    <div 
+                        key={index}
+                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
+                    >
+                        <img 
+                            src={image} 
+                            alt={`Cleaning Service ${index + 1}`} 
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-800 to-cyan-600 opacity-70"></div>
+                    </div>
+                ))}
+            </div>
+            
+            {/* Slider controls */}
+            <div className="absolute inset-x-0 bottom-1/2 flex justify-between items-center px-4 z-20">
+                <button 
+                    onClick={prevSlide}
+                    className="bg-white/30 backdrop-blur-sm p-2 rounded-full text-white hover:bg-white/50 transition-colors"
+                >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button 
+                    onClick={nextSlide}
+                    className="bg-white/30 backdrop-blur-sm p-2 rounded-full text-white hover:bg-white/50 transition-colors"
+                >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            {/* Slide indicators */}
+            <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2 z-20">
+                {images.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => setCurrentIndex(index)}
+                        className={`w-3 h-3 rounded-full transition-colors ${index === currentIndex ? 'bg-white' : 'bg-white/50'}`}
+                        aria-label={`Go to slide ${index + 1}`}
+                    />
+                ))}
             </div>
             
             {/* Content */}
@@ -23,13 +91,13 @@ const HeroSection = () => {
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <a
                             href="#contact"
-                            className="bg-white text-cyan-800 font-medium px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                            className="bg-white text-[#2CA2B0] font-medium px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                         >
                             Get a Free Quote
                         </a>
                         <a
                             href="#services"
-                            className="bg-transparent text-white border-2 border-white font-medium px-8 py-4 rounded-lg hover:bg-white hover:text-cyan-800 transform hover:-translate-y-1 transition-all duration-300"
+                            className="bg-transparent text-white border-2 border-white font-medium px-8 py-4 rounded-lg hover:bg-white hover:text-[#2CA2B0] transform hover:-translate-y-1 transition-all duration-300"
                         >
                             Our Services
                         </a>
@@ -37,7 +105,7 @@ const HeroSection = () => {
                 </div>
             </div>
             
-            {/* Decorative element */}
+            {/* Decorative wave at bottom */}
             <div className="absolute bottom-0 left-0 right-0">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                     <path 
