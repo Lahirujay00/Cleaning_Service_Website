@@ -3,16 +3,17 @@ import React from 'react';
 const ServiceCard = ({ icon, title, description }) => {
     return (
         <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
-            <div className="bg-cyan-700 h-2 w-full group-hover:bg-cyan-500 transition-colors duration-300"></div>
+            <div className="bg-[#2CA2B0] h-2 w-full group-hover:bg-[#249aa8] transition-colors duration-300"></div>
             <div className="p-6">
                 <div className="bg-cyan-50 rounded-full p-3 w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-cyan-100 transition-colors duration-300">
                     {icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-800">{title}</h3>
                 <p className="text-gray-600 mb-6">{description}</p>
-                <a
-                    href="#"
-                    className="inline-flex items-center text-cyan-700 hover:text-cyan-900 font-medium"
+                {/* Replace the invalid anchor with a button */}
+                <button
+                    className="inline-flex items-center text-[#2CA2B0] hover:text-[#249aa8] font-medium focus:outline-none"
+                    onClick={() => window.location.href = `#${title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                     Learn more
                     <svg
@@ -24,7 +25,7 @@ const ServiceCard = ({ icon, title, description }) => {
                     >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
-                </a>
+                </button>
             </div>
         </div>
     );
