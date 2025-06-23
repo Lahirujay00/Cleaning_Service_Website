@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-gray-50 text-gray-800;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+}
+
+a {
+    @apply text-blue-600 hover:text-blue-800;
+}
+
+button {
+    @apply bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300;
+}
+
+.card {
+    @apply bg-white rounded-lg shadow-lg p-6;
+}
+
+.testimonial-card {
+    @apply bg-gray-100 rounded-lg p-4 shadow-md;
+}
+
+.form-input {
+    @apply border border-gray-300 rounded-lg p-2 w-full;
+}
+
+.footer {
+    @apply bg-blue-500 text-white p-4;
+}
+
+/* If there are any references to hero-bg.jpg in the CSS, update them to match the actual filename */
+
+/* For example, if you have something like: */
+/* .some-class { background-image: url('../assets/images/hero-bg.jpg'); } */
+/* Change it to: */
+/* .some-class { background-image: url('../assets/images/herobg.JPG'); } */
