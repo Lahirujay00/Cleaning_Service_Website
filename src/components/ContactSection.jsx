@@ -4,7 +4,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-20 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-aos="fade-down">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#333333]">Contact Us</h2>
           <div className="h-1 w-24 bg-[#2CA2B0] mx-auto mb-6"></div>
           <p className="text-[#6B7280] max-w-2xl mx-auto">
@@ -13,7 +13,7 @@ const ContactSection = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div>
+          <div data-aos="fade-right">
             <form className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-[#333333] font-medium mb-2">Your Name</label>
@@ -53,7 +53,7 @@ const ContactSection = () => {
             </form>
           </div>
           
-          <div className="bg-[#F0F9FF] rounded-xl p-8">
+          <div className="bg-[#F0F9FF] rounded-xl p-8" data-aos="fade-left">
             <h3 className="text-2xl font-bold mb-6 text-[#333333]">Get In Touch</h3>
             
             <div className="space-y-6">

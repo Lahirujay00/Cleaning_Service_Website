@@ -1,8 +1,12 @@
 import React from 'react';
 
-const ServiceCard = ({ icon, title, description }) => {
+const ServiceCard = ({ icon, title, description, index }) => {
     return (
-        <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+        <div 
+            className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group transform hover:-translate-y-2"
+            data-aos="fade-up"
+            data-aos-delay={100 * index}
+        >
             <div className="bg-[#2CA2B0] h-2 w-full group-hover:bg-[#218393] transition-colors duration-300"></div>
             <div className="p-6">
                 <div className="bg-[#F0F9FF] rounded-full p-3 w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-[#F0F9FF] transition-colors duration-300">
@@ -57,7 +61,7 @@ const ServicesSection = () => {
     return (
         <section id="services" className="py-20 px-4 bg-[#F0F9FF]">
             <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-16">
+                <div className="text-center mb-16" data-aos="fade-down">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#333333]">Our Premium Services</h2>
                     <div className="h-1 w-24 bg-[#2CA2B0] mx-auto mb-6"></div>
                     <p className="text-[#6B7280] max-w-2xl mx-auto">
@@ -66,7 +70,7 @@ const ServicesSection = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {services.map((service, index) => (
-                        <ServiceCard key={index} {...service} />
+                        <ServiceCard key={index} {...service} index={index} />
                     ))}
                 </div>
             </div>

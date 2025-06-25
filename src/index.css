@@ -127,3 +127,11 @@ button:hover {
 .hover-lift:hover {
     transform: translateY(-4px);
 }
+
+/* Add text shadow utilities */
+.text-shadow {
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-lg {
+    text-
