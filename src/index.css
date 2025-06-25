@@ -157,3 +157,213 @@ button:hover {
 .animate-pulse-slow {
   animation: pulse 3s infinite ease-in-out;
 }
+
+/* Loading animations */
+.loading-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #2CA2B0;
+  animation: spin 1s linear infinite, fill-color 3s ease-in-out infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes fill-color {
+  0%, 100% { border-top-color: #2CA2B0; }
+  50% { border-top-color: #0A3D62; }
+}
+
+.water-drop {
+  width: 10px;
+  height: 10px;
+  background-color: #2CA2B0;
+  border-radius: 50%;
+  animation: water-drop 2s ease-in-out infinite;
+  opacity: 0;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+@keyframes water-drop {
+  0% { 
+    transform: translateY(0) translateX(-50%) scale(0.5);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(20px) translateX(-50%) scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(40px) translateX(-50%) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Element animations */
+.hover-float {
+  transition: transform 0.3s ease;
+}
+
+.hover-float:hover {
+  transform: translateY(-8px);
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #0A3D62, #2CA2B0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  animation: shimmer 4s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+.float-in-up {
+  animation: float-in-up 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes float-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll progress indicator */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(to right, #2CA2B0, #0A3D62);
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.2s ease-out;
+}
+
+/* Hero section animations */
+@keyframes title-reveal {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-20px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes description-reveal {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-10px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes buttons-reveal {
+  0% { 
+    opacity: 0; 
+    transform: translateY(10px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-title {
+  animation: title-reveal 0.8s ease-out 0.2s forwards;
+}
+
+.animate-description {
+  animation: description-reveal 0.8s ease-out 0.5s forwards;
+}
+
+.animate-buttons {
+  animation: buttons-reveal 0.8s ease-out 0.8s forwards;
+}
+
+@keyframes float-slow-1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(10px, -10px) rotate(5deg); }
+  50% { transform: translate(-5px, -15px) rotate(-5deg); }
+  75% { transform: translate(-10px, -5px) rotate(3deg); }
+}
+
+@keyframes float-slow-2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-10px, -5px) rotate(-5deg); }
+  50% { transform: translate(5px, -10px) rotate(5deg); }
+  75% { transform: translate(10px, -2px) rotate(-3deg); }
+}
+
+.animate-float-slow-1 {
+  animation: float-slow-1 15s ease-in-out infinite;
+}
+
+.animate-float-slow-2 {
+  animation: float-slow-2 18s ease-in-out infinite;
+}
