@@ -19,7 +19,7 @@ const HeroSection = () => {
 
     return (
         <div className="relative h-screen">
-            {/* Background with overlay */}
+            {/* Background with darker overlay */}
             <div className="absolute inset-0">
                 {images.map((image, index) => (
                     <div 
@@ -31,9 +31,10 @@ const HeroSection = () => {
                             alt={`Cleaning Service ${index + 1}`} 
                             className="w-full h-full object-cover"
                         />
+                        {/* Increase the darkness of the overlay to improve text visibility */}
+                        <div className="absolute inset-0 bg-black opacity-70"></div>
                     </div>
                 ))}
-                <div className="absolute inset-0 bg-[#0A3D62] opacity-90"></div>
             </div>
             
             {/* Content */}
