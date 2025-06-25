@@ -8,7 +8,7 @@ import ContactSection from '../components/ContactSection';
 
 const Home = () => {
     return (
-        <div className="flex flex-col bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
+        <div className="flex flex-col bg-[#F0F9FF] min-h-screen">
             <Header />
             <HeroSection />
             <div className="w-full h-24 overflow-hidden">
@@ -20,7 +20,7 @@ const Home = () => {
             <div className="relative z-10 transform -mt-10">
                 <AboutSection />
             </div>
-            <div className="relative z-0 bg-gradient-to-br from-[#2CA2B0]/10 to-[#134e54]/20 py-16">
+            <div className="relative z-0 bg-gradient-to-br from-[#0A3D62]/5 to-[#2CA2B0]/10 py-16">
                 <TestimonialsSection />
             </div>
             <ContactSection />

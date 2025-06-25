@@ -19,8 +19,8 @@ const HeroSection = () => {
 
     return (
         <div className="relative h-screen">
-            {/* Image Slider with overlay */}
-            <div className="absolute inset-0 overflow-hidden">
+            {/* Background with overlay */}
+            <div className="absolute inset-0">
                 {images.map((image, index) => (
                     <div 
                         key={index}
@@ -31,16 +31,16 @@ const HeroSection = () => {
                             alt={`Cleaning Service ${index + 1}`} 
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-800 to-cyan-600 opacity-70"></div>
                     </div>
                 ))}
+                <div className="absolute inset-0 bg-[#0A3D62] opacity-90"></div>
             </div>
             
             {/* Content */}
             <div className="relative h-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 z-10">
                 <div className="max-w-3xl text-center">
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6">
-                        Professional Cleaning <span className="block text-cyan-200">For Your Home & Office</span>
+                        Professional Cleaning <span className="block text-[#2CA2B0]">For Your Home & Office</span>
                     </h1>
                     <p className="text-xl text-white mb-10 max-w-2xl mx-auto">
                         Experience the highest quality cleaning services tailored to your needs.
@@ -49,13 +49,13 @@ const HeroSection = () => {
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <a
                             href="#contact"
-                            className="bg-white text-[#2CA2B0] font-medium px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                            className="bg-[#2CA2B0] text-white font-medium px-8 py-4 rounded-lg shadow-lg hover:bg-[#218393] hover:shadow-xl transition-all duration-300"
                         >
                             Get a Free Quote
                         </a>
                         <a
                             href="#services"
-                            className="bg-transparent text-white border-2 border-white font-medium px-8 py-4 rounded-lg hover:bg-white hover:text-[#2CA2B0] transform hover:-translate-y-1 transition-all duration-300"
+                            className="bg-transparent text-white border-2 border-white font-medium px-8 py-4 rounded-lg hover:bg-white hover:text-[#0A3D62] transform hover:-translate-y-1 transition-all duration-300"
                         >
                             Our Services
                         </a>
@@ -63,11 +63,11 @@ const HeroSection = () => {
                 </div>
             </div>
             
-            {/* Decorative wave at bottom */}
+            {/* Decorative wave */}
             <div className="absolute bottom-0 left-0 right-0">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                     <path 
-                        fill="#ffffff" 
+                        fill="#F0F9FF" 
                         fillOpacity="1" 
                         d="M0,96L48,128C96,160,192,224,288,224C384,224,480,160,576,149.3C672,139,768,181,864,202.7C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
                     ></path>

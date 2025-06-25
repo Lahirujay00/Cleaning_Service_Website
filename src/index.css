@@ -4,33 +4,50 @@
 
 :root {
   --primary-color: #2CA2B0;
-  --primary-dark: #134e54;
-  --primary-light: #81d8e0;
+  --primary-dark: #0A3D62;
+  --primary-light: #F0F9FF;
+  --text-dark: #333333;
+  --text-light: #6B7280;
 }
 
 body {
-    @apply bg-gray-50 text-gray-800;
+    @apply bg-gray-50;
+    background-color: #F0F9FF;
+    color: #333333;
     scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {
     @apply font-bold;
+    color: #333333;
 }
 
 a {
-    @apply text-blue-600 hover:text-blue-800;
+    color: #2CA2B0;
+}
+
+a:hover {
+    color: #218393;
 }
 
 button {
-    @apply bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300;
+    @apply rounded-lg shadow-md transition duration-300;
+    background-color: #2CA2B0;
+    color: white;
+}
+
+button:hover {
+    background-color: #218393;
 }
 
 .card {
-    @apply bg-white rounded-lg shadow-lg p-6;
+    @apply rounded-lg shadow-lg p-6;
+    background-color: white;
 }
 
 .testimonial-card {
-    @apply bg-gray-100 rounded-lg p-4 shadow-md;
+    @apply rounded-lg p-4 shadow-md;
+    background-color: #F0F9FF;
 }
 
 .form-input {
@@ -38,7 +55,42 @@ button {
 }
 
 .footer {
-    @apply bg-blue-500 text-white p-4;
+    @apply p-4;
+    background-color: #0A3D62;
+    color: white;
+}
+
+/* Custom utilities for our color palette */
+.bg-primary {
+    background-color: #2CA2B0;
+}
+
+.bg-primary-dark {
+    background-color: #0A3D62;
+}
+
+.bg-primary-light {
+    background-color: #F0F9FF;
+}
+
+.text-primary {
+    color: #2CA2B0;
+}
+
+.text-primary-dark {
+    color: #0A3D62;
+}
+
+.text-body {
+    color: #333333;
+}
+
+.text-muted {
+    color: #6B7280;
+}
+
+.border-primary {
+    border-color: #2CA2B0;
 }
 
 /* If there are any references to hero-bg.jpg in the CSS, update them to match the actual filename */

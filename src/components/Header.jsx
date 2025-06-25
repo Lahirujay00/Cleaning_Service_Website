@@ -30,7 +30,7 @@ const Header = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <span className={`text-2xl font-bold ${isScrolled ? 'text-[#2CA2B0]' : 'text-white'}`}>
+          <span className={`text-2xl font-bold ${isScrolled ? 'text-[#0A3D62]' : 'text-white'}`}>
             CleanPro
           </span>
         </Link>
@@ -43,8 +43,8 @@ const Header = () => {
               href={`#${item.toLowerCase()}`} 
               className={`font-medium transition-colors ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-[#2CA2B0]' 
-                  : 'text-white hover:text-white/80'
+                  ? 'text-[#333333] hover:text-[#2CA2B0]' 
+                  : 'text-white hover:text-[#2CA2B0]'
               }`}
             >
               {item}
@@ -58,8 +58,8 @@ const Header = () => {
             href="#contact" 
             className={`px-5 py-2 rounded-full transition-all transform hover:-translate-y-1 hover:shadow-lg ${
               isScrolled
-                ? 'bg-[#2CA2B0] text-white hover:bg-[#249aa8]'
-                : 'bg-white text-[#2CA2B0] hover:bg-gray-100'
+                ? 'bg-[#2CA2B0] text-white hover:bg-[#218393]'
+                : 'bg-white text-[#0A3D62] hover:bg-[#F0F9FF]'
             }`}
           >
             Get a Quote
@@ -72,7 +72,7 @@ const Header = () => {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <svg 
-            className={`w-6 h-6 ${isScrolled ? 'text-[#2CA2B0]' : 'text-white'}`} 
+            className={`w-6 h-6 ${isScrolled ? 'text-[#0A3D62]' : 'text-white'}`} 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
@@ -97,7 +97,7 @@ const Header = () => {
             <a 
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="block py-2 text-gray-700 hover:text-[#2CA2B0] font-medium border-b border-gray-100"
+              className="block py-2 text-[#333333] hover:text-[#2CA2B0] font-medium border-b border-gray-100"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item}
@@ -105,7 +105,7 @@ const Header = () => {
           ))}
           <a 
             href="#contact" 
-            className="block mt-4 text-center py-3 bg-[#2CA2B0] text-white rounded-md hover:bg-[#249aa8]"
+            className="block mt-4 text-center py-3 bg-[#2CA2B0] text-white rounded-md hover:bg-[#218393]"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Get a Quote

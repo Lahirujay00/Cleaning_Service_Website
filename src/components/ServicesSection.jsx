@@ -3,16 +3,15 @@ import React from 'react';
 const ServiceCard = ({ icon, title, description }) => {
     return (
         <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
-            <div className="bg-[#2CA2B0] h-2 w-full group-hover:bg-[#249aa8] transition-colors duration-300"></div>
+            <div className="bg-[#2CA2B0] h-2 w-full group-hover:bg-[#218393] transition-colors duration-300"></div>
             <div className="p-6">
-                <div className="bg-cyan-50 rounded-full p-3 w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-cyan-100 transition-colors duration-300">
-                    {icon}
+                <div className="bg-[#F0F9FF] rounded-full p-3 w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-[#F0F9FF] transition-colors duration-300">
+                    <div className="text-[#0A3D62]">{icon}</div>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-800">{title}</h3>
-                <p className="text-gray-600 mb-6">{description}</p>
-                {/* Replace the invalid anchor with a button */}
+                <h3 className="text-xl font-bold mb-3 text-[#333333]">{title}</h3>
+                <p className="text-[#6B7280] mb-6">{description}</p>
                 <button
-                    className="inline-flex items-center text-[#2CA2B0] hover:text-[#249aa8] font-medium focus:outline-none"
+                    className="inline-flex items-center text-[#2CA2B0] hover:text-[#218393] font-medium focus:outline-none"
                     onClick={() => window.location.href = `#${title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                     Learn more
@@ -35,12 +34,8 @@ const ServicesSection = () => {
     const services = [
         {
             title: "Residential Cleaning",
-            description: "We provide comprehensive cleaning services for homes of all sizes, ensuring a spotless and healthy living environment.",
-            icon: (
-                <svg className="w-10 h-10 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                </svg>
-            ),
+            description: "Comprehensive cleaning services for homes of all sizes, tailored to your specific needs.",
+            icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
         },
         {
             title: "Commercial Cleaning",
@@ -60,12 +55,12 @@ const ServicesSection = () => {
     ];
 
     return (
-        <section id="services" className="py-20 px-4">
+        <section id="services" className="py-20 px-4 bg-[#F0F9FF]">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Premium Services</h2>
-                    <div className="h-1 w-24 bg-cyan-600 mx-auto mb-6"></div>
-                    <p className="text-gray-600 max-w-2xl mx-auto">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#333333]">Our Premium Services</h2>
+                    <div className="h-1 w-24 bg-[#2CA2B0] mx-auto mb-6"></div>
+                    <p className="text-[#6B7280] max-w-2xl mx-auto">
                         We offer a variety of professional cleaning services tailored to meet your specific needs.
                     </p>
                 </div>
