@@ -14,9 +14,9 @@ const ContactSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div data-aos="fade-right">
-            <form className="space-y-6">
+            <form className="space-y-8">
               <div>
-                <label htmlFor="name" className="block text-[#333333] font-medium mb-2">Your Name</label>
+                <label htmlFor="name" className="block text-[#333333] font-medium mb-3">Your Name</label>
                 <input
                   type="text"
                   id="name"
@@ -26,7 +26,7 @@ const ContactSection = () => {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-[#333333] font-medium mb-2">Email Address</label>
+                <label htmlFor="email" className="block text-[#333333] font-medium mb-3">Email Address</label>
                 <input
                   type="email"
                   id="email"
@@ -36,7 +36,7 @@ const ContactSection = () => {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-[#333333] font-medium mb-2">Message</label>
+                <label htmlFor="message" className="block text-[#333333] font-medium mb-3">Message</label>
                 <textarea
                   id="message"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2CA2B0] h-40"
@@ -46,7 +46,7 @@ const ContactSection = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-[#2CA2B0] text-white font-medium py-3 rounded-lg hover:bg-[#218393] transition-colors duration-300"
+                className="w-full bg-[#2CA2B0] text-white font-medium py-3 px-6 rounded-lg hover:bg-[#218393] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
               >
                 Send Message
               </button>
