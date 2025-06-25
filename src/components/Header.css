@@ -1,0 +1,28 @@
+/* Anti-pixelation fixes for header items */
+.header-nav a,
+.header-logo,
+.header-cta {
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Remove outlines and shadows */
+.header-nav a:focus,
+.header-nav a:hover,
+.header-nav a:active,
+.header-logo:focus,
+.header-logo:hover,
+.header-logo:active,
+.header-cta:focus,
+.header-cta:hover,
+.header-cta:active {
+  outline: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
