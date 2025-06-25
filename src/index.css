@@ -134,4 +134,26 @@ button:hover {
 }
 
 .text-shadow-lg {
-    text-
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.7s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s infinite ease-in-out;
+}
