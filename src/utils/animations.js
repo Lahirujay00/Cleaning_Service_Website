@@ -2,25 +2,32 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export const initAnimations = () => {
+  // Reset any previous initialization
+  AOS.refresh();
+  
+  // Initialize with better settings
   AOS.init({
-    duration: 800,
-    once: false,
-    mirror: false,
-    offset: 100,
-    easing: 'ease-out'
+    // Global settings
+    duration: 800,           // Animation duration
+    easing: 'ease-out-cubic', // Animation easing
+    once: false,             // Whether animation should happen only once
+    mirror: false,           // Whether elements should animate out while scrolling up
+    offset: 120,             // Offset (in px) from the original trigger point
+    delay: 0,                // Default delay
+    anchorPlacement: 'top-bottom', // Define which position of the element regarding to window should trigger the animation
   });
   
-  // Add scroll to top button logic
-  const scrollToTopBtn = document.getElementById('scrollToTop');
-  if (scrollToTopBtn) {
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        scrollToTopBtn.style.opacity = '1';
-      } else {
-        scrollToTopBtn.style.opacity = '0';
-      }
-    });
-  }
+  // Make sure animations are properly triggered when navigating
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      AOS.refresh();
+    }, 500);
+  });
+  
+  // Refresh AOS on window resize for responsive layouts
+  window.addEventListener('resize', () => {
+    AOS.refresh();
+  });
   
   // Add parallax effect to elements
   const handleParallax = () => {
