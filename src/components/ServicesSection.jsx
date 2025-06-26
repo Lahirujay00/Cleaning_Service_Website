@@ -1,5 +1,10 @@
 import React from 'react';
 import officeCleaningImage from '../assets/images/office-cleaning.jpg';
+import office from '../assets/images/office.jpg'; // Assuming you have an image for Office Cleaning
+import carpetCleaningImage from '../assets/images/CarpetCleaning.jpg'; // Assuming you have an image for Carpet Cleaning
+import gutterCleaningImage from '../assets/images/gutter-cleaning.jpg'; // Assuming you have an image for Gutter Cleaning
+import HighPressureWashingImage from '../assets/images/high.jpg'; // Assuming you have an image for High Pressure Washing
+import windowCleanImage from '../assets/images/window-cleaning.jpg'; // Assuming you have an image for Window Cleaning
 
 const ServiceCard = ({ title, description, index, image }) => {
     return (
@@ -64,17 +69,34 @@ const ServicesSection = () => {
             image: officeCleaningImage // Added image for Residential Cleaning card
         },
         {
-            title: "Commercial Cleaning",
+            title: "Office Cleaning",
             description: "Professional cleaning solutions for offices, retail spaces, and commercial properties.",
+            image: office // Added image for Office Cleaning card
         },
         {
-            title: "Deep Cleaning",
+            title: "Carpet Cleaning",
             description: "Intensive cleaning service that tackles even the most stubborn dirt and grime.",
+            image: carpetCleaningImage // Added image for Carpet Cleaning card
         },
         {
-            title: "Move In/Out Cleaning",
+            title: "Gutter Cleaning",
             description: "Specialized cleaning for when you're moving into a new home or leaving your current one.",
+            image: gutterCleaningImage // Assuming you have an image for Gutter Cleaning
+        },
+        {
+            title: "High-Pressure Washing",
+            description: "Thorough cleaning after construction or renovation projects to make your space spotless.",
+            image: HighPressureWashingImage // Placeholder for Post-Construction Cleaning card
+        },
+        {
+            title: "Window Cleaning",
+            description: "Deep cleaning services to remove dust, debris, and residues after construction or renovation.",
+            image: windowCleanImage // Placeholder for Post-Construction Cleaning card
         }
+        
+
+
+
     ];
 
     return (
