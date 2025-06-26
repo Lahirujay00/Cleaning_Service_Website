@@ -1,191 +1,166 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [hoveredItem, setHoveredItem] = useState(null); // Single state for tracking hover
-
-  // Handle scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const location = useLocation();
+    
+    // Determine if we're on the home page for proper styling
+    const isHomePage = location.pathname === '/';
+    
+    // Handle scroll event to change header style
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 10) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+        
+        // Initial check
+        handleScroll();
+        
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+    
+    // Handle anchor links
+    const handleAnchorClick = (e, target) => {
+        if (!isHomePage && target.startsWith('#')) {
+            e.preventDefault();
+            // Navigate to home page with the anchor
+            window.location.href = `/${target}`;
+            return;
+        }
+        
+        if (isHomePage && target.startsWith('#')) {
+            e.preventDefault();
+            const element = document.querySelector(target);
+            if (element) {
+                const offsetTop = element.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({
+                    top: offsetTop - 80, // Offset for header height
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                setIsMobileMenuOpen(false);
+            }
+        }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Navigation items
-  const navItems = ['Home', 'Services', 'About', 'Testimonials', 'Contact'];
-
-  // Custom text rendering to eliminate white outline
-  const NavText = ({ children, isActive = false }) => {
-    const baseStyle = {
-      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-      fontWeight: 500,
-      letterSpacing: '0.01em',
-      backgroundColor: isScrolled ? 'transparent' : 'transparent',
-      color: isScrolled ? '#333333' : '#FFFFFF',
-      padding: '2px 4px',
-      borderRadius: '2px',
-      transition: 'color 0.3s ease',
-      transform: 'translateZ(0)',
-      WebkitFontSmoothing: 'antialiased',
-      MozOsxFontSmoothing: 'grayscale',
-      textRendering: 'optimizeLegibility',
-      textShadow: 'none',
-      outline: 'none',
-      boxShadow: 'none'
-    };
-
-    const hoverStyle = {
-      color: '#2CA2B0',
-    };
-
+    
+    // Determine text color based on page and scroll position
+    const textColor = isHomePage && !isScrolled ? 'text-white' : 'text-[#333333]';
+    
     return (
-      <span 
-        style={isActive ? { ...baseStyle, ...hoverStyle } : baseStyle}
-        className="nav-text"
-      >
-        {children}
-      </span>
-    );
-  };
-
-  return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white shadow-lg py-2' 
-          : 'bg-transparent py-4'
-      }`}
-    >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <span 
-            className="text-2xl font-bold"
-            style={{
-              color: isScrolled ? '#0A3D62' : '#FFFFFF',
-              WebkitFontSmoothing: 'antialiased',
-              MozOsxFontSmoothing: 'grayscale',
-              textRendering: 'optimizeLegibility',
-              textShadow: 'none'
-            }}
-          >
-            CleanPro
-          </span>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          {navItems.map((item) => (
-            <a 
-              key={item}
-              href={`#${item.toLowerCase()}`} 
-              className="font-medium py-1"
-              onMouseEnter={() => setHoveredItem(item)}
-              onMouseLeave={() => setHoveredItem(null)}
-              style={{ border: 'none', outline: 'none' }}
-            >
-              <NavText isActive={hoveredItem === item}>{item}</NavText>
-            </a>
-          ))}
-        </nav>
-
-        {/* CTA Button */}
-        <div className="hidden md:block">
-          <a 
-            href="#contact" 
-            className={`px-5 py-2 rounded-full transition-all transform hover:-translate-y-1 hover:shadow-lg ${
-              isScrolled
-                ? 'bg-[#2CA2B0] hover:bg-[#218393]'
-                : 'bg-white hover:bg-[#F0F9FF]'
+        <header 
+            className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+                isScrolled || !isHomePage ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
             }`}
-            style={{
-              color: isScrolled ? '#FFFFFF' : '#0A3D62',
-              WebkitFontSmoothing: 'antialiased',
-              MozOsxFontSmoothing: 'grayscale',
-              textShadow: 'none',
-              outline: 'none',
-              boxShadow: 'none',
-              border: 'none'
-            }}
-          >
-            Get a Quote
-          </a>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden focus:outline-none"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          style={{ 
-            color: isScrolled ? '#0A3D62' : '#FFFFFF',
-            outline: 'none',
-            border: 'none'
-          }}
         >
-          <svg 
-            className="w-6 h-6" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24" 
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {!isMobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <div className="container mx-auto px-4 flex justify-between items-center">
+                {/* Logo */}
+                <Link to="/" className="flex items-center">
+                    <span className={`text-2xl font-bold ${isScrolled || !isHomePage ? 'text-[#0A3D62]' : 'text-white'}`}>
+                        SparkWise
+                    </span>
+                </Link>
+                
+                {/* Desktop Navigation */}
+                <nav className="hidden md:flex items-center space-x-6">
+                    <Link 
+                        to="/" 
+                        className={`${textColor} hover:text-[#2CA2B0] transition-colors`}
+                    >
+                        Home
+                    </Link>
+                    <Link 
+                        to="/#services" 
+                        onClick={(e) => handleAnchorClick(e, '#services')}
+                        className={`${textColor} hover:text-[#2CA2B0] transition-colors`}
+                    >
+                        Services
+                    </Link>
+                    <Link 
+                        to="/#about" 
+                        onClick={(e) => handleAnchorClick(e, '#about')}
+                        className={`${textColor} hover:text-[#2CA2B0] transition-colors`}
+                    >
+                        About
+                    </Link>
+                    <Link 
+                        to="/contact" 
+                        className="bg-[#2CA2B0] text-white py-2 px-6 rounded-lg hover:bg-[#218393] transition-colors"
+                    >
+                        Contact Us
+                    </Link>
+                </nav>
+                
+                {/* Mobile Menu Button */}
+                <button 
+                    className="md:hidden text-2xl p-2"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    aria-label="Toggle menu"
+                >
+                    <svg 
+                        className={`w-6 h-6 ${textColor}`} 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                    >
+                        {isMobileMenuOpen ? (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                        ) : (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        )}
+                    </svg>
+                </button>
+            </div>
+            
+            {/* Mobile Navigation */}
+            {isMobileMenuOpen && (
+                <div className="md:hidden bg-white py-4 px-4 shadow-lg">
+                    <nav className="flex flex-col space-y-4">
+                        <Link 
+                            to="/" 
+                            className="text-[#333333] hover:text-[#2CA2B0] transition-colors"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            Home
+                        </Link>
+                        <Link 
+                            to="/#services" 
+                            onClick={(e) => {
+                                handleAnchorClick(e, '#services');
+                                setIsMobileMenuOpen(false);
+                            }}
+                            className="text-[#333333] hover:text-[#2CA2B0] transition-colors"
+                        >
+                            Services
+                        </Link>
+                        <Link 
+                            to="/#about" 
+                            onClick={(e) => {
+                                handleAnchorClick(e, '#about');
+                                setIsMobileMenuOpen(false);
+                            }}
+                            className="text-[#333333] hover:text-[#2CA2B0] transition-colors"
+                        >
+                            About
+                        </Link>
+                        <Link 
+                            to="/contact" 
+                            className="bg-[#2CA2B0] text-white py-2 px-4 rounded-lg hover:bg-[#218393] transition-colors inline-block"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            Contact Us
+                        </Link>
+                    </nav>
+                </div>
             )}
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      <div 
-        className={`md:hidden absolute w-full bg-white shadow-lg transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
-        }`}
-      >
-        <div className="container mx-auto px-4 py-3">
-          {navItems.map((item) => (
-            <a 
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="block py-2 text-[#333333] hover:text-[#2CA2B0] font-medium border-b border-gray-100"
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{
-                WebkitFontSmoothing: 'antialiased',
-                MozOsxFontSmoothing: 'grayscale',
-                outline: 'none',
-                border: 'none'
-              }}
-            >
-              {item}
-            </a>
-          ))}
-          <a 
-            href="#contact" 
-            className="block mt-4 text-center py-3 bg-[#2CA2B0] text-white rounded-md hover:bg-[#218393]"
-            onClick={() => setIsMobileMenuOpen(false)}
-            style={{
-              WebkitFontSmoothing: 'antialiased',
-              MozOsxFontSmoothing: 'grayscale',
-              outline: 'none'
-            }}
-          >
-            Get a Quote
-          </a>
-        </div>
-      </div>
-    </header>
-  );
+        </header>
+    );
 };
 
 export default Header;

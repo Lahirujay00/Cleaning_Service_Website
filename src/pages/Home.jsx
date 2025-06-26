@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import AboutSection from '../components/AboutSection';
 import TestimonialsSection from '../components/TestimonialsSection';
-import ContactSection from '../components/ContactSection';
 import { initAnimations } from '../utils/animations';
 
 const Home = () => {
@@ -40,22 +40,27 @@ const Home = () => {
     return (
         <div className="flex flex-col bg-[#F0F9FF] min-h-screen">
             <Header />
-            <HeroSection />
-            
-            {/* Modified Services section to ensure buttons are clickable */}
-            <div className="animate-on-scroll relative z-10" style={{ opacity: 1 }}>
-                <ServicesSection />
+            <div className="flex-grow">
+                <HeroSection />
+                
+                {/* Modified Services section to ensure buttons are clickable */}
+                <div className="animate-on-scroll relative z-10" style={{ opacity: 1 }}>
+                    <ServicesSection />
+                </div>
+                
+                <div className="relative z-10 transform -mt-10 animate-on-scroll opacity-0" data-aos="fade-up">
+                    <AboutSection />
+                </div>
+                
+                <div className="relative z-0 bg-gradient-to-br from-[#0A3D62]/5 to-[#2CA2B0]/10 py-16 animate-on-scroll opacity-0" data-aos="fade-up">
+                    <TestimonialsSection />
+                </div>
+                
+                {/* Contact section removed - moved to Contact page */}
             </div>
             
-            <div className="relative z-10 transform -mt-10 animate-on-scroll opacity-0" data-aos="fade-up">
-                <AboutSection />
-            </div>
-            <div className="relative z-0 bg-gradient-to-br from-[#0A3D62]/5 to-[#2CA2B0]/10 py-16 animate-on-scroll opacity-0" data-aos="fade-up">
-                <TestimonialsSection />
-            </div>
-            <div className="animate-on-scroll opacity-0">
-                <ContactSection />
-            </div>
+            <Footer />
+            
             <div className="fixed bottom-8 right-8 z-50 opacity-0 transition-opacity duration-500" id="scrollToTop">
                 <button 
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
