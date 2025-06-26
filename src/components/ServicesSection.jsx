@@ -18,10 +18,11 @@ const ServiceCard = ({ title, description, index, image }) => {
             data-aos-duration="800"
             data-aos-offset="200"
         >
-            <div className="bg-[#2CA2B0] h-2 w-0 group-hover:w-full transition-all duration-700"></div>
-            
-            {/* Fix: Remove the separate top bar when there's an image and use a pseudo-element instead */}
+            {/* Restructured to eliminate gaps */}
             <div className="relative">
+                {/* Top accent line on top of image */}
+                <div className="h-0.5 bg-[#2CA2B0] w-0 group-hover:w-full transition-all duration-700 absolute top-0 left-0 right-0 z-20"></div>
+                
                 {image && (
                     <div className="h-48 overflow-hidden">
                         {/* Image overlay */}
@@ -33,42 +34,41 @@ const ServiceCard = ({ title, description, index, image }) => {
                         />
                     </div>
                 )}
-                {/* Top accent line applies to all cards without the white space */}
-                <div className="h-0.5 bg-[#2CA2B0] w-0 group-hover:w-full transition-all duration-700 absolute top-0 left-0 right-0 z-20"></div>
-            </div>
-            
-            <div className="p-6 relative overflow-hidden">
-                {/* Animated accent line */}
-                <div className="absolute -left-10 top-0 h-[1px] w-0 bg-gradient-to-r from-transparent via-[#2CA2B0] to-transparent group-hover:w-[150%] transition-all duration-1000 ease-in-out"></div>
                 
-                {/* Title with reveal animation */}
-                <h3 className="text-2xl font-bold mb-2 text-[#333333] relative transform transition-all duration-500 group-hover:translate-x-2">
-                    {title}
-                    <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#2CA2B0] group-hover:w-3/4 transition-all duration-500 ease-out"></span>
-                </h3>
-                
-                <p className="text-[#6B7280] mb-8 text-base transition-all duration-500 group-hover:text-[#4B5563] relative">
-                    {description}
-                </p>
-                
-                {/* Updated button to use React Router's Link */}
-                <a
-                    href={pageUrl}
-                    className="card-button"
-                >
-                    <span>Learn more</span>
-                    <svg 
-                        className="w-4 h-4"
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
+                {/* Content area - removed the top padding to eliminate gap */}
+                <div className="px-6 pb-6 pt-4 relative overflow-hidden">
+                    {/* Animated accent line */}
+                    <div className="absolute -left-10 top-0 h-[1px] w-0 bg-gradient-to-r from-transparent via-[#2CA2B0] to-transparent group-hover:w-[150%] transition-all duration-1000 ease-in-out"></div>
+                    
+                    {/* Title with reveal animation */}
+                    <h3 className="text-2xl font-bold mb-2 text-[#333333] relative transform transition-all duration-500 group-hover:translate-x-2">
+                        {title}
+                        <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#2CA2B0] group-hover:w-3/4 transition-all duration-500 ease-out"></span>
+                    </h3>
+                    
+                    <p className="text-[#6B7280] mb-8 text-base transition-all duration-500 group-hover:text-[#4B5563] relative">
+                        {description}
+                    </p>
+                    
+                    {/* Updated button to use React Router's Link */}
+                    <a
+                        href={pageUrl}
+                        className="card-button"
                     >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                    </svg>
-                </a>
-                
-                {/* Corner decoration */}
-                <div className="absolute bottom-0 right-0 w-0 h-0 border-t-0 border-r-0 border-b-[25px] border-l-0 border-b-transparent group-hover:border-b-[#2CA2B0]/10 group-hover:border-l-[25px] transition-all duration-700 ease-out"></div>
+                        <span>Learn more</span>
+                        <svg 
+                            className="w-4 h-4"
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                    
+                    {/* Corner decoration */}
+                    <div className="absolute bottom-0 right-0 w-0 h-0 border-t-0 border-r-0 border-b-[25px] border-l-0 border-b-transparent group-hover:border-b-[#2CA2B0]/10 group-hover:border-l-[25px] transition-all duration-700 ease-out"></div>
+                </div>
             </div>
         </div>
     );
