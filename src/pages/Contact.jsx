@@ -13,47 +13,47 @@ const Contact = () => {
                 {/* Title section */}
                 <div className="container mx-auto mb-16">
                     <div className="max-w-2xl mx-auto text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#0A3D62] drop-shadow-md">
+                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#333333]">
                             Get In Touch
                         </h1>
-                        <p className="text-lg text-[#0A3D62]/80">
+                        <p className="text-lg text-[#555555]">
                             Have questions or ready to schedule a cleaning service? We're here to help.
                         </p>
                     </div>
                 </div>
                 
-                {/* Frosted glass container */}
+                {/* Frosted glass container - Keeping original styling but ensuring text is visible */}
                 <div className="container mx-auto max-w-6xl">
                     <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl overflow-hidden">
                         <div className="grid grid-cols-1 lg:grid-cols-2">
-                            {/* Left column: Contact form */}
+                            {/* Left column: Contact form - Just fixing text colors */}
                             <div className="p-8 md:p-12">
                                 <div className="flex items-center mb-8">
-                                    <FiMessageSquare className="w-6 h-6 text-white mr-3 animate-pulse" />
-                                    <h2 className="text-3xl font-bold text-white drop-shadow-lg">Send a Message</h2>
+                                    <FiMessageSquare className="w-6 h-6 text-[#333333] mr-3 animate-pulse" />
+                                    <h2 className="text-3xl font-bold text-[#333333] drop-shadow-lg">Send a Message</h2>
                                 </div>
                                 
                                 <form className="space-y-6">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
-                                            <label className="text-white font-medium">Your Name</label>
+                                            <label className="text-[#333333] font-medium">Your Name</label>
                                             <div className="relative">
-                                                <FiUser className="absolute left-3 top-1/2 -translate-y-1/2 text-white/70" />
+                                                <FiUser className="absolute left-3 top-1/2 -translate-y-1/2 text-[#333333]" />
                                                 <input
                                                     type="text"
-                                                    className="w-full bg-white/20 text-white placeholder-white/70 border-0 rounded-lg py-3 px-10 focus:ring-2 focus:ring-[#2CA2B0] transition-all duration-300"
+                                                    className="w-full bg-white/20 text-[#333333] placeholder-[#555555] border border-gray-200 rounded-lg py-3 px-10 focus:ring-2 focus:ring-[#2CA2B0] transition-all duration-300"
                                                     placeholder="John Smith"
                                                 />
                                             </div>
                                         </div>
                                         
                                         <div className="space-y-2">
-                                            <label className="text-white font-medium">Email Address</label>
+                                            <label className="text-[#333333] font-medium">Email Address</label>
                                             <div className="relative">
-                                                <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 text-white/70" />
+                                                <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 text-[#333333]" />
                                                 <input
                                                     type="email"
-                                                    className="w-full bg-white/20 text-white placeholder-white/70 border-0 rounded-lg py-3 px-10 focus:ring-2 focus:ring-[#2CA2B0] transition-all duration-300"
+                                                    className="w-full bg-white/20 text-[#333333] placeholder-[#555555] border border-gray-200 rounded-lg py-3 px-10 focus:ring-2 focus:ring-[#2CA2B0] transition-all duration-300"
                                                     placeholder="you@example.com"
                                                 />
                                             </div>
@@ -61,20 +61,20 @@ const Contact = () => {
                                     </div>
                                     
                                     <div className="space-y-2">
-                                        <label className="text-white font-medium">Phone Number</label>
+                                        <label className="text-[#333333] font-medium">Phone Number</label>
                                         <div className="relative">
-                                            <FiPhone className="absolute left-3 top-1/2 -translate-y-1/2 text-white/70" />
+                                            <FiPhone className="absolute left-3 top-1/2 -translate-y-1/2 text-[#333333]" />
                                             <input
                                                 type="tel"
-                                                className="w-full bg-white/20 text-white placeholder-white/70 border-0 rounded-lg py-3 px-10 focus:ring-2 focus:ring-[#2CA2B0] transition-all duration-300"
+                                                className="w-full bg-white/20 text-[#333333] placeholder-[#555555] border border-gray-200 rounded-lg py-3 px-10 focus:ring-2 focus:ring-[#2CA2B0] transition-all duration-300"
                                                 placeholder="(08) 1234 5678"
                                             />
                                         </div>
                                     </div>
                                     
                                     <div className="space-y-2">
-                                        <label className="text-white font-medium">Service Required</label>
-                                        <select className="w-full bg-white/20 text-white border-0 rounded-lg py-3 px-4 focus:ring-2 focus:ring-[#2CA2B0] transition-all duration-300 appearance-none">
+                                        <label className="text-[#333333] font-medium">Service Required</label>
+                                        <select className="w-full bg-white/20 text-[#333333] border border-gray-200 rounded-lg py-3 px-4 focus:ring-2 focus:ring-[#2CA2B0] transition-all duration-300 appearance-none">
                                             <option value="" className="bg-[#0A3D62] text-white">Select a service</option>
                                             <option value="residential" className="bg-[#0A3D62] text-white">Residential Cleaning</option>
                                             <option value="commercial" className="bg-[#0A3D62] text-white">Commercial Cleaning</option>
@@ -86,10 +86,10 @@ const Contact = () => {
                                     </div>
                                     
                                     <div className="space-y-2">
-                                        <label className="text-white font-medium">Your Message</label>
+                                        <label className="text-[#333333] font-medium">Your Message</label>
                                         <textarea
                                             rows="4"
-                                            className="w-full bg-white/20 text-white placeholder-white/70 border-0 rounded-lg py-3 px-4 focus:ring-2 focus:ring-[#2CA2B0] transition-all duration-300"
+                                            className="w-full bg-white/20 text-[#333333] placeholder-[#555555] border border-gray-200 rounded-lg py-3 px-4 focus:ring-2 focus:ring-[#2CA2B0] transition-all duration-300"
                                             placeholder="Tell us about your cleaning needs..."
                                         ></textarea>
                                     </div>
@@ -104,7 +104,7 @@ const Contact = () => {
                                 </form>
                             </div>
                             
-                            {/* Right column: Contact information */}
+                            {/* Right column: Contact information - KEEPING ORIGINAL STYLING */}
                             <div className="bg-gradient-to-br from-[#0A3D62] to-[#2CA2B0] p-8 md:p-12">
                                 <div className="flex items-center mb-8">
                                     <FiPhone className="w-6 h-6 text-white mr-3 animate-pulse" />
@@ -119,7 +119,7 @@ const Contact = () => {
                                             </div>
                                             <div>
                                                 <h3 className="text-xl font-semibold text-white mb-2">Our Location</h3>
-                                                <p className="text-white/80">123 Cleaning Way, Perth WA 6000, Australia</p>
+                                                <p className="text-white">123 Cleaning Way, Perth WA 6000, Australia</p>
                                             </div>
                                         </div>
                                     </div>
@@ -131,7 +131,7 @@ const Contact = () => {
                                             </div>
                                             <div>
                                                 <h3 className="text-xl font-semibold text-white mb-2">Phone Number</h3>
-                                                <p className="text-white/80">(08) 1234 5678</p>
+                                                <p className="text-white">(08) 1234 5678</p>
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +143,7 @@ const Contact = () => {
                                             </div>
                                             <div>
                                                 <h3 className="text-xl font-semibold text-white mb-2">Email Address</h3>
-                                                <p className="text-white/80">info@sparkwise-cleaning.com.au</p>
+                                                <p className="text-white">info@sparkwise-cleaning.com.au</p>
                                             </div>
                                         </div>
                                     </div>
@@ -155,9 +155,9 @@ const Contact = () => {
                                             </div>
                                             <div>
                                                 <h3 className="text-xl font-semibold text-white mb-2">Business Hours</h3>
-                                                <p className="text-white/80">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                                                <p className="text-white/80">Saturday: 9:00 AM - 4:00 PM</p>
-                                                <p className="text-white/80">Sunday: Closed</p>
+                                                <p className="text-white">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                                <p className="text-white">Saturday: 9:00 AM - 4:00 PM</p>
+                                                <p className="text-white">Sunday: Closed</p>
                                             </div>
                                         </div>
                                     </div>
