@@ -50,14 +50,37 @@ const ServiceCard = ({ title, description, index, image }) => {
                         {description}
                     </p>
                     
-                    {/* Updated button to use React Router's Link */}
+                    {/* Replace the non-working button with a completely direct implementation */}
                     <a
                         href={pageUrl}
-                        className="card-button"
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            padding: '0.625rem 1.5rem',
+                            borderRadius: '0.5rem',
+                            fontWeight: '500',
+                            backgroundColor: '#F0F9FF',
+                            color: '#2CA2B0',
+                            border: '1px solid #E5E7EB',
+                            transition: 'all 0.3s ease',
+                            position: 'relative',
+                            zIndex: 50
+                        }}
+                        onMouseOver={(e) => {
+                            e.currentTarget.style.backgroundColor = '#2CA2B0';
+                            e.currentTarget.style.color = 'white';
+                            e.currentTarget.style.borderColor = '#2CA2B0';
+                        }}
+                        onMouseOut={(e) => {
+                            e.currentTarget.style.backgroundColor = '#F0F9FF';
+                            e.currentTarget.style.color = '#2CA2B0';
+                            e.currentTarget.style.borderColor = '#E5E7EB';
+                        }}
                     >
-                        <span>Learn more</span>
+                        <span style={{ marginRight: '0.5rem' }}>Learn more</span>
                         <svg 
-                            className="w-4 h-4"
+                            width="16" 
+                            height="16"
                             fill="none" 
                             stroke="currentColor" 
                             viewBox="0 0 24 24"

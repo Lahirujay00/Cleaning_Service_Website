@@ -41,9 +41,12 @@ const Home = () => {
         <div className="flex flex-col bg-[#F0F9FF] min-h-screen">
             <Header />
             <HeroSection />
-            <div className="animate-on-scroll opacity-0">
+            
+            {/* Modified Services section to ensure buttons are clickable */}
+            <div className="animate-on-scroll relative z-10" style={{ opacity: 1 }}>
                 <ServicesSection />
             </div>
+            
             <div className="relative z-10 transform -mt-10 animate-on-scroll opacity-0" data-aos="fade-up">
                 <AboutSection />
             </div>
