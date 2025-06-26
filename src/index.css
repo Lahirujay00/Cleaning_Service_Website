@@ -40,6 +40,28 @@ button:hover {
     background-color: #218393;
 }
 
+/* Card button styling - new class */
+.card-button {
+    @apply inline-flex items-center justify-center gap-2 py-2.5 px-6 rounded-lg font-medium transition-all duration-300;
+    background-color: #F0F9FF;
+    color: #2CA2B0;
+    border: 1px solid #E5E7EB;
+}
+
+.card-button:hover {
+    background-color: #2CA2B0;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(44, 162, 176, 0.1), 0 2px 4px -1px rgba(44, 162, 176, 0.06);
+}
+
+.card-button svg {
+    transition: transform 0.3s ease;
+}
+
+.card-button:hover svg {
+    transform: translateX(4px);
+}
+
 .card {
     @apply rounded-lg shadow-lg p-6;
     background-color: white;

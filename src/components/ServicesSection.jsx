@@ -15,13 +15,11 @@ const ServiceCard = ({ title, description, index, image }) => {
             data-aos-duration="800"
             data-aos-offset="200"
         >
-            {/* Fix: Moved the accent line inside the image container when image exists */}
-            {image ? (
-                <div className="relative">
-                    {/* Top accent line now positioned absolutely to eliminate white space */}
-                    <div className="absolute top-0 left-0 right-0 z-10 bg-[#2CA2B0] h-2 w-0 group-hover:w-full transition-all duration-700"></div>
-                    
+            {/* Fix: Remove the separate top bar when there's an image and use a pseudo-element instead */}
+            <div className="relative">
+                {image && (
                     <div className="h-48 overflow-hidden">
+                        {/* Image overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 z-10"></div>
                         <img 
                             src={image} 
@@ -29,11 +27,10 @@ const ServiceCard = ({ title, description, index, image }) => {
                             className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
                         />
                     </div>
-                </div>
-            ) : (
-                // Keep the original accent line for cards without images
-                <div className="bg-[#2CA2B0] h-2 w-0 group-hover:w-full transition-all duration-700"></div>
-            )}
+                )}
+                {/* Top accent line applies to all cards without the white space */}
+                <div className="h-0.5 bg-[#2CA2B0] w-0 group-hover:w-full transition-all duration-700 absolute top-0 left-0 right-0 z-20"></div>
+            </div>
             
             <div className="p-6 relative overflow-hidden">
                 {/* Animated accent line */}
@@ -49,14 +46,14 @@ const ServiceCard = ({ title, description, index, image }) => {
                     {description}
                 </p>
                 
-                {/* Improved button with modern design */}
+                {/* Fixed button using the new card-button class */}
                 <a
                     href={`#${title.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="inline-flex items-center py-2.5 px-6 bg-[#F0F9FF] text-[#2CA2B0] font-medium rounded-lg border border-[#E5E7EB] hover:bg-[#2CA2B0] hover:text-white transition-all duration-300 shadow-sm hover:shadow group/btn"
+                    className="card-button"
                 >
-                    <span className="mr-2">Learn more</span>
+                    <span>Learn more</span>
                     <svg 
-                        className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" 
+                        className="w-4 h-4" 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
