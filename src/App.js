@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import Contact from './pages/Contact';
 import ResidentialCleaning from './pages/ResidentialCleaning';
 import OfficeCleaning from './pages/OfficeCleaning';
 import CarpetCleaning from './pages/CarpetCleaning';
@@ -27,6 +28,7 @@ function App() {
       <div className={`App transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/residential-cleaning" element={<ResidentialCleaning />} />
           <Route path="/office-cleaning" element={<OfficeCleaning />} />
           <Route path="/carpet-cleaning" element={<CarpetCleaning />} />

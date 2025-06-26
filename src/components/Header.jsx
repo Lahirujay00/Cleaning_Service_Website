@@ -91,7 +91,7 @@ const Header = () => {
                     </Link>
                     <Link 
                         to="/contact" 
-                        className="bg-[#2CA2B0] text-white py-2 px-6 rounded-lg hover:bg-[#218393] transition-colors"
+                        className={`${textColor} hover:text-[#2CA2B0] transition-colors`}
                     >
                         Contact Us
                     </Link>
