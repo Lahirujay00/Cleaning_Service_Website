@@ -7,6 +7,9 @@ import HighPressureWashingImage from '../assets/images/high.jpg'; // Assuming yo
 import windowCleanImage from '../assets/images/window-cleaning.jpg'; // Assuming you have an image for Window Cleaning
 
 const ServiceCard = ({ title, description, index, image }) => {
+    // Convert service title to URL-friendly format - fix escape character warning
+    const pageUrl = `/${title.toLowerCase().replace(/\s+/g, '-').replace(/[/\\]/g, '')}`;
+    
     return (
         <div 
             className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group transform hover:-translate-y-2 hover:scale-[1.02]"
@@ -15,6 +18,8 @@ const ServiceCard = ({ title, description, index, image }) => {
             data-aos-duration="800"
             data-aos-offset="200"
         >
+            <div className="bg-[#2CA2B0] h-2 w-0 group-hover:w-full transition-all duration-700"></div>
+            
             {/* Fix: Remove the separate top bar when there's an image and use a pseudo-element instead */}
             <div className="relative">
                 {image && (
@@ -46,14 +51,14 @@ const ServiceCard = ({ title, description, index, image }) => {
                     {description}
                 </p>
                 
-                {/* Fixed button using the new card-button class */}
+                {/* Updated button to use React Router's Link */}
                 <a
-                    href={`#${title.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={pageUrl}
                     className="card-button"
                 >
                     <span>Learn more</span>
                     <svg 
-                        className="w-4 h-4" 
+                        className="w-4 h-4"
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
