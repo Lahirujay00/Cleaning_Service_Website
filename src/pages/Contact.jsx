@@ -22,15 +22,15 @@ const Contact = () => {
                     </div>
                 </div>
                 
-                {/* Frosted glass container - Keeping original styling but ensuring text is visible */}
+                {/* Contact container with proper visibility */}
                 <div className="container mx-auto max-w-6xl">
-                    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl overflow-hidden">
+                    <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                         <div className="grid grid-cols-1 lg:grid-cols-2">
-                            {/* Left column: Contact form - Just fixing text colors */}
-                            <div className="p-8 md:p-12">
+                            {/* Left column: Contact form */}
+                            <div className="p-8 md:p-12 bg-white">
                                 <div className="flex items-center mb-8">
-                                    <FiMessageSquare className="w-6 h-6 text-[#333333] mr-3 animate-pulse" />
-                                    <h2 className="text-3xl font-bold text-[#333333] drop-shadow-lg">Send a Message</h2>
+                                    <FiMessageSquare className="w-6 h-6 text-[#333333] mr-3" />
+                                    <h2 className="text-3xl font-bold text-[#333333]">Send a Message</h2>
                                 </div>
                                 
                                 <form className="space-y-6">
@@ -104,60 +104,55 @@ const Contact = () => {
                                 </form>
                             </div>
                             
-                            {/* Right column: Contact information - KEEPING ORIGINAL STYLING */}
-                            <div className="bg-gradient-to-br from-[#0A3D62] to-[#2CA2B0] p-8 md:p-12">
+                            {/* Right column: Contact information - Improved icons */}
+                            <div className="bg-white p-8 md:p-12 border-l border-gray-100">
                                 <div className="flex items-center mb-8">
-                                    <FiPhone className="w-6 h-6 text-white mr-3 animate-pulse" />
-                                    <h2 className="text-3xl font-bold text-white drop-shadow-lg">Contact Info</h2>
+                                    <h2 className="text-3xl font-bold text-[#333333]">Contact Info</h2>
                                 </div>
                                 
                                 <div className="space-y-8">
-                                    <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 transition-all duration-300 hover:bg-white/20 hover:scale-105 transform cursor-pointer">
+                                    {/* Our Location - No circular background */}
+                                    <div className="rounded-xl p-6 border border-gray-100 transition-all duration-300 hover:shadow-md">
                                         <div className="flex items-start">
-                                            <div className="p-3 bg-white/20 rounded-full mr-4">
-                                                <FiMapPin className="h-6 w-6 text-white" />
-                                            </div>
+                                            <FiMapPin className="h-8 w-8 text-[#333333] mr-4 flex-shrink-0" stroke="#333333" strokeWidth={1.5} />
                                             <div>
-                                                <h3 className="text-xl font-semibold text-white mb-2">Our Location</h3>
-                                                <p className="text-white">123 Cleaning Way, Perth WA 6000, Australia</p>
+                                                <h3 className="text-xl font-semibold text-[#333333] mb-2">Our Location</h3>
+                                                <p className="text-[#333333]">123 Cleaning Way, Perth WA 6000, Australia</p>
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 transition-all duration-300 hover:bg-white/20 hover:scale-105 transform cursor-pointer">
+                                    {/* Phone Number - No circular background */}
+                                    <div className="rounded-xl p-6 border border-gray-100 transition-all duration-300 hover:shadow-md">
                                         <div className="flex items-start">
-                                            <div className="p-3 bg-white/20 rounded-full mr-4">
-                                                <FiPhone className="h-6 w-6 text-white" />
-                                            </div>
+                                            <FiPhone className="h-8 w-8 text-[#333333] mr-4 flex-shrink-0" stroke="#333333" strokeWidth={1.5} />
                                             <div>
-                                                <h3 className="text-xl font-semibold text-white mb-2">Phone Number</h3>
-                                                <p className="text-white">(08) 1234 5678</p>
+                                                <h3 className="text-xl font-semibold text-[#333333] mb-2">Phone Number</h3>
+                                                <p className="text-[#333333]">(08) 1234 5678</p>
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 transition-all duration-300 hover:bg-white/20 hover:scale-105 transform cursor-pointer">
+                                    {/* Email Address - No circular background */}
+                                    <div className="rounded-xl p-6 border border-gray-100 transition-all duration-300 hover:shadow-md">
                                         <div className="flex items-start">
-                                            <div className="p-3 bg-white/20 rounded-full mr-4">
-                                                <FiMail className="h-6 w-6 text-white" />
-                                            </div>
+                                            <FiMail className="h-8 w-8 text-[#333333] mr-4 flex-shrink-0" stroke="#333333" strokeWidth={1.5} />
                                             <div>
-                                                <h3 className="text-xl font-semibold text-white mb-2">Email Address</h3>
-                                                <p className="text-white">info@sparkwise-cleaning.com.au</p>
+                                                <h3 className="text-xl font-semibold text-[#333333] mb-2">Email Address</h3>
+                                                <p className="text-[#333333]">info@sparkwise-cleaning.com.au</p>
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 transition-all duration-300 hover:bg-white/20 hover:scale-105 transform cursor-pointer">
+                                    {/* Business Hours - No circular background */}
+                                    <div className="rounded-xl p-6 border border-gray-100 transition-all duration-300 hover:shadow-md">
                                         <div className="flex items-start">
-                                            <div className="p-3 bg-white/20 rounded-full mr-4">
-                                                <FiClock className="h-6 w-6 text-white" />
-                                            </div>
+                                            <FiClock className="h-8 w-8 text-[#333333] mr-4 flex-shrink-0" stroke="#333333" strokeWidth={1.5} />
                                             <div>
-                                                <h3 className="text-xl font-semibold text-white mb-2">Business Hours</h3>
-                                                <p className="text-white">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                                                <p className="text-white">Saturday: 9:00 AM - 4:00 PM</p>
-                                                <p className="text-white">Sunday: Closed</p>
+                                                <h3 className="text-xl font-semibold text-[#333333] mb-2">Business Hours</h3>
+                                                <p className="text-[#333333]">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                                <p className="text-[#333333]">Saturday: 9:00 AM - 4:00 PM</p>
+                                                <p className="text-[#333333]">Sunday: Closed</p>
                                             </div>
                                         </div>
                                     </div>
