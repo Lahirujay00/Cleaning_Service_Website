@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { FiCheck, FiHome, FiCalendar, FiBox, FiTool, FiDroplet, FiSun } from 'react-icons/fi';
+import { FiCheck, FiHome, FiCalendar, FiBox, FiTool, FiDroplet, FiSun, FiArrowRight } from 'react-icons/fi';
 import residentialCleaningHero from '../assets/images/residential-cleaning-hero.jpg';
 
 const ResidentialCleaning = () => {
@@ -10,23 +10,30 @@ const ResidentialCleaning = () => {
         window.scrollTo(0, 0);
     }, []);
 
+    const { scrollYProgress } = useScroll();
+    const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+    const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2
+                staggerChildren: 0.2,
+                delayChildren: 0.3
             }
         }
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: 30 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.5
+                type: "spring",
+                stiffness: 100,
+                damping: 10
             }
         }
     };
@@ -111,96 +118,126 @@ const ResidentialCleaning = () => {
         <div className="flex flex-col min-h-screen">
             <Header />
 
-            {/* Modern Hero Section - with darker overlay */}
-            <section className="relative w-full overflow-hidden">
-                {/* Hero background with darker overlay */}
-                <div className="absolute inset-0 z-0">
-                    <img 
-                        src={residentialCleaningHero} 
-                        alt="Residential Cleaning Services" 
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-[#0A3D62]/75"></div>
-                </div>
+            {/* Hero Section with Parallax */}
+            <motion.section 
+                className="relative w-full min-h-screen flex items-center overflow-hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+            >
+                {/* Parallax Background */}
+                <motion.div 
+                    className="absolute inset-0 z-0"
+                    style={{ scale, opacity }}
+                >
+                    <div className="relative h-full">
+                        <img 
+                            src={residentialCleaningHero} 
+                            alt="Residential Cleaning Services" 
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#0A3D62]/90 to-[#0A3D62]/70"></div>
+                    </div>
+                </motion.div>
                 
-                {/* Hero content */}
-                <div className="relative z-10 container mx-auto px-4 py-32 lg:py-40">
+                {/* Hero Content */}
+                <div className="relative z-10 container mx-auto px-4 pt-32">
                     <motion.div 
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
                         className="max-w-3xl"
                     >
-                        <span className="inline-block bg-[#2CA2B0] text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">RESIDENTIAL SERVICES</span>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                            Professional <span className="text-[#2CA2B0]">Home Cleaning</span> Services
-                        </h1>
-                        <p className="text-lg text-white/90 mb-8 max-w-2xl">
-                            Our comprehensive cleaning services are tailored to your home's specific needs, 
-                            ensuring every corner shines with professional care and attention to detail.
-                        </p>
-                        <div className="flex flex-wrap gap-4">
+                        <motion.span 
+                            className="inline-block bg-[#2CA2B0] text-white px-6 py-2 rounded-full text-sm font-semibold mb-6"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            RESIDENTIAL SERVICES
+                        </motion.span>
+                        <motion.h1 
+                            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                        >
+                            Professional{" "}
+                            <span className="text-[#2CA2B0]">Home Cleaning</span>
+                            <br />
+                            Services
+                        </motion.h1>
+                        <motion.p 
+                            className="text-xl text-white/90 mb-10 max-w-2xl leading-relaxed"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.6 }}
+                        >
+                            Experience the difference of professional cleaning services tailored to your home's specific needs. 
+                            We ensure every corner shines with meticulous care and attention to detail.
+                        </motion.p>
+                        <motion.div 
+                            className="flex flex-wrap gap-6"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.8 }}
+                        >
                             <motion.a
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 href="#contact-us"
-                                className="bg-[#2CA2B0] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#2CA2B0]/90 transition-all shadow-lg inline-flex items-center"
+                                className="bg-[#2CA2B0] text-white px-8 py-4 rounded-full font-medium hover:bg-[#2CA2B0]/90 transition-all shadow-lg inline-flex items-center text-lg group"
                             >
-                                <FiHome className="mr-2" /> Book Now
+                                Book Now
+                                <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                             </motion.a>
                             <motion.a
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 href="#services"
-                                className="bg-white text-[#0A3D62] px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-all shadow-lg inline-flex items-center"
+                                className="bg-white text-[#0A3D62] px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-all shadow-lg inline-flex items-center text-lg"
                             >
-                                <FiCheck className="mr-2" /> Our Services
+                                Our Services
+                                <FiCheck className="ml-2" />
                             </motion.a>
-                        </div>
+                        </motion.div>
                     </motion.div>
                 </div>
                 
-                {/* Simple Wave Divider */}
-                <div className="absolute bottom-0 left-0 right-0">
-                    <svg 
-                        viewBox="0 0 1440 100" 
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-full"
-                        preserveAspectRatio="none"
-                        style={{ height: '80px' }}
-                    >
-                        <path 
-                            d="M0,0 C320,80 420,0 740,40 C1060,80 1380,0 1440,0 L1440,100 L0,100 Z"
-                            fill="#ffffff"
+                {/* Scroll Indicator */}
+                <motion.div 
+                    className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                    <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+                        <motion.div 
+                            className="w-1 h-2 bg-white rounded-full mt-2"
+                            animate={{ y: [0, 15, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
                         />
-                    </svg>
-                </div>
-            </section>
-            
-            {/* What's Included Section */}
-            <section id="services" className="py-20 bg-white">
-                <div className="container mx-auto px-4">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <motion.h2 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            viewport={{ once: true }}
-                            className="text-3xl md:text-4xl font-bold mb-6 text-[#333333]"
-                        >
-                            What's Included in Our <span className="text-[#2CA2B0]">Residential Cleaning</span>
-                        </motion.h2>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            viewport={{ once: true }}
-                            className="text-lg text-gray-600"
-                        >
-                            Our professional cleaning team delivers comprehensive cleaning services, leaving your home 
-                            spotless and fresh with careful attention to every detail.
-                        </motion.p>
                     </div>
+                </motion.div>
+            </motion.section>
+
+            {/* Services Section with Grid Layout */}
+            <section id="services" className="py-24 bg-white">
+                <div className="container mx-auto px-4">
+                    <motion.div 
+                        className="text-center max-w-3xl mx-auto mb-16"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#333333]">
+                            What's Included in Our{" "}
+                            <span className="text-[#2CA2B0]">Residential Cleaning</span>
+                        </h2>
+                        <p className="text-xl text-gray-600 leading-relaxed">
+                            Our professional cleaning team delivers comprehensive cleaning services, 
+                            ensuring your home is spotless and fresh with meticulous attention to every detail.
+                        </p>
+                    </motion.div>
                     
                     <motion.div 
                         variants={containerVariants}
@@ -213,13 +250,16 @@ const ResidentialCleaning = () => {
                             <motion.div
                                 key={index}
                                 variants={itemVariants}
-                                className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300"
+                                whileHover={{ y: -10 }}
+                                className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group"
                             >
-                                <div className="bg-[#F0F9FF] p-3 inline-block rounded-lg mb-4">
-                                    {item.icon}
+                                <div className="bg-[#F0F9FF] p-4 inline-block rounded-xl mb-6 group-hover:bg-[#2CA2B0] transition-colors">
+                                    <div className="transform group-hover:scale-110 transition-transform">
+                                        {item.icon}
+                                    </div>
                                 </div>
-                                <h3 className="text-xl font-semibold mb-3 text-[#333333]">{item.title}</h3>
-                                <p className="text-gray-600">{item.description}</p>
+                                <h3 className="text-2xl font-semibold mb-4 text-[#333333]">{item.title}</h3>
+                                <p className="text-gray-600 leading-relaxed">{item.description}</p>
                             </motion.div>
                         ))}
                     </motion.div>
@@ -344,40 +384,33 @@ const ResidentialCleaning = () => {
                 </div>
             </section>
             
-            {/* Call to action section */}
-            <section id="contact-us" className="py-16 bg-gradient-to-r from-[#0A3D62] to-[#2CA2B0]">
-                <div className="container mx-auto px-4">
-                    <div className="text-center max-w-3xl mx-auto">
-                        <motion.h2 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            viewport={{ once: true }}
-                            className="text-3xl md:text-4xl font-bold mb-6 text-white"
-                        >
+            {/* Call to Action Section */}
+            <section id="contact-us" className="py-20 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0A3D62] to-[#2CA2B0] transform -skew-y-6 origin-top-left"></div>
+                <div className="container mx-auto px-4 relative z-10">
+                    <motion.div 
+                        className="text-center max-w-3xl mx-auto"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                             Ready for a Cleaner Home?
-                        </motion.h2>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            viewport={{ once: true }}
-                            className="text-lg text-white/90 mb-8"
-                        >
+                        </h2>
+                        <p className="text-xl text-white/90 mb-10 leading-relaxed">
                             Contact us today for a free quote and experience the difference professional cleaning makes.
-                        </motion.p>
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                            viewport={{ once: true }}
-                            className="flex justify-center"
+                        </p>
+                        <motion.a
+                            href="/contact"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-white text-[#0A3D62] px-10 py-4 rounded-full font-medium hover:bg-gray-100 transition-all shadow-lg inline-flex items-center text-lg group"
                         >
-                            <a href="/contact" className="bg-white text-[#0A3D62] px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-all shadow-lg inline-flex items-center text-lg">
-                                Book Your Cleaning
-                            </a>
-                        </motion.div>
-                    </div>
+                            Book Your Cleaning
+                            <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                        </motion.a>
+                    </motion.div>
                 </div>
             </section>
 
@@ -385,8 +418,5 @@ const ResidentialCleaning = () => {
         </div>
     );
 };
-
-
-
 
 export default ResidentialCleaning;
