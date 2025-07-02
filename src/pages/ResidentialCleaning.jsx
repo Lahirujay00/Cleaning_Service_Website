@@ -13,7 +13,15 @@ import {
     FiChevronDown,
     FiShield,
     FiPhone,
-    FiMail
+    FiMail,
+    FiAward,
+    FiClipboard,
+    FiThermometer,
+    FiUsers,
+    FiTarget,
+    FiPackage,
+    FiList,
+    FiClock
 } from 'react-icons/fi';
 import residentialCleaningHero from '../assets/images/res hero.jpg';
 import dustingImage from '../assets/images/Dusting & Wiping.jpg';
@@ -480,21 +488,51 @@ const ResidentialCleaning = () => {
                             viewport={{ once: true }}
                             className="prose max-w-none"
                         >
-                            <h2 className="text-3xl font-bold text-[#333333] mb-6">Comprehensive Home Cleaning Solutions</h2>
+                            <h2 className="text-3xl font-bold text-[#333333] mb-6">Our Professional Standards</h2>
                             <p className="text-gray-700">
-                                Our residential cleaning services are designed to give you more time to enjoy the things you love while we take care of keeping your home spotless. Whether you need a one-time deep clean or regular maintenance, our team of trained professionals delivers exceptional results every time.
+                                At the heart of our service is a commitment to excellence. Our cleaning professionals undergo rigorous training in the latest cleaning techniques, safety protocols, and customer service standards. Each team member is carefully vetted and certified to ensure your home receives the highest quality care.
                             </p>
                             
                             <p className="text-gray-700 my-4">
-                                We understand that every home is unique, which is why we offer customized cleaning solutions tailored to your specific requirements. Our thorough approach ensures that no corner goes untouched, from kitchens and bathrooms to living spaces and bedrooms.
+                                We follow a systematic approach to cleaning, using a detailed checklist customized for each room. This ensures consistent quality and attention to detail, from dusting high corners to sanitizing frequently touched surfaces. Our team uses color-coded cleaning materials to prevent cross-contamination between different areas of your home.
                             </p>
                             
-                            <p className="text-gray-700">
-                                Using eco-friendly cleaning products and state-of-the-art equipment, we provide a healthier environment for your family while achieving outstanding cleanliness that you can see and feel.
+                            <p className="text-gray-700 mb-6">
+                                Quality control is built into every step of our process. Supervisors conduct regular inspections, and we welcome your feedback to continuously improve our service. We stand behind our work with a satisfaction guarantee - if you're not completely satisfied, we'll return to address any concerns at no additional cost.
                             </p>
-                            
-                            <div className="mt-8">
-                                <a href="#contact-us" className="bg-cyan text-white px-6 py-3 rounded-lg font-medium hover:bg-cyan/90 transition-all inline-block">Get a Free Quote</a>
+
+                            {/* Added Quality Standards Grid */}
+                            <div className="grid grid-cols-2 gap-4 mt-8">
+                                {[
+                                    {
+                                        icon: <FiAward className="text-cyan text-xl" />,
+                                        title: "Premium Service",
+                                        desc: "Excellence guaranteed"
+                                    },
+                                    {
+                                        icon: <FiClipboard className="text-cyan text-xl" />,
+                                        title: "Detailed Checklist",
+                                        desc: "Thorough methodology"
+                                    },
+                                    {
+                                        icon: <FiThermometer className="text-cyan text-xl" />,
+                                        title: "Sanitization",
+                                        desc: "Deep disinfection"
+                                    },
+                                    {
+                                        icon: <FiUsers className="text-cyan text-xl" />,
+                                        title: "Expert Staff",
+                                        desc: "Skilled professionals"
+                                    }
+                                ].map((standard, index) => (
+                                    <div key={index} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
+                                        <div className="mt-1">{standard.icon}</div>
+                                        <div>
+                                            <h4 className="font-semibold text-gray-900">{standard.title}</h4>
+                                            <p className="text-sm text-gray-600">{standard.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </motion.div>
                         
@@ -505,9 +543,26 @@ const ResidentialCleaning = () => {
                             viewport={{ once: true }}
                             className="bg-lightgreen p-8 rounded-2xl shadow-lg"
                         >
-                            <h3 className="text-2xl font-bold text-gry mb-6">Our Cleaning Features</h3>
+                            <h3 className="text-2xl font-bold text-gry mb-6">Our Quality Process</h3>
                             <div className="space-y-6">
-                                {featuresData.map((feature, index) => (
+                                {[
+                                    {
+                                        title: "Initial Assessment",
+                                        description: "Thorough evaluation of your home's specific cleaning needs and requirements."
+                                    },
+                                    {
+                                        title: "Custom Cleaning Plan",
+                                        description: "Development of a tailored cleaning strategy based on your preferences and priorities."
+                                    },
+                                    {
+                                        title: "Professional Execution",
+                                        description: "Systematic cleaning following our detailed room-by-room checklist."
+                                    },
+                                    {
+                                        title: "Quality Inspection",
+                                        description: "Final walkthrough to ensure everything meets our high standards."
+                                    }
+                                ].map((process, index) => (
                                     <motion.div 
                                         key={index}
                                         initial={{ opacity: 0, y: 20 }}
@@ -516,15 +571,28 @@ const ResidentialCleaning = () => {
                                         viewport={{ once: true }}
                                         className="flex gap-4"
                                     >
-                                        <div className="bg-white rounded-full p-2 h-fit shadow-md flex items-center justify-center">
-                                            <FiCheck className="text-cyan h-5 w-5" />
+                                        <div className="bg-white rounded-full p-2 h-8 w-8 shadow-md flex items-center justify-center">
+                                            <span className="text-cyan font-semibold">{index + 1}</span>
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-gry text-lg">{feature.title}</h4>
-                                            <p className="text-gray-600">{feature.description}</p>
+                                            <h4 className="font-semibold text-gry text-lg">{process.title}</h4>
+                                            <p className="text-gray-600">{process.description}</p>
                                         </div>
                                     </motion.div>
                                 ))}
+                            </div>
+
+                            {/* Added Certification Badge */}
+                            <div className="mt-8 pt-6 border-t border-gray-200">
+                                <div className="flex items-center space-x-4">
+                                    <div className="p-3 bg-cyan/10 rounded-full">
+                                        <FiCheck className="text-cyan text-xl" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold text-gray-900">Professional Excellence</h4>
+                                        <p className="text-sm text-gray-600">Committed to the highest cleaning standards</p>
+                                    </div>
+                                </div>
                             </div>
                         </motion.div>
                     </div>
@@ -636,22 +704,38 @@ const ResidentialCleaning = () => {
                                     <div className="space-y-4">
                                         <h3 className="text-xl font-semibold text-gray-900">Get in Touch</h3>
                                         <div className="grid gap-4">
-                                            <a href="tel:1234567890" className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                                            <a href="tel:0413636785" className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                                                 <div className="w-10 h-10 bg-cyan/10 rounded-full flex items-center justify-center text-cyan">
                                                     <FiPhone />
                                                 </div>
                                                 <div>
-                                                    <p className="text-sm text-gray-500">Call us at</p>
-                                                    <p className="font-medium text-gray-900">(123) 456-7890</p>
+                                                    <p className="text-sm text-gray-500">Call or WhatsApp</p>
+                                                    <p className="font-medium text-gray-900">0413 636 785</p>
                                                 </div>
                                             </a>
-                                            <a href="mailto:info@example.com" className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                                            <a href="mailto:sparkwisecleaning@gmail.com" className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                                                 <div className="w-10 h-10 bg-cyan/10 rounded-full flex items-center justify-center text-cyan">
                                                     <FiMail />
                                                 </div>
                                                 <div>
                                                     <p className="text-sm text-gray-500">Email us at</p>
-                                                    <p className="font-medium text-gray-900">info@example.com</p>
+                                                    <p className="font-medium text-gray-900">sparkwisecleaning@gmail.com</p>
+                                                </div>
+                                            </a>
+                                            <a 
+                                                href="https://www.facebook.com/SparkWise8?mibextid=ZbWKwL" 
+                                                target="_blank" 
+                                                rel="noopener noreferrer" 
+                                                className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                                            >
+                                                <div className="w-10 h-10 bg-cyan/10 rounded-full flex items-center justify-center text-cyan">
+                                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                                                    </svg>
+                                                </div>
+                                                <div>
+                                                    <p className="text-sm text-gray-500">Follow us on</p>
+                                                    <p className="font-medium text-gray-900">Facebook</p>
                                                 </div>
                                             </a>
                                         </div>
@@ -662,6 +746,33 @@ const ResidentialCleaning = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Contact Details Footer Banner */}
+            <div className="bg-cyan/5 py-4">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+                        <a href="tel:0413636785" className="flex items-center space-x-2 text-gray-600 hover:text-cyan">
+                            <FiPhone className="text-cyan" />
+                            <span>Call/WhatsApp: 0413 636 785</span>
+                        </a>
+                        <a href="mailto:sparkwisecleaning@gmail.com" className="flex items-center space-x-2 text-gray-600 hover:text-cyan">
+                            <FiMail className="text-cyan" />
+                            <span>sparkwisecleaning@gmail.com</span>
+                        </a>
+                        <a 
+                            href="https://www.facebook.com/SparkWise8?mibextid=ZbWKwL" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="flex items-center space-x-2 text-gray-600 hover:text-cyan"
+                        >
+                            <svg className="w-4 h-4 text-cyan" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                            </svg>
+                            <span>Follow us on Facebook</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
             <Footer />
         </div>
