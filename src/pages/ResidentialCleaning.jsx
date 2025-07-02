@@ -274,7 +274,7 @@ const ResidentialCleaning = () => {
                                     "100% Satisfaction",
                                     "Flexible Scheduling"
                                 ].map((feature, index) => (
-                                    <div key={index} className="flex items-center space-x-2 bg-[#2CA2B0]/10 rounded-lg p-3">
+                                    <div key={index} className="flex items-center space-x-2 bg-cyan/10 rounded-lg p-3">
                                         <FiCheck className="text-cyan text-xl" />
                                         <span className="text-gray-700 font-medium">{feature}</span>
                                     </div>
@@ -328,8 +328,8 @@ const ResidentialCleaning = () => {
                                     className="absolute -bottom-6 -left-6 bg-white rounded-xl p-6 shadow-xl"
                                 >
                                     <div className="flex items-center space-x-4">
-                                        <div className="bg-[#2CA2B0]/10 p-3 rounded-lg">
-                                            <FiStar className="text-[#2CA2B0] text-xl" />
+                                        <div className="bg-cyan/10 p-3 rounded-lg">
+                                            <FiStar className="text-cyan text-xl" />
                                         </div>
                                         <div>
                                             <h4 className="text-lg font-semibold text-gray-900">4.9/5 Rating</h4>
@@ -422,7 +422,7 @@ const ResidentialCleaning = () => {
                             viewport={{ once: true }}
                             className="text-3xl md:text-4xl font-bold mb-6 text-[#333333]"
                         >
-                            Ideal For Your <span className="text-[#2CA2B0]">Cleaning Needs</span>
+                            Ideal For Your <span className="text-cyan">Cleaning Needs</span>
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -503,7 +503,7 @@ const ResidentialCleaning = () => {
                             viewport={{ once: true }}
                             className="bg-[#F0F9FF] p-8 rounded-2xl shadow-lg"
                         >
-                            <h3 className="text-2xl font-bold text-[#333333] mb-6">Our Cleaning Features</h3>
+                            <h3 className="text-2xl font-bold text-gry mb-6">Our Cleaning Features</h3>
                             <div className="space-y-6">
                                 {featuresData.map((feature, index) => (
                                     <motion.div 
@@ -515,10 +515,10 @@ const ResidentialCleaning = () => {
                                         className="flex gap-4"
                                     >
                                         <div className="bg-white rounded-full p-2 h-fit shadow-md flex items-center justify-center">
-                                            <FiCheck className="text-[#2CA2B0] h-5 w-5" />
+                                            <FiCheck className="text-cyan h-5 w-5" />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-[#333333] text-lg">{feature.title}</h4>
+                                            <h4 className="font-semibold text-gry text-lg">{feature.title}</h4>
                                             <p className="text-gray-600">{feature.description}</p>
                                         </div>
                                     </motion.div>
@@ -531,7 +531,7 @@ const ResidentialCleaning = () => {
             
             {/* Call to Action Section */}
             <section id="contact-us" className="py-20 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0A3D62] to-[#2CA2B0] transform -skew-y-6 origin-top-left"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0A3D62] to-cyan transform -skew-y-6 origin-top-left"></div>
                 <div className="container mx-auto px-4 relative z-10">
                     <motion.div 
                         className="text-center max-w-3xl mx-auto"

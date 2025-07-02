@@ -10,6 +10,7 @@ module.exports = {
           dark: '#1e40af',
         },
         cyan: '#2CA2B0', // add this line
+        gry: '#333333'
       },
       borderRadius: {
         'xl': '1rem',
