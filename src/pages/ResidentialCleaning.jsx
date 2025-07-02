@@ -1,40 +1,41 @@
 import React, { useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { FiCheck, FiHome, FiCalendar, FiBox, FiTool, FiDroplet, FiSun, FiArrowRight, FiClock, FiUsers } from 'react-icons/fi';
-import residentialCleaningHero from '../assets/images/residential-cleaning-hero.jpg';
+import { 
+    FiCalendar, 
+    FiStar,
+    FiDroplet,
+    FiHome,
+    FiArrowRight,
+    FiCheck,
+    FiTool,
+    FiChevronDown
+} from 'react-icons/fi';
+import residentialCleaningHero from '../assets/images/res hero.jpg';
 
 const ResidentialCleaning = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-    const { scrollYProgress } = useScroll();
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
-
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2,
+                staggerChildren: 0.15,
                 delayChildren: 0.3
             }
         }
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: {
-                type: "spring",
-                stiffness: 100,
-                damping: 10
-            }
+            transition: { duration: 0.5, ease: "easeOut" }
         }
     };
 
@@ -66,7 +67,19 @@ const ResidentialCleaning = () => {
             description: "Comprehensive cleaning and tidying of bedrooms and living areas for a fresh look."
         },
         {
-            icon: <FiSun className="h-8 w-8 text-[#2CA2B0]" />,
+            icon: <FiHome className="h-8 w-8 text-[#2CA2B0]" />,
+            title: "Regular Home Cleaning",
+            description: "Comprehensive cleaning services to keep your home spotless and fresh.",
+            link: "#"
+        },
+        {
+            icon: <FiStar className="h-8 w-8 text-[#2CA2B0]" />,
+            title: "Deep Cleaning",
+            description: "Thorough deep cleaning for those areas that need extra attention.",
+            link: "#"
+        },
+        {
+            icon: <FiStar className="h-8 w-8 text-[#2CA2B0]" />,
             title: "Additional Cleaning",
             description: "Window sills, skirting boards, and light switches cleaned upon request."
         }
@@ -87,7 +100,7 @@ const ResidentialCleaning = () => {
             color: "#0A3D62"
         },
         {
-            icon: <FiBox />,
+            icon: <FiHome />,
             title: "Move-in/Move-out Cleaning",
             description: "Leave your old place spotless or start fresh in your new home with our specialized moving services.",
             color: "#2CA2B0"
@@ -116,93 +129,130 @@ const ResidentialCleaning = () => {
 
     return (
         <div className="flex flex-col min-h-screen">
-            <Header />
+            <Header className="bg-white shadow-sm z-50" />
 
             {/* Hero Section */}
-            <section className="relative w-full min-h-screen">
+            <section className="relative w-full h-screen">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                     <img 
                         src={residentialCleaningHero} 
-                        alt="Residential Cleaning" 
+                        alt="Modern Clean Kitchen" 
                         className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/30"></div>
+                    {/* Subtle dark overlay */}
+                    <div className="absolute inset-0 bg-black/15"></div>
                 </div>
 
-                {/* Content */}
-                <div className="relative h-full">
-                    <div className="container mx-auto px-4 py-32">
-                        <div className="max-w-3xl">
-                            <p className="text-[#2CA2B0] font-medium uppercase tracking-wider mb-4">
-                                PROFESSIONAL HOME CLEANING
-                            </p>
-
-                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                                Making Your Home
-                                <br />
-                                Spotlessly Clean
-                            </h1>
-
-                            <p className="text-xl text-white/90 mb-12 max-w-2xl">
-                                Experience exceptional cleaning services tailored to your home. Our 
-                                professional team ensures every corner of your space shines with 
-                                meticulous attention to detail.
-                            </p>
-
-                            <div className="flex flex-wrap gap-4 mb-20">
-                                <a
-                                    href="#contact-us"
-                                    className="bg-[#2CA2B0] hover:bg-[#2CA2B0]/90 text-white px-8 py-4 rounded text-lg font-medium transition-all duration-300"
+                {/* Main Content Container */}
+                <div className="relative h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
+                    {/* Glassmorphism Container */}
+                    <motion.div 
+                        className="w-full max-w-2xl"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ 
+                            duration: 0.7,
+                            ease: [0.22, 1, 0.36, 1]
+                        }}
+                    >
+                        {/* Glass Effect Card with Enhanced Blur */}
+                        <div className="relative backdrop-blur-4xl bg-white/90 border border-white/10 rounded-2xl 
+                                      shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] shadow-white/10 
+                                      p-8 sm:p-12 overflow-hidden">
+                            {/* Additional blur layer */}
+                            <div className="absolute inset-0 backdrop-blur-md bg-white/10"></div>
+                            
+                            {/* Glass shine effect */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+                            
+                            {/* Content wrapper with its own backdrop blur */}
+                            <div className="relative backdrop-blur-sm">
+                                {/* Welcome Badge */}
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.3 }}
+                                    className="flex justify-center mb-8"
                                 >
-                                    Book Now
-                                </a>
-                                <a
-                                    href="#services"
-                                    className="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded text-lg font-medium transition-all duration-300"
-                                >
-                                    Our Services
-                                </a>
-                            </div>
+                                    <span className="bg-white/90 text-gray-800 font-medium px-6 py-2 rounded-full text-sm 
+                                                   shadow-lg backdrop-blur-sm border border-white/20">
+                                        Welcome to Your Trusted Cleaning Partner
+                                    </span>
+                                </motion.div>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
-                                <div>
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <FiCheck className="w-6 h-6 text-[#2CA2B0]" />
-                                        <span className="text-white font-medium">
-                                            Satisfaction Guaranteed
-                                        </span>
-                                    </div>
-                                    <p className="text-white/70 text-sm">
-                                        100% quality assurance
-                                    </p>
-                                </div>
-                                <div>
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <FiClock className="w-6 h-6 text-[#2CA2B0]" />
-                                        <span className="text-white font-medium">
-                                            Flexible Scheduling
-                                        </span>
-                                    </div>
-                                    <p className="text-white/70 text-sm">
-                                        At your convenience
-                                    </p>
-                                </div>
-                                <div>
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <FiUsers className="w-6 h-6 text-[#2CA2B0]" />
-                                        <span className="text-white font-medium">
-                                            Expert Team
-                                        </span>
-                                    </div>
-                                    <p className="text-white/70 text-sm">
-                                        Trained professionals
-                                    </p>
-                                </div>
+                                {/* Main Heading */}
+                                <motion.h1 
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.4 }}
+                                    className="text-4xl sm:text-5xl font-bold text-white text-center mb-6 
+                                             leading-tight tracking-tight drop-shadow-sm"
+                                >
+                                    Bring Peace & Comfort
+                                    <br />
+                                    Back to Your Home
+                                </motion.h1>
+
+                                {/* Subheading */}
+                                <motion.p 
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.5 }}
+                                    className="text-lg text-white text-center mb-10 font-medium leading-relaxed 
+                                             drop-shadow-sm max-w-xl mx-auto"
+                                >
+                                    Let us take care of your home like it's our own. Experience the joy of 
+                                    coming back to a perfectly clean and fresh living space, every time.
+                                </motion.p>
+
+                                {/* CTA Buttons */}
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.6 }}
+                                    className="flex flex-col sm:flex-row justify-center items-stretch gap-4"
+                                >
+                                    <a
+                                        href="#contact-us"
+                                        className="bg-white/30 hover:bg-white/40 text-white px-8 py-4 rounded-lg text-lg 
+                                                 font-medium transition-all duration-300 flex items-center justify-center 
+                                                 gap-2 group backdrop-blur-lg border border-white/10 
+                                                 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                                    >
+                                        Get Your Free Quote
+                                        <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                                    </a>
+                                    <a
+                                        href="#services"
+                                        className="bg-white/20 hover:bg-white/30 text-white px-8 py-4 rounded-lg text-lg 
+                                                 font-medium transition-all duration-300 flex items-center justify-center 
+                                                 backdrop-blur-lg border border-white/10 
+                                                 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                                    >
+                                        Explore Services
+                                    </a>
+                                </motion.div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
+
+                {/* Scroll Down Indicator */}
+                <motion.div 
+                    className="absolute bottom-12 left-1/2 -translate-x-1/2 text-white flex flex-col 
+                             items-center gap-2 cursor-pointer"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.8 }}
+                    onClick={() => window.scrollTo({
+                        top: window.innerHeight,
+                        behavior: 'smooth'
+                    })}
+                >
+                    <span className="text-sm font-medium drop-shadow-sm">Scroll Down</span>
+                    <FiChevronDown className="text-2xl animate-bounce" />
+                </motion.div>
             </section>
 
             {/* Services Section with Grid Layout */}
