@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { FiCheck, FiHome, FiCalendar, FiBox, FiTool, FiDroplet, FiSun, FiArrowRight } from 'react-icons/fi';
+import { FiCheck, FiHome, FiCalendar, FiBox, FiTool, FiDroplet, FiSun, FiArrowRight, FiClock, FiUsers } from 'react-icons/fi';
 import residentialCleaningHero from '../assets/images/residential-cleaning-hero.jpg';
 
 const ResidentialCleaning = () => {
@@ -121,141 +121,88 @@ const ResidentialCleaning = () => {
             {/* Hero Section */}
             <section className="relative w-full min-h-screen">
                 {/* Background Image */}
-                <motion.div 
-                    className="absolute inset-0"
-                    style={{ scale, opacity }}
-                >
-                    <div className="relative h-full">
-                        <img 
-                            src={residentialCleaningHero} 
-                            alt="Residential Cleaning" 
-                            className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-[#0A3D62]/80"></div>
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A3D62] via-[#0A3D62]/90 to-transparent"></div>
-                    </div>
-                </motion.div>
+                <div className="absolute inset-0">
+                    <img 
+                        src={residentialCleaningHero} 
+                        alt="Residential Cleaning" 
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/30"></div>
+                </div>
 
                 {/* Content */}
-                <div className="relative h-full flex items-center">
-                    <div className="container mx-auto px-4">
-                        <div className="max-w-3xl pt-20">
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8 }}
-                                className="mb-8"
-                            >
-                                <span className="text-[#2CA2B0] font-bold tracking-wider text-lg uppercase">
-                                    Professional Home Cleaning
-                                </span>
-                            </motion.div>
+                <div className="relative h-full">
+                    <div className="container mx-auto px-4 py-32">
+                        <div className="max-w-3xl">
+                            <p className="text-[#2CA2B0] font-medium uppercase tracking-wider mb-4">
+                                PROFESSIONAL HOME CLEANING
+                            </p>
 
-                            <motion.h1
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.2 }}
-                                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8"
-                            >
+                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
                                 Making Your Home
                                 <br />
-                                <span className="text-[#2CA2B0]">Spotlessly</span> Clean
-                            </motion.h1>
+                                Spotlessly Clean
+                            </h1>
 
-                            <motion.p
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.3 }}
-                                className="text-xl text-white/90 leading-relaxed mb-12 max-w-2xl"
-                            >
-                                Experience exceptional cleaning services tailored to your home. 
-                                Our professional team ensures every corner of your space shines with 
+                            <p className="text-xl text-white/90 mb-12 max-w-2xl">
+                                Experience exceptional cleaning services tailored to your home. Our 
+                                professional team ensures every corner of your space shines with 
                                 meticulous attention to detail.
-                            </motion.p>
+                            </p>
 
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.4 }}
-                                className="flex flex-wrap gap-6"
-                            >
-                                <motion.a
+                            <div className="flex flex-wrap gap-4 mb-20">
+                                <a
                                     href="#contact-us"
-                                    className="bg-[#2CA2B0] hover:bg-[#2CA2B0]/90 text-white px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center transition-all group"
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
+                                    className="bg-[#2CA2B0] hover:bg-[#2CA2B0]/90 text-white px-8 py-4 rounded text-lg font-medium transition-all duration-300"
                                 >
                                     Book Now
-                                    <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                                </motion.a>
-                                <motion.a
+                                </a>
+                                <a
                                     href="#services"
-                                    className="bg-white hover:bg-white/90 text-[#0A3D62] px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center transition-all group"
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
+                                    className="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded text-lg font-medium transition-all duration-300"
                                 >
                                     Our Services
-                                    <FiCheck className="ml-2 group-hover:scale-110 transition-transform" />
-                                </motion.a>
-                            </motion.div>
+                                </a>
+                            </div>
 
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.5 }}
-                                className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8"
-                            >
-                                <div className="flex items-center gap-4">
-                                    <div className="bg-[#2CA2B0]/20 p-3 rounded-lg">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
+                                <div>
+                                    <div className="flex items-center gap-3 mb-2">
                                         <FiCheck className="w-6 h-6 text-[#2CA2B0]" />
+                                        <span className="text-white font-medium">
+                                            Satisfaction Guaranteed
+                                        </span>
                                     </div>
-                                    <div>
-                                        <p className="text-white font-semibold">Satisfaction Guaranteed</p>
-                                        <p className="text-white/70 text-sm">100% quality assurance</p>
-                                    </div>
+                                    <p className="text-white/70 text-sm">
+                                        100% quality assurance
+                                    </p>
                                 </div>
-                                <div className="flex items-center gap-4">
-                                    <div className="bg-[#2CA2B0]/20 p-3 rounded-lg">
-                                        <FiCalendar className="w-6 h-6 text-[#2CA2B0]" />
+                                <div>
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <FiClock className="w-6 h-6 text-[#2CA2B0]" />
+                                        <span className="text-white font-medium">
+                                            Flexible Scheduling
+                                        </span>
                                     </div>
-                                    <div>
-                                        <p className="text-white font-semibold">Flexible Scheduling</p>
-                                        <p className="text-white/70 text-sm">At your convenience</p>
-                                    </div>
+                                    <p className="text-white/70 text-sm">
+                                        At your convenience
+                                    </p>
                                 </div>
-                                <div className="flex items-center gap-4">
-                                    <div className="bg-[#2CA2B0]/20 p-3 rounded-lg">
-                                        <FiHome className="w-6 h-6 text-[#2CA2B0]" />
+                                <div>
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <FiUsers className="w-6 h-6 text-[#2CA2B0]" />
+                                        <span className="text-white font-medium">
+                                            Expert Team
+                                        </span>
                                     </div>
-                                    <div>
-                                        <p className="text-white font-semibold">Expert Team</p>
-                                        <p className="text-white/70 text-sm">Trained professionals</p>
-                                    </div>
+                                    <p className="text-white/70 text-sm">
+                                        Trained professionals
+                                    </p>
                                 </div>
-                            </motion.div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                {/* Scroll Indicator */}
-                <motion.div
-                    className="absolute bottom-8 left-1/2 -translate-x-1/2"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1 }}
-                >
-                    <motion.div
-                        className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
-                        animate={{ y: [0, -5, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                    >
-                        <motion.div
-                            className="w-1 h-2 bg-white/50 rounded-full mt-2"
-                            animate={{ y: [0, 12, 0] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                        />
-                    </motion.div>
-                </motion.div>
             </section>
 
             {/* Services Section with Grid Layout */}
