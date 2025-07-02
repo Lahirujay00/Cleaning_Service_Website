@@ -136,7 +136,7 @@ const ResidentialCleaning = () => {
                             alt="Residential Cleaning Services" 
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#0A3D62]/90 to-[#0A3D62]/70"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#0A3D62]/95 via-[#0A3D62]/85 to-transparent"></div>
                     </div>
                 </motion.div>
                 
@@ -148,26 +148,25 @@ const ResidentialCleaning = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="max-w-3xl"
                     >
-                        <motion.span 
-                            className="inline-block bg-[#2CA2B0] text-white px-6 py-2 rounded-full text-sm font-semibold mb-6"
+                        <motion.div 
+                            className="inline-block bg-[#2CA2B0] text-white px-6 py-2 rounded-full text-sm font-semibold mb-6 shadow-lg"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
                             RESIDENTIAL SERVICES
-                        </motion.span>
+                        </motion.div>
                         <motion.h1 
-                            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight"
+                            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
                         >
-                            Professional{" "}
-                            <span className="text-[#2CA2B0]">Home Cleaning</span>
-                            <br />
-                            Services
+                            <span className="text-white drop-shadow-lg">Professional</span>{" "}
+                            <span className="text-[#2CA2B0] drop-shadow-lg">Home</span>{" "}
+                            <span className="text-white drop-shadow-lg">Cleaning</span>
                         </motion.h1>
                         <motion.p 
-                            className="text-xl text-white/90 mb-10 max-w-2xl leading-relaxed"
+                            className="text-xl text-white leading-relaxed mb-10 max-w-2xl drop-shadow-lg font-medium"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.6 }}
@@ -194,10 +193,10 @@ const ResidentialCleaning = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 href="#services"
-                                className="bg-white text-[#0A3D62] px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-all shadow-lg inline-flex items-center text-lg"
+                                className="bg-white text-[#0A3D62] px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-all shadow-lg inline-flex items-center text-lg group"
                             >
                                 Our Services
-                                <FiCheck className="ml-2" />
+                                <FiCheck className="ml-2 group-hover:scale-110 transition-transform" />
                             </motion.a>
                         </motion.div>
                     </motion.div>
@@ -209,7 +208,7 @@ const ResidentialCleaning = () => {
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                 >
-                    <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+                    <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center backdrop-blur-sm">
                         <motion.div 
                             className="w-1 h-2 bg-white rounded-full mt-2"
                             animate={{ y: [0, 15, 0] }}
