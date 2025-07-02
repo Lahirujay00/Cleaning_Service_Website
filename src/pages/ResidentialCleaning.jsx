@@ -154,7 +154,7 @@ const ResidentialCleaning = () => {
                                 transition={{ delay: 0.3 }}
                             >
                                 <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold 
-                                             bg-[#2CA2B0] text-white shadow-lg">
+                                             bg-[#2CA2B0] text- black shadow-lg">
                                     <FiShield className="mr-2" />
                                     Trusted by 1000+ Homeowners
                                 </span>
