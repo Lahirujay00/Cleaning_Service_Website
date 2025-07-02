@@ -300,7 +300,7 @@ const ResidentialCleaning = () => {
                             >
                                 <a
                                     href="#contact-us"
-                                    className="bg-cyan hover:bg-cyan/90 text-white px-8 py-4 rounded-lg 
+                                    className="bg-cyan text-white hover:bg-darkgreen hover:text-white px-8 py-4 rounded-lg 
                                              font-semibold transition-all flex items-center group shadow-lg hover:shadow-xl"
                                 >
                                     Get Free Quote
@@ -651,18 +651,13 @@ const ResidentialCleaning = () => {
                                 </div>
 
                                 {/* CTA Button */}
-                                <motion.div
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
+                                <a
+                                    href="/contact"
+                                    className="inline-flex items-center bg-cyan text-white hover:bg-darkgreen hover:text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all group"
                                 >
-                                    <a
-                                        href="/contact"
-                                        className="inline-flex items-center bg-cyan text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all group"
-                                    >
-                                        Book Your Cleaning
-                                        <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                                    </a>
-                                </motion.div>
+                                    Book Your Cleaning
+                                    <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                                </a>
                             </motion.div>
 
                             {/* Right Content - Contact Card */}
