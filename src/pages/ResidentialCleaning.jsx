@@ -11,7 +11,9 @@ import {
     FiCheck,
     FiTool,
     FiChevronDown,
-    FiShield
+    FiShield,
+    FiPhone,
+    FiMail
 } from 'react-icons/fi';
 import residentialCleaningHero from '../assets/images/res hero.jpg';
 import dustingImage from '../assets/images/Dusting & Wiping.jpg';
@@ -492,7 +494,7 @@ const ResidentialCleaning = () => {
                             </p>
                             
                             <div className="mt-8">
-                                <a href="#contact-us" className="bg-[#2CA2B0] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#2CA2B0]/90 transition-all inline-block">Get a Free Quote</a>
+                                <a href="#contact-us" className="bg-cyan text-white px-6 py-3 rounded-lg font-medium hover:bg-cyan/90 transition-all inline-block">Get a Free Quote</a>
                             </div>
                         </motion.div>
                         
@@ -501,7 +503,7 @@ const ResidentialCleaning = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
-                            className="bg-[#F0F9FF] p-8 rounded-2xl shadow-lg"
+                            className="bg-lightgreen p-8 rounded-2xl shadow-lg"
                         >
                             <h3 className="text-2xl font-bold text-gry mb-6">Our Cleaning Features</h3>
                             <div className="space-y-6">
@@ -530,32 +532,134 @@ const ResidentialCleaning = () => {
             </section>
             
             {/* Call to Action Section */}
-            <section id="contact-us" className="py-20 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0A3D62] to-cyan transform -skew-y-6 origin-top-left"></div>
+            <section id="contact-us" className="py-24 bg-gradient-to-br from-white to-cyan/5 relative overflow-hidden">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6IiBzdHJva2U9InJnYmEoMCwwLDAsMC4xKSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==')] opacity-5"></div>
+                
                 <div className="container mx-auto px-4 relative z-10">
-                    <motion.div 
-                        className="text-center max-w-3xl mx-auto"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                            Ready for a Cleaner Home?
-                        </h2>
-                        <p className="text-xl text-white/90 mb-10 leading-relaxed">
-                            Contact us today for a free quote and experience the difference professional cleaning makes.
-                        </p>
-                        <motion.a
-                            href="/contact"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="bg-white text-[#0A3D62] px-10 py-4 rounded-full font-medium hover:bg-gray-100 transition-all shadow-lg inline-flex items-center text-lg group"
-                        >
-                            Book Your Cleaning
-                            <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                        </motion.a>
-                    </motion.div>
+                    <div className="max-w-6xl mx-auto">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            {/* Left Content */}
+                            <motion.div
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                                className="space-y-8"
+                            >
+                                {/* Trust Badge */}
+                                <div className="inline-flex items-center space-x-2 bg-cyan/10 px-4 py-2 rounded-full">
+                                    <FiShield className="text-cyan" />
+                                    <span className="text-sm font-medium text-cyan">Trusted by 1000+ Homeowners</span>
+                                </div>
+
+                                <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                                    Ready for a{' '}
+                                    <span className="text-cyan">
+                                        Cleaner Home
+                                    </span>
+                                    ?
+                                </h2>
+
+                                <p className="text-xl text-gray-600 leading-relaxed">
+                                    Contact us today for a free quote and experience the difference professional cleaning makes.
+                                </p>
+
+                                {/* Features Grid */}
+                                <div className="grid grid-cols-2 gap-4">
+                                    {[
+                                        { icon: <FiCalendar />, text: "Flexible Scheduling" },
+                                        { icon: <FiShield />, text: "Insured & Bonded" },
+                                        { icon: <FiStar />, text: "5-Star Service" },
+                                        { icon: <FiDroplet />, text: "Eco-Friendly" }
+                                    ].map((feature, index) => (
+                                        <div key={index} className="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm">
+                                            <div className="text-cyan text-xl">
+                                                {feature.icon}
+                                            </div>
+                                            <span className="text-sm font-medium text-gray-700">{feature.text}</span>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* CTA Button */}
+                                <motion.div
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                >
+                                    <a
+                                        href="/contact"
+                                        className="inline-flex items-center bg-cyan text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all group"
+                                    >
+                                        Book Your Cleaning
+                                        <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                                    </a>
+                                </motion.div>
+                            </motion.div>
+
+                            {/* Right Content - Contact Card */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                                className="bg-white rounded-2xl shadow-2xl p-8 relative"
+                            >
+                                {/* Decorative Elements */}
+                                <div className="absolute -top-4 -right-4 w-24 h-24 bg-cyan/10 rounded-full"></div>
+                                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-cyan/5 rounded-full"></div>
+
+                                {/* Content */}
+                                <div className="relative space-y-6">
+                                    {/* Review Card */}
+                                    <div className="bg-gray-50 rounded-xl p-6 mb-8">
+                                        <div className="flex items-center space-x-2 text-yellow-400 mb-4">
+                                            {[...Array(5)].map((_, i) => (
+                                                <FiStar key={i} className="fill-current" />
+                                            ))}
+                                        </div>
+                                        <p className="text-gray-600 italic mb-4">
+                                            "The cleaning service was exceptional! They transformed my home and their attention to detail was impressive."
+                                        </p>
+                                        <div className="flex items-center space-x-3">
+                                            <div className="w-10 h-10 bg-cyan/20 rounded-full flex items-center justify-center">
+                                                <span className="text-cyan font-semibold">SJ</span>
+                                            </div>
+                                            <div>
+                                                <p className="font-medium text-gray-900">Sarah Johnson</p>
+                                                <p className="text-sm text-gray-500">Verified Customer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Quick Contact Options */}
+                                    <div className="space-y-4">
+                                        <h3 className="text-xl font-semibold text-gray-900">Get in Touch</h3>
+                                        <div className="grid gap-4">
+                                            <a href="tel:1234567890" className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                                                <div className="w-10 h-10 bg-cyan/10 rounded-full flex items-center justify-center text-cyan">
+                                                    <FiPhone />
+                                                </div>
+                                                <div>
+                                                    <p className="text-sm text-gray-500">Call us at</p>
+                                                    <p className="font-medium text-gray-900">(123) 456-7890</p>
+                                                </div>
+                                            </a>
+                                            <a href="mailto:info@example.com" className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                                                <div className="w-10 h-10 bg-cyan/10 rounded-full flex items-center justify-center text-cyan">
+                                                    <FiMail />
+                                                </div>
+                                                <div>
+                                                    <p className="text-sm text-gray-500">Email us at</p>
+                                                    <p className="font-medium text-gray-900">info@example.com</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </div>
+                    </div>
                 </div>
             </section>
 

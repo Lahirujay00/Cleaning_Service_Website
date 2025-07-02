@@ -9,8 +9,10 @@ module.exports = {
           DEFAULT: '#1d4ed8',
           dark: '#1e40af',
         },
-        cyan: '#2CA2B0', // add this line
-        gry: '#333333'
+        cyan: '#2CA2B0',
+        gry: '#333333',
+        lightgreen: '#F0F9FF',
+        blue: '#0A3D62',
       },
       borderRadius: {
         'xl': '1rem',
