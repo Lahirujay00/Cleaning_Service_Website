@@ -14,6 +14,12 @@ import {
     FiShield
 } from 'react-icons/fi';
 import residentialCleaningHero from '../assets/images/res hero.jpg';
+import dustingImage from '../assets/images/Dusting & Wiping.jpg';
+import floorCleaningImage from '../assets/images/Floor Cleaning.jpg';
+import kitchenCleaningImage from '../assets/images/Kitchen Cleaning.jpg';
+import bathroomCleaningImage from '../assets/images/Bathroom Cleaning.jpg';
+import livingAreasImage from '../assets/images/Living Areas.jpg';
+import regularCleaningImage from '../assets/images/Regular Home Cleaning.jpg';
 
 const ResidentialCleaning = () => {
     useEffect(() => {
@@ -43,56 +49,135 @@ const ResidentialCleaning = () => {
     // Services data array
     const servicesData = [
         {
-            icon: <FiDroplet className="h-8 w-8 text-[#2CA2B0]" />,
+            image: dustingImage,
             title: "Dusting & Wiping",
             description: "Thorough dusting and wiping of all surfaces, including furniture, shelves, and decorative items."
         },
         {
-            icon: <FiTool className="h-8 w-8 text-[#2CA2B0]" />,
+            image: floorCleaningImage,
             title: "Floor Cleaning",
             description: "Complete vacuuming and mopping of all floor surfaces, including hardwood, tile, and carpet."
         },
         {
-            icon: <FiHome className="h-8 w-8 text-[#2CA2B0]" />,
+            image: kitchenCleaningImage,
             title: "Kitchen Cleaning",
             description: "Deep cleaning of benchtops, stovetops, and exterior of all kitchen appliances."
         },
         {
-            icon: <FiDroplet className="h-8 w-8 text-[#2CA2B0]" />,
+            image: bathroomCleaningImage,
             title: "Bathroom Cleaning",
             description: "Thorough cleaning of toilets, showers, bathtubs, mirrors, and all bathroom fixtures."
         },
         {
-            icon: <FiHome className="h-8 w-8 text-[#2CA2B0]" />,
+            image: livingAreasImage,
             title: "Living Areas",
             description: "Comprehensive cleaning and tidying of bedrooms and living areas for a fresh look."
         },
         {
-            icon: <FiHome className="h-8 w-8 text-[#2CA2B0]" />,
+            image: regularCleaningImage,
             title: "Regular Home Cleaning",
             description: "Comprehensive cleaning services to keep your home spotless and fresh.",
             link: "#"
-        },
-        
-    
+        }
     ];
 
     // Ideal for data array
     const idealForData = [
         {
-            icon: <FiHome />,
+            icon: (
+                <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {/* House Base */}
+                    <path d="M20 48L48 20L76 48V80H20V48Z" fill="#E6F7FF"/>
+                    <path d="M20 48L48 20L76 48V80H20V48Z" stroke="#2CA2B0" strokeWidth="2"/>
+                    
+                    {/* Windows */}
+                    <rect x="30" y="52" width="12" height="12" fill="white" stroke="#2CA2B0" strokeWidth="2"/>
+                    <rect x="54" y="52" width="12" height="12" fill="white" stroke="#2CA2B0" strokeWidth="2"/>
+                    
+                    {/* Door */}
+                    <path d="M44 80V64H52V80" fill="white" stroke="#2CA2B0" strokeWidth="2"/>
+                    
+                    {/* Cleaning Elements */}
+                    <circle cx="36" y="58" r="2" fill="#2CA2B0" fillOpacity="0.5"/>
+                    <circle cx="60" y="58" r="2" fill="#2CA2B0" fillOpacity="0.5"/>
+                    
+                    {/* Calendar Elements */}
+                    <rect x="28" y="30" width="40" height="6" fill="#2CA2B0" rx="2"/>
+                    <rect x="28" y="36" width="40" height="30" fill="white" stroke="#2CA2B0" strokeWidth="2"/>
+                    <path d="M35 42V62M48 42V62M61 42V62" stroke="#2CA2B0" strokeWidth="1" strokeDasharray="2 2"/>
+                    <path d="M32 48H64M32 54H64" stroke="#2CA2B0" strokeWidth="1" strokeDasharray="2 2"/>
+                    
+                    {/* Checkmark */}
+                    <circle cx="70" cy="26" r="10" fill="#2CA2B0" fillOpacity="0.2"/>
+                    <path d="M65 26L69 30L75 24" stroke="#2CA2B0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+            ),
             title: "Regular Home Maintenance",
             description: "Keep your home consistently clean with scheduled cleaning services on a weekly, bi-weekly, or monthly basis.",
             color: "#2CA2B0"
         },
         {
-            icon: <FiCalendar />,
+            icon: (
+                <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {/* Room Layout */}
+                    <rect x="16" y="16" width="64" height="64" rx="4" fill="#E6F7FF"/>
+                    
+                    {/* Deep Clean Elements */}
+                    {/* Vacuum Lines */}
+                    <path d="M24 40C32 32 40 32 48 40C56 48 64 48 72 40" 
+                          stroke="#2CA2B0" strokeWidth="2" strokeLinecap="round" strokeDasharray="2 2"/>
+                    <path d="M24 50C32 42 40 42 48 50C56 58 64 58 72 50" 
+                          stroke="#2CA2B0" strokeWidth="2" strokeLinecap="round" strokeDasharray="2 2"/>
+                    
+                    {/* Cleaning Tools */}
+                    {/* Spray Bottle */}
+                    <path d="M30 24H38V28C38 29.1 37.1 30 36 30H32C30.9 30 30 29.1 30 28V24Z" fill="#2CA2B0"/>
+                    <rect x="32" y="20" width="4" height="4" fill="#2CA2B0"/>
+                    
+                    {/* Brush */}
+                    <rect x="50" y="20" width="16" height="4" rx="2" fill="#2CA2B0"/>
+                    <path d="M52 24V28M56 24V28M60 24V28M64 24V28" stroke="#2CA2B0" strokeWidth="1"/>
+                    
+                    {/* Sparkles */}
+                    <circle cx="28" cy="60" r="2" fill="#2CA2B0" fillOpacity="0.6"/>
+                    <circle cx="48" cy="70" r="2" fill="#2CA2B0" fillOpacity="0.6"/>
+                    <circle cx="68" cy="65" r="2" fill="#2CA2B0" fillOpacity="0.6"/>
+                    
+                    {/* Magnifying Glass */}
+                    <circle cx="70" cy="26" r="8" stroke="#2CA2B0" strokeWidth="2"/>
+                    <path d="M76 32L80 36" stroke="#2CA2B0" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+            ),
             title: "Spring/Deep Cleans",
             description: "Comprehensive top-to-bottom cleaning to refresh your home and target areas that need special attention.",
             color: "#0A3D62"
         },
         {
-            icon: <FiHome />,
+            icon: (
+                <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {/* Moving Box Stack */}
+                    <rect x="20" y="50" width="30" height="30" fill="#E6F7FF" stroke="#2CA2B0" strokeWidth="2"/>
+                    <rect x="25" y="55" width="20" height="4" fill="#2CA2B0"/>
+                    <path d="M30 64H40M30 70H40" stroke="#2CA2B0" strokeWidth="2"/>
+                    
+                    <rect x="46" y="40" width="25" height="25" fill="#E6F7FF" stroke="#2CA2B0" strokeWidth="2"/>
+                    <rect x="50" y="44" width="17" height="4" fill="#2CA2B0"/>
+                    <path d="M54 52H62M54 57H62" stroke="#2CA2B0" strokeWidth="2"/>
+                    
+                    {/* House Outline */}
+                    <path d="M16 30L48 16L80 30V36H16V30Z" fill="#E6F7FF" stroke="#2CA2B0" strokeWidth="2"/>
+                    <path d="M24 36V46M72 36V46" stroke="#2CA2B0" strokeWidth="2"/>
+                    
+                    {/* Cleaning Elements */}
+                    <circle cx="32" cy="24" r="2" fill="#2CA2B0" fillOpacity="0.5"/>
+                    <circle cx="48" cy="20" r="2" fill="#2CA2B0" fillOpacity="0.5"/>
+                    <circle cx="64" cy="24" r="2" fill="#2CA2B0" fillOpacity="0.5"/>
+                    
+                    {/* Arrow Indicating Movement */}
+                    <path d="M75 65L85 65" stroke="#2CA2B0" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M80 60L85 65L80 70" stroke="#2CA2B0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+            ),
             title: "Move-in/Move-out Cleaning",
             description: "Leave your old place spotless or start fresh in your new home with our specialized moving services.",
             color: "#2CA2B0"
@@ -283,9 +368,9 @@ const ResidentialCleaning = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#333333]">
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
                             What's Included in Our{" "}
-                            <span className="text-[#2CA2B0]">Residential Cleaning</span>
+                            <span className="text-cyan">Residential Cleaning</span>
                         </h2>
                         <p className="text-xl text-gray-600 leading-relaxed">
                             Our professional cleaning team delivers comprehensive cleaning services, 
@@ -305,15 +390,21 @@ const ResidentialCleaning = () => {
                                 key={index}
                                 variants={itemVariants}
                                 whileHover={{ y: -10 }}
-                                className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group"
+                                className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 
+                                         hover:shadow-2xl transition-all duration-300 group w-full"
                             >
-                                <div className="bg-[#F0F9FF] p-4 inline-block rounded-xl mb-6 group-hover:bg-[#2CA2B0] transition-colors">
-                                    <div className="transform group-hover:scale-110 transition-transform">
-                                        {item.icon}
-                                    </div>
+                                <div className="relative w-full h-64 mb-6 overflow-hidden rounded-xl">
+                                    <img 
+                                        src={item.image} 
+                                        alt={item.title}
+                                        className="w-full h-full object-cover object-center transform 
+                                                 group-hover:scale-110 transition-transform duration-300"
+                                    />
                                 </div>
-                                <h3 className="text-2xl font-semibold mb-4 text-[#333333]">{item.title}</h3>
-                                <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                                <div className="p-2">
+                                    <h3 className="text-2xl font-semibold mb-4 text-gray-800">{item.title}</h3>
+                                    <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                                </div>
                             </motion.div>
                         ))}
                     </motion.div>
