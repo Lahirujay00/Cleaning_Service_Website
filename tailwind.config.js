@@ -9,6 +9,7 @@ module.exports = {
           DEFAULT: '#1d4ed8',
           dark: '#1e40af',
         },
+        cyan: '#2CA2B0', // add this line
       },
       borderRadius: {
         'xl': '1rem',

@@ -154,7 +154,7 @@ const ResidentialCleaning = () => {
                                 transition={{ delay: 0.3 }}
                             >
                                 <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold 
-                                             bg-[#2CA2B0] text- black shadow-lg">
+                                             bg-[#2CA2B0] text-black shadow-lg">
                                     <FiShield className="mr-2" />
                                     Trusted by 1000+ Homeowners
                                 </span>
@@ -168,7 +168,7 @@ const ResidentialCleaning = () => {
                                 className="text-5xl lg:text-6xl font-bold leading-tight"
                             >
                                 Transform Your <br />
-                                <span className="text-[#2CA2B0]">
+                                <span className="text-cyan">
                                     Living Space
                                 </span>
                             </motion.h1>
@@ -199,7 +199,7 @@ const ResidentialCleaning = () => {
                                     "Flexible Scheduling"
                                 ].map((feature, index) => (
                                     <div key={index} className="flex items-center space-x-2 bg-[#2CA2B0]/10 rounded-lg p-3">
-                                        <FiCheck className="text-[#2CA2B0] text-xl" />
+                                        <FiCheck className="text-cyan text-xl" />
                                         <span className="text-gray-700 font-medium">{feature}</span>
                                     </div>
                                 ))}
@@ -214,7 +214,7 @@ const ResidentialCleaning = () => {
                             >
                                 <a
                                     href="#contact-us"
-                                    className="bg-[#2CA2B0] hover:bg-[#2CA2B0]/90 text-white px-8 py-4 rounded-lg 
+                                    className="bg-cyan hover:bg-cyan/90 text-white px-8 py-4 rounded-lg 
                                              font-semibold transition-all flex items-center group shadow-lg hover:shadow-xl"
                                 >
                                     Get Free Quote
