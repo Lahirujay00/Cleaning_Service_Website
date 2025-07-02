@@ -11,8 +11,8 @@ const ResidentialCleaning = () => {
     }, []);
 
     const { scrollYProgress } = useScroll();
-    const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-    const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
+    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -118,105 +118,145 @@ const ResidentialCleaning = () => {
         <div className="flex flex-col min-h-screen">
             <Header />
 
-            {/* Hero Section with Parallax */}
-            <motion.section 
-                className="relative w-full min-h-screen flex items-center overflow-hidden"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-            >
-                {/* Parallax Background */}
+            {/* Hero Section */}
+            <section className="relative w-full min-h-screen">
+                {/* Background Image */}
                 <motion.div 
-                    className="absolute inset-0 z-0"
+                    className="absolute inset-0"
                     style={{ scale, opacity }}
                 >
                     <div className="relative h-full">
                         <img 
                             src={residentialCleaningHero} 
-                            alt="Residential Cleaning Services" 
+                            alt="Residential Cleaning" 
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#0A3D62]/95 via-[#0A3D62]/85 to-transparent"></div>
+                        <div className="absolute inset-0 bg-[#0A3D62]/80"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A3D62] via-[#0A3D62]/90 to-transparent"></div>
                     </div>
                 </motion.div>
-                
-                {/* Hero Content */}
-                <div className="relative z-10 container mx-auto px-4 pt-32">
-                    <motion.div 
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="max-w-3xl"
-                    >
-                        <motion.div 
-                            className="inline-block bg-[#2CA2B0] text-white px-6 py-2 rounded-full text-sm font-semibold mb-6 shadow-lg"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            RESIDENTIAL SERVICES
-                        </motion.div>
-                        <motion.h1 
-                            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                        >
-                            <span className="text-white drop-shadow-lg">Professional</span>{" "}
-                            <span className="text-[#2CA2B0] drop-shadow-lg">Home</span>{" "}
-                            <span className="text-white drop-shadow-lg">Cleaning</span>
-                        </motion.h1>
-                        <motion.p 
-                            className="text-xl text-white leading-relaxed mb-10 max-w-2xl drop-shadow-lg font-medium"
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.6 }}
-                        >
-                            Experience the difference of professional cleaning services tailored to your home's specific needs. 
-                            We ensure every corner shines with meticulous care and attention to detail.
-                        </motion.p>
-                        <motion.div 
-                            className="flex flex-wrap gap-6"
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.8 }}
-                        >
-                            <motion.a
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                href="#contact-us"
-                                className="bg-[#2CA2B0] text-white px-8 py-4 rounded-full font-medium hover:bg-[#2CA2B0]/90 transition-all shadow-lg inline-flex items-center text-lg group"
+
+                {/* Content */}
+                <div className="relative h-full flex items-center">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-3xl pt-20">
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8 }}
+                                className="mb-8"
                             >
-                                Book Now
-                                <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                            </motion.a>
-                            <motion.a
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                href="#services"
-                                className="bg-white text-[#0A3D62] px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-all shadow-lg inline-flex items-center text-lg group"
+                                <span className="text-[#2CA2B0] font-bold tracking-wider text-lg uppercase">
+                                    Professional Home Cleaning
+                                </span>
+                            </motion.div>
+
+                            <motion.h1
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.2 }}
+                                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8"
                             >
-                                Our Services
-                                <FiCheck className="ml-2 group-hover:scale-110 transition-transform" />
-                            </motion.a>
-                        </motion.div>
-                    </motion.div>
+                                Making Your Home
+                                <br />
+                                <span className="text-[#2CA2B0]">Spotlessly</span> Clean
+                            </motion.h1>
+
+                            <motion.p
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.3 }}
+                                className="text-xl text-white/90 leading-relaxed mb-12 max-w-2xl"
+                            >
+                                Experience exceptional cleaning services tailored to your home. 
+                                Our professional team ensures every corner of your space shines with 
+                                meticulous attention to detail.
+                            </motion.p>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.4 }}
+                                className="flex flex-wrap gap-6"
+                            >
+                                <motion.a
+                                    href="#contact-us"
+                                    className="bg-[#2CA2B0] hover:bg-[#2CA2B0]/90 text-white px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center transition-all group"
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                >
+                                    Book Now
+                                    <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                                </motion.a>
+                                <motion.a
+                                    href="#services"
+                                    className="bg-white hover:bg-white/90 text-[#0A3D62] px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center transition-all group"
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                >
+                                    Our Services
+                                    <FiCheck className="ml-2 group-hover:scale-110 transition-transform" />
+                                </motion.a>
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.5 }}
+                                className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8"
+                            >
+                                <div className="flex items-center gap-4">
+                                    <div className="bg-[#2CA2B0]/20 p-3 rounded-lg">
+                                        <FiCheck className="w-6 h-6 text-[#2CA2B0]" />
+                                    </div>
+                                    <div>
+                                        <p className="text-white font-semibold">Satisfaction Guaranteed</p>
+                                        <p className="text-white/70 text-sm">100% quality assurance</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <div className="bg-[#2CA2B0]/20 p-3 rounded-lg">
+                                        <FiCalendar className="w-6 h-6 text-[#2CA2B0]" />
+                                    </div>
+                                    <div>
+                                        <p className="text-white font-semibold">Flexible Scheduling</p>
+                                        <p className="text-white/70 text-sm">At your convenience</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <div className="bg-[#2CA2B0]/20 p-3 rounded-lg">
+                                        <FiHome className="w-6 h-6 text-[#2CA2B0]" />
+                                    </div>
+                                    <div>
+                                        <p className="text-white font-semibold">Expert Team</p>
+                                        <p className="text-white/70 text-sm">Trained professionals</p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </div>
+                    </div>
                 </div>
-                
+
                 {/* Scroll Indicator */}
-                <motion.div 
-                    className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
+                <motion.div
+                    className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1 }}
                 >
-                    <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center backdrop-blur-sm">
-                        <motion.div 
-                            className="w-1 h-2 bg-white rounded-full mt-2"
-                            animate={{ y: [0, 15, 0] }}
-                            transition={{ duration: 1.5, repeat: Infinity }}
+                    <motion.div
+                        className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
+                        animate={{ y: [0, -5, 0] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                    >
+                        <motion.div
+                            className="w-1 h-2 bg-white/50 rounded-full mt-2"
+                            animate={{ y: [0, 12, 0] }}
+                            transition={{ duration: 2, repeat: Infinity }}
                         />
-                    </div>
+                    </motion.div>
                 </motion.div>
-            </motion.section>
+            </section>
 
             {/* Services Section with Grid Layout */}
             <section id="services" className="py-24 bg-white">
