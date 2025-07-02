@@ -73,17 +73,8 @@ const ResidentialCleaning = () => {
             description: "Comprehensive cleaning services to keep your home spotless and fresh.",
             link: "#"
         },
-        {
-            icon: <FiStar className="h-8 w-8 text-[#2CA2B0]" />,
-            title: "Deep Cleaning",
-            description: "Thorough deep cleaning for those areas that need extra attention.",
-            link: "#"
-        },
-        {
-            icon: <FiStar className="h-8 w-8 text-[#2CA2B0]" />,
-            title: "Additional Cleaning",
-            description: "Window sills, skirting boards, and light switches cleaned upon request."
-        }
+        
+    
     ];
 
     // Ideal for data array
