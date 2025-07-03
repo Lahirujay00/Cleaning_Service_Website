@@ -40,30 +40,7 @@ const Header = () => {
         return location.pathname === path;
     };
 
-    const isActiveSubRoute = (path) => {
-        return location.pathname === path;
-    };
     
-    const handleAnchorClick = (e, target) => {
-        if (!isHomePage && target.startsWith('#')) {
-            e.preventDefault();
-            window.location.href = `/${target}`;
-            return;
-        }
-        
-        if (isHomePage && target.startsWith('#')) {
-            e.preventDefault();
-            const element = document.querySelector(target);
-            if (element) {
-                const offsetTop = element.getBoundingClientRect().top + window.pageYOffset;
-                window.scrollTo({
-                    top: offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                setIsMobileMenuOpen(false);
-            }
-        }
-    };
 
     const navItems = [
         { path: '/', label: 'Home' },
