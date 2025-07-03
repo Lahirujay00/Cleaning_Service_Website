@@ -38,21 +38,17 @@ const ResidentialCleaning = () => {
 
     const containerVariants = {
         hidden: { opacity: 0 },
-        visible: {
+        visible: { 
             opacity: 1,
-            transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.3
-            }
+            transition: { duration: 0.3 }
         }
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
+        hidden: { opacity: 0 },
+        visible: { 
             opacity: 1,
-            y: 0,
-            transition: { duration: 0.5, ease: "easeOut" }
+            transition: { duration: 0.3 }
         }
     };
 
@@ -388,27 +384,23 @@ const ResidentialCleaning = () => {
                         </p>
                     </motion.div>
                     
-                    <motion.div 
-                        variants={containerVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
-                    >
+                    {/* Services Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                         {servicesData.map((item, index) => (
                             <motion.div
                                 key={index}
-                                variants={itemVariants}
-                                whileHover={{ y: -10 }}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: index * 0.2 }}
                                 className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 
-                                         hover:shadow-2xl transition-all duration-300 group w-full"
+                                         hover:shadow-xl transition-all duration-300 w-full cursor-pointer"
                             >
                                 <div className="relative w-full h-64 mb-6 overflow-hidden rounded-xl">
                                     <img 
                                         src={item.image} 
                                         alt={item.title}
-                                        className="w-full h-full object-cover object-center transform 
-                                                 group-hover:scale-110 transition-transform duration-300"
+                                        className="w-full h-full object-cover object-center transition-all duration-300"
                                     />
                                 </div>
                                 <div className="p-2">
@@ -417,7 +409,7 @@ const ResidentialCleaning = () => {
                                 </div>
                             </motion.div>
                         ))}
-                    </motion.div>
+                    </div>
                 </div>
             </section>
             

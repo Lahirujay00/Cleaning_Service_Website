@@ -13,7 +13,7 @@ module.exports = {
         gry: '#333333',
         lightgreen: '#F0F9FF',
         blue: '#0A3D62',
-        darkgreen: '#228899',
+        darkgreen: '#0A3D62',
       },
       borderRadius: {
         'xl': '1rem',
@@ -24,6 +24,21 @@ module.exports = {
       backgroundImage: theme => ({
         'hero-pattern': "url('/src/assets/images/herobg.JPG')",
       }),
+      keyframes: {
+        fadeUp: {
+          '0%': { 
+            opacity: '0',
+            transform: 'translateY(20px)'
+          },
+          '100%': { 
+            opacity: '1',
+            transform: 'translateY(0)'
+          }
+        }
+      },
+      animation: {
+        fadeUp: 'fadeUp 0.6s ease-out'
+      }
     },
   },
   variants: {

@@ -20,43 +20,71 @@ import {
     FiMonitor,
     FiCoffee,
     FiTrash2,
-    FiGrid
+    FiGrid,
+    FiAward,
+    FiThermometer
 } from 'react-icons/fi';
-import officeCleaningHero from '../assets/images/office cleaning.jpg';
+import officeCleaningHero from '../assets/images/office cleaning.jpeg';
+import deskSanitizationImage from '../assets/images/Desk and Surface Sanitisation.jpeg';
+import wasteManagementImage from '../assets/images/Waste Management.jpg';
+import floorCareImage from '../assets/images/Floor Care.jpeg';
+import breakRoomImage from '../assets/images/Break Room Cleaning.jpeg';
+import washroomImage from '../assets/images/Washroom Disinfecting.jpg';
+import glassCleaningImage from '../assets/images/Glass & Window Cleaning.jpeg';
 
 const OfficeCleaning = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.3
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, ease: "easeOut" }
+        }
+    };
+
     const servicesData = [
         {
-            icon: <FiMonitor />,
+            image: deskSanitizationImage,
             title: "Desk and Surface Sanitisation",
             description: "Thorough cleaning and sanitization of all work surfaces, desks, and equipment."
         },
         {
-            icon: <FiTrash2 />,
+            image: wasteManagementImage,
             title: "Waste Management",
             description: "Regular emptying of bins and restocking of supplies to maintain cleanliness."
         },
         {
-            icon: <FiGrid />,
+            image: floorCareImage,
             title: "Floor Care",
             description: "Professional vacuuming of carpets and mopping of hard floor surfaces."
         },
         {
-            icon: <FiCoffee />,
+            image: breakRoomImage,
             title: "Break Room Cleaning",
             description: "Complete cleaning of kitchenette and break room areas for employee comfort."
         },
         {
-            icon: <FiDroplet />,
+            image: washroomImage,
             title: "Washroom Disinfecting",
             description: "Thorough cleaning and sanitization of all washroom facilities."
         },
         {
-            icon: <FiHome />,
+            image: glassCleaningImage,
             title: "Glass & Window Cleaning",
             description: "Interior window and glass surface cleaning for a professional appearance."
         }
@@ -281,33 +309,34 @@ const OfficeCleaning = () => {
                         </p>
                     </motion.div>
                     
-                    <motion.div 
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
-                    >
+                    {/* Services Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                         {servicesData.map((service, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
                                 viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: index * 0.2 }}
                                 className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 
-                                         hover:shadow-2xl transition-all duration-300 group w-full"
+                                         hover:shadow-xl transition-all duration-300 w-full cursor-pointer
+                                         flex flex-col h-full"
                             >
-                                <div className="relative w-full h-64 mb-6 overflow-hidden rounded-xl">
-                                    <div className="w-full h-full flex items-center justify-center bg-gray-50">
-                                        <div className="text-cyan text-5xl">
-                                            {service.icon}
-                                        </div>
-                                    </div>
+                                <div className="relative w-full h-[240px] mb-6 overflow-hidden rounded-xl">
+                                    <img 
+                                        src={service.image} 
+                                        alt={service.title}
+                                        className="w-full h-full object-cover object-center"
+                                        style={{ aspectRatio: '16/9' }}
+                                    />
                                 </div>
-                                <div className="p-2">
+                                <div className="p-2 flex-grow">
                                     <h3 className="text-2xl font-semibold mb-4 text-gray-800">{service.title}</h3>
                                     <p className="text-gray-600 leading-relaxed">{service.description}</p>
                                 </div>
                             </motion.div>
                         ))}
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
@@ -362,6 +391,128 @@ const OfficeCleaning = () => {
                                     <p className="text-gray-600">{item.description}</p>
                                 </motion.div>
                             ))}
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+            
+            {/* Original content section */}
+            <section className="py-16 bg-white">
+                <div className="container mx-auto px-4 max-w-5xl">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            className="prose max-w-none"
+                        >
+                            <h2 className="text-3xl font-bold text-[#333333] mb-6">Our Professional Standards</h2>
+                            <p className="text-gray-700">
+                                At the heart of our service is a commitment to excellence. Our cleaning professionals undergo rigorous training in the latest cleaning techniques, safety protocols, and customer service standards. Each team member is carefully vetted and certified to ensure your office receives the highest quality care.
+                            </p>
+                            
+                            <p className="text-gray-700 my-4">
+                                We follow a systematic approach to cleaning, using a detailed checklist customized for each office space. This ensures consistent quality and attention to detail, from sanitizing workstations to maintaining common areas. Our team uses color-coded cleaning materials to prevent cross-contamination between different areas of your workplace.
+                            </p>
+                            
+                            <p className="text-gray-700 mb-6">
+                                Quality control is built into every step of our process. Supervisors conduct regular inspections, and we welcome your feedback to continuously improve our service. We stand behind our work with a satisfaction guarantee - if you're not completely satisfied, we'll return to address any concerns at no additional cost.
+                            </p>
+
+                            {/* Added Quality Standards Grid */}
+                            <div className="grid grid-cols-2 gap-4 mt-8">
+                                {[
+                                    {
+                                        icon: <FiAward className="text-cyan text-xl" />,
+                                        title: "Premium Service",
+                                        desc: "Excellence guaranteed"
+                                    },
+                                    {
+                                        icon: <FiClipboard className="text-cyan text-xl" />,
+                                        title: "Detailed Checklist",
+                                        desc: "Thorough methodology"
+                                    },
+                                    {
+                                        icon: <FiThermometer className="text-cyan text-xl" />,
+                                        title: "Sanitization",
+                                        desc: "Deep disinfection"
+                                    },
+                                    {
+                                        icon: <FiUsers className="text-cyan text-xl" />,
+                                        title: "Expert Staff",
+                                        desc: "Skilled professionals"
+                                    }
+                                ].map((standard, index) => (
+                                    <div key={index} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
+                                        <div className="mt-1">{standard.icon}</div>
+                                        <div>
+                                            <h4 className="font-semibold text-gray-900">{standard.title}</h4>
+                                            <p className="text-sm text-gray-600">{standard.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                        
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            className="bg-lightgreen p-8 rounded-2xl shadow-lg"
+                        >
+                            <h3 className="text-2xl font-bold text-gry mb-6">Our Quality Process</h3>
+                            <div className="space-y-6">
+                                {[
+                                    {
+                                        title: "Initial Assessment",
+                                        description: "Thorough evaluation of your office's specific cleaning needs and requirements."
+                                    },
+                                    {
+                                        title: "Custom Cleaning Plan",
+                                        description: "Development of a tailored cleaning strategy based on your business operations and priorities."
+                                    },
+                                    {
+                                        title: "Professional Execution",
+                                        description: "Systematic cleaning following our detailed area-by-area checklist."
+                                    },
+                                    {
+                                        title: "Quality Inspection",
+                                        description: "Final walkthrough to ensure everything meets our high standards."
+                                    }
+                                ].map((process, index) => (
+                                    <motion.div 
+                                        key={index}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                                        viewport={{ once: true }}
+                                        className="flex gap-4"
+                                    >
+                                        <div className="bg-white rounded-full p-2 h-8 w-8 shadow-md flex items-center justify-center">
+                                            <span className="text-cyan font-semibold">{index + 1}</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-semibold text-gry text-lg">{process.title}</h4>
+                                            <p className="text-gray-600">{process.description}</p>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+
+                            {/* Added Certification Badge */}
+                            <div className="mt-8 pt-6 border-t border-gray-200">
+                                <div className="flex items-center space-x-4">
+                                    <div className="p-3 bg-cyan/10 rounded-full">
+                                        <FiCheck className="text-cyan text-xl" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold text-gray-900">Professional Excellence</h4>
+                                        <p className="text-sm text-gray-600">Committed to the highest cleaning standards</p>
+                                    </div>
+                                </div>
+                            </div>
                         </motion.div>
                     </div>
                 </div>
