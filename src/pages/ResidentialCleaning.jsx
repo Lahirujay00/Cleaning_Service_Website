@@ -38,17 +38,21 @@ const ResidentialCleaning = () => {
 
     const containerVariants = {
         hidden: { opacity: 0 },
-        visible: { 
+        visible: {
             opacity: 1,
-            transition: { duration: 0.3 }
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.3
+            }
         }
     };
 
     const itemVariants = {
-        hidden: { opacity: 0 },
-        visible: { 
+        hidden: { opacity: 0, y: 20 },
+        visible: {
             opacity: 1,
-            transition: { duration: 0.3 }
+            y: 0,
+            transition: { duration: 0.5, ease: "easeOut" }
         }
     };
 
@@ -235,8 +239,7 @@ const ResidentialCleaning = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
                             >
-                                <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold 
-                                             bg-[#2CA2B0] text-black shadow-lg">
+                                <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold bg-cyan text-white shadow-lg">
                                     <FiShield className="mr-2" />
                                     Trusted by 1000+ Homeowners
                                 </span>
@@ -385,31 +388,37 @@ const ResidentialCleaning = () => {
                     </motion.div>
                     
                     {/* Services Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <motion.div 
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
                         {servicesData.map((item, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: index * 0.2 }}
+                                variants={itemVariants}
                                 className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 
-                                         hover:shadow-xl transition-all duration-300 w-full cursor-pointer"
+                                         hover:shadow-xl transition-all duration-300 w-full cursor-pointer
+                                         flex flex-col h-full"
                             >
-                                <div className="relative w-full h-64 mb-6 overflow-hidden rounded-xl">
+                                <div className="relative w-full h-[240px] mb-6 overflow-hidden rounded-xl">
                                     <img 
                                         src={item.image} 
                                         alt={item.title}
-                                        className="w-full h-full object-cover object-center transition-all duration-300"
+                                        className="w-full h-full object-cover object-center"
+                                        style={{ aspectRatio: '16/9' }}
+                                        loading="lazy"
                                     />
                                 </div>
-                                <div className="p-2">
+                                <div className="p-2 flex-grow">
                                     <h3 className="text-2xl font-semibold mb-4 text-gray-800">{item.title}</h3>
                                     <p className="text-gray-600 leading-relaxed">{item.description}</p>
                                 </div>
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
             
@@ -594,7 +603,7 @@ const ResidentialCleaning = () => {
             {/* Call to Action Section */}
             <section id="contact-us" className="py-24 bg-gradient-to-br from-white to-cyan/5 relative overflow-hidden">
                 {/* Background Pattern */}
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6IiBzdHJva2U9InJnYmEoMCwwLDAsMC4xKSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==')] opacity-5"></div>
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6IiBzdHJva2U9InJnYmEoMCwwLDAsMC4xKSIgc3Ryb2tlLXwiMiIvPjwvZz48L3N2Zz4=')] opacity-5"></div>
                 
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-6xl mx-auto">
