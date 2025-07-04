@@ -3,13 +3,10 @@ import { motion } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { 
-    FiCalendar, 
+    FiCalendar,
     FiStar,
-    FiDroplet,
-    FiHome,
     FiArrowRight,
     FiCheck,
-    FiTool,
     FiChevronDown,
     FiShield,
     FiPhone,
@@ -17,10 +14,6 @@ import {
     FiClock,
     FiUsers,
     FiClipboard,
-    FiMonitor,
-    FiCoffee,
-    FiTrash2,
-    FiGrid,
     FiAward,
     FiThermometer
 } from 'react-icons/fi';
@@ -310,14 +303,17 @@ const OfficeCleaning = () => {
                     </motion.div>
                     
                     {/* Services Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <motion.div 
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
                         {servicesData.map((service, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: index * 0.2 }}
+                                variants={itemVariants}
                                 className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 
                                          hover:shadow-xl transition-all duration-300 w-full cursor-pointer
                                          flex flex-col h-full"
@@ -336,7 +332,7 @@ const OfficeCleaning = () => {
                                 </div>
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
