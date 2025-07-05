@@ -61,6 +61,30 @@ const ServicePageLayout = ({ service }) => {
                                 </div>
                             </div>
                         )}
+
+                        {/* What's Included */}
+                        {service.whatIncluded && service.whatIncluded.length > 0 && (
+                            <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
+                                <h2 className="text-3xl font-bold mb-6 text-[#0A3D62]">What's Included</h2>
+                                <ul className="list-disc list-inside text-lg text-[#6B7280]">
+                                    {service.whatIncluded.map((item, index) => (
+                                        <li key={index} className="mb-2">{item}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+
+                        {/* Ideal For */}
+                        {service.idealFor && service.idealFor.length > 0 && (
+                            <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
+                                <h2 className="text-3xl font-bold mb-6 text-[#0A3D62]">Ideal For</h2>
+                                <ul className="list-disc list-inside text-lg text-[#6B7280]">
+                                    {service.idealFor.map((item, index) => (
+                                        <li key={index} className="mb-2">{item}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
                         
                         {/* CTA */}
                         <div className="text-center mb-12">
