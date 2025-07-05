@@ -17,10 +17,10 @@ import {
     FiAward,
     FiThermometer
 } from 'react-icons/fi';
-import windowCleaningHero from '../assets/images/window-cleaning.jpg'; // Using existing image for hero
-import windowCleaningImage1 from '../assets/images/IMG_4868.JPG'; // Placeholder image
-import windowCleaningImage2 from '../assets/images/IMG_4869.JPG'; // Placeholder image
-import windowCleaningImage3 from '../assets/images/IMG_4870.JPG'; // Placeholder image
+import windowCleaningHero from '../assets/images/window cleaning 1.jpg'; // Using existing image for hero
+import windowCleaningImage1 from '../assets/images/window cleaning.jpg'; // Placeholder image
+import windowCleaningImage2 from '../assets/images/window cleaning 2.jpg'; // Placeholder image
+import windowCleaningImage3 from '../assets/images/window cleaning 3.jpg'; // Placeholder image
 import windowCleaningImage4 from '../assets/images/IMG_4871.JPG'; // Placeholder image
 import windowCleaningImage5 from '../assets/images/IMG_4205.JPG'; // Placeholder image
 import windowCleaningImage6 from '../assets/images/IMG_4207.JPG'; // Placeholder image
@@ -66,11 +66,7 @@ const WindowCleaning = () => {
             title: "Frames, sills, and tracks cleaned",
             description: "Beyond just the glass, we meticulously clean window frames, sills, and tracks for a complete refresh."
         },
-        {
-            image: windowCleaningImage4,
-            title: "Hard water stain and screen cleaning (on request)",
-            description: "Specialized treatment for stubborn hard water stains and comprehensive cleaning of window screens upon request."
-        }
+        
     ];
 
     const idealForData = [
