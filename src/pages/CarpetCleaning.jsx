@@ -90,7 +90,7 @@ const CarpetCleaning = () => {
                     <rect x="44" y="30" width="8" height="10" fill="#2CA2B0"/>
                 </svg>
             ),
-            title: "Residential & Commercial",
+            title: "Residential & Commercial Carpets",
             description: "Suitable for both residential homes and commercial office carpets.",
             color: "#2CA2B0"
         },
@@ -103,7 +103,7 @@ const CarpetCleaning = () => {
                     <path d="M48 60L55 67L70 52" stroke="#2CA2B0" strokeWidth="4"/>
                 </svg>
             ),
-            title: "Tenancy/Bond Cleaning",
+            title: "Tenancy or Bond Cleaning",
             description: "Perfect for end-of-lease or bond cleaning requirements, ensuring your deposit return.",
             color: "#0A3D62"
         },
@@ -374,7 +374,7 @@ const CarpetCleaning = () => {
                                 >
                                     <div className="absolute top-0 left-0 right-0 h-2" style={{ backgroundColor: item.color }}></div>
                                     <div className="rounded-full bg-[#F0F9FF] p-6 w-20 h-20 flex items-center justify-center mx-auto mb-6 text-[#2CA2B0]">
-                                        {item.icon}
+                                        <span className="text-3xl">{item.icon}</span>
                                     </div>
                                     <h3 className="text-xl font-bold mb-4 text-[#333333]">{item.title}</h3>
                                     <p className="text-gray-600">{item.description}</p>
@@ -429,7 +429,7 @@ const CarpetCleaning = () => {
                                     },
                                     {
                                         icon: <FiStar className="text-cyan text-xl" />,
-                                        title: "Satisfaction Guaranteed",
+                                        title: "Satisfaction",
                                         desc: "Committed to excellent results"
                                     }
                                 ].map((standard, index) => (
