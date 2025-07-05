@@ -28,13 +28,24 @@ const Contact = () => {
                         
                         {/* Quick contact links */}
                         <div className="flex flex-col md:flex-row justify-center gap-6 mb-8">
-                            <a href="tel:(08)12345678" className="flex items-center justify-center gap-2 py-3 px-6 bg-white rounded-full shadow-md hover:shadow-lg transition-all">
+                            <a href="tel:0413636785" className="flex items-center justify-center gap-2 py-3 px-6 bg-white rounded-full shadow-md hover:shadow-lg transition-all">
                                 <FiPhone className="text-[#2CA2B0]" />
-                                <span className="text-[#333333] font-medium">(08) 1234 5678</span>
+                                <span className="text-[#333333] font-medium">0413 636 785</span>
                             </a>
-                            <a href="mailto:info@sparkwise-cleaning.com.au" className="flex items-center justify-center gap-2 py-3 px-6 bg-white rounded-full shadow-md hover:shadow-lg transition-all">
+                            <a href="mailto:sparkwisecleaning@gmail.com" className="flex items-center justify-center gap-2 py-3 px-6 bg-white rounded-full shadow-md hover:shadow-lg transition-all">
                                 <FiMail className="text-[#2CA2B0]" />
-                                <span className="text-[#333333] font-medium">info@sparkwise-cleaning.com.au</span>
+                                <span className="text-[#333333] font-medium">sparkwisecleaning@gmail.com</span>
+                            </a>
+                            <a 
+                                href="https://www.facebook.com/SparkWise8?mibextid=ZbWKwL" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="flex items-center justify-center gap-2 py-3 px-6 bg-white rounded-full shadow-md hover:shadow-lg transition-all"
+                            >
+                                <svg className="w-5 h-5 text-[#2CA2B0]" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                                </svg>
+                                <span className="text-[#333333] font-medium">Facebook</span>
                             </a>
                         </div>
                         
@@ -93,7 +104,7 @@ const Contact = () => {
                                         <input
                                             type="tel"
                                             className="w-full bg-gray-50 text-[#333333] placeholder-[#999999] border border-gray-200 rounded-lg py-3 px-10 focus:ring-2 focus:ring-[#2CA2B0] transition-all duration-300"
-                                            placeholder="(08) 1234 5678"
+                                            placeholder="0413 636 785"
                                         />
                                     </div>
                                 </div>
@@ -154,7 +165,7 @@ const Contact = () => {
                                         <FiPhone className="h-8 w-8 text-[#333333] mr-4 flex-shrink-0" stroke="#333333" strokeWidth={1.5} />
                                         <div>
                                             <h3 className="text-xl font-semibold text-[#333333] mb-2">Phone Number</h3>
-                                            <p className="text-[#333333]">(08) 1234 5678</p>
+                                            <p className="text-[#333333]">0413 636 785</p>
                                         </div>
                                     </div>
                                 </div>
@@ -165,7 +176,7 @@ const Contact = () => {
                                         <FiMail className="h-8 w-8 text-[#333333] mr-4 flex-shrink-0" stroke="#333333" strokeWidth={1.5} />
                                         <div>
                                             <h3 className="text-xl font-semibold text-[#333333] mb-2">Email Address</h3>
-                                            <p className="text-[#333333]">info@sparkwise-cleaning.com.au</p>
+                                            <p className="text-[#333333]">sparkwisecleaning@gmail.com</p>
                                         </div>
                                     </div>
                                 </div>
