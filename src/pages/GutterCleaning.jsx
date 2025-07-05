@@ -17,13 +17,13 @@ import {
     FiAward,
     FiThermometer
 } from 'react-icons/fi';
-import gutterCleaningHero from '../assets/images/gutter-cleaning.jpg'; // Using existing image for hero
-import gutterCleaningImage1 from '../assets/images/IMG_4182.JPG'; // Placeholder image
-import gutterCleaningImage2 from '../assets/images/IMG_4183.JPG'; // Placeholder image
-import gutterCleaningImage3 from '../assets/images/IMG_4185.JPG'; // Placeholder image
-import gutterCleaningImage4 from '../assets/images/IMG_4186.JPG'; // Placeholder image
-import gutterCleaningImage5 from '../assets/images/IMG_4187.JPG'; // Placeholder image
-import gutterCleaningImage6 from '../assets/images/IMG_4198.JPG'; // Placeholder image
+import gutterCleaningHero from '../assets/images/gutter cleaning.jpg'; // Using existing image for hero
+import gutterCleaningImage1 from '../assets/images/gutter cleaning 1.jpg'; // Placeholder image
+import gutterCleaningImage2 from '../assets/images/gutter cleaning 2.jpg'; // Placeholder image
+import gutterCleaningImage3 from '../assets/images/gutter cleaning 3.jpg'; // Placeholder image
+import gutterCleaningImage4 from '../assets/images/gutter cleaning 4.jpg'; // Placeholder image
+import gutterCleaningImage5 from '../assets/images/gutter cleaning 5.jpg'; // Placeholder image
+import gutterCleaningImage6 from '../assets/images/gutter cleaning 6.jpg'; // Placeholder image
 
 const GutterCleaning = () => {
     useEffect(() => {
