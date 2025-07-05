@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false); // New state for dropdown
     const location = useLocation();
     
     const isHomePage = location.pathname === '/';
@@ -33,14 +34,13 @@ const Header = () => {
             return location.pathname === '/';
         }
         
-        if (path === '/services') {
-            return location.pathname.includes('cleaning');
+        // Check if current path is a sub-item of services
+        if (path === '/services' && location.pathname.includes('-cleaning') || location.pathname.includes('-washing')) {
+            return true;
         }
         
         return location.pathname === path;
     };
-
-    
 
     const navItems = [
         { path: '/', label: 'Home' },
@@ -80,19 +80,23 @@ const Header = () => {
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center space-x-6">
                     {navItems.map((item) => (
-                        <div key={item.path} className="relative group">
-                            <Link 
-                                to={item.path}
-                                className={`relative group inline-block py-2 ${
-                                    isActiveRoute(item.path) ? activeTextColor : textColor
-                                } hover:${isHomePage && !isScrolled ? 'text-white/80' : 'text-[#0A3D62]'} transition-colors`}
-                            >
-                                <span className="flex items-center">
-                                    {item.label}
-                                    {item.subItems && (
+                        <div 
+                            key={item.path} 
+                            className="relative group"
+                            onMouseEnter={() => item.subItems && setIsServicesDropdownOpen(true)}
+                            onMouseLeave={() => item.subItems && setIsServicesDropdownOpen(false)}
+                        >
+                            {item.subItems ? (
+                                <div // Changed from Link to div
+                                    className={`relative inline-block py-2 cursor-pointer ${
+                                        isActiveRoute(item.path) ? activeTextColor : textColor
+                                    } hover:${isHomePage && !isScrolled ? 'text-white/80' : 'text-[#0A3D62]'} transition-colors`}
+                                >
+                                    <span className="flex items-center">
+                                        {item.label}
                                         <svg 
                                             className={`w-4 h-4 ml-1 transition-transform ${
-                                                isActiveRoute(item.path) ? 'rotate-180' : ''
+                                                isServicesDropdownOpen ? 'rotate-180' : '' // Use new state
                                             }`} 
                                             fill="none" 
                                             stroke="currentColor" 
@@ -100,16 +104,34 @@ const Header = () => {
                                         >
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                                         </svg>
-                                    )}
-                                </span>
-                                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
-                                    isHomePage && !isScrolled ? 'bg-white' : 'bg-[#0A3D62]'
-                                } transition-all group-hover:w-full ${
-                                    isActiveRoute(item.path) ? 'w-full' : ''
-                                }`}></span>
-                            </Link>
+                                    </span>
+                                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
+                                        isHomePage && !isScrolled ? 'bg-white' : 'bg-[#0A3D62]'
+                                    } transition-all group-hover:w-full ${
+                                        isActiveRoute(item.path) ? 'w-full' : ''
+                                    }`}></span>
+                                </div>
+                            ) : (
+                                <Link 
+                                    to={item.path}
+                                    className={`relative inline-block py-2 ${
+                                        isActiveRoute(item.path) ? activeTextColor : textColor
+                                    } hover:${isHomePage && !isScrolled ? 'text-white/80' : 'text-[#0A3D62]'} transition-colors`}
+                                >
+                                    <span className="flex items-center">
+                                        {item.label}
+                                    </span>
+                                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
+                                        isHomePage && !isScrolled ? 'bg-white' : 'bg-[#0A3D62]'
+                                    } transition-all group-hover:w-full ${
+                                        isActiveRoute(item.path) ? 'w-full' : ''
+                                    }`}></span>
+                                </Link>
+                            )}
                             {item.subItems && (
-                                <div className="absolute left-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                                <div className={`absolute left-0 mt-2 w-64 ${
+                                    isServicesDropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible' // Use new state
+                                } transition-all duration-300`}>
                                     <div className="py-2 mt-2 bg-white rounded-xl shadow-xl border border-gray-100">
                                         {item.subItems.map((subItem) => (
                                             <Link
