@@ -249,7 +249,7 @@ const OfficeCleaning = () => {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.9 }}
-                                    className="absolute -bottom-6 -left-6 bg-white rounded-xl p-6 shadow-xl w-72"
+                                    className="absolute -bottom-6 -left-6 bg-white rounded-xl p-6 shadow-xl"
                                 >
                                     <div className="flex items-center space-x-4">
                                         <div className="bg-cyan/10 p-3 rounded-lg">
