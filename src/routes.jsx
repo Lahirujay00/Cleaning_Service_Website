@@ -6,6 +6,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import CarpetCleaning from './pages/CarpetCleaning';
 import GutterCleaning from './pages/GutterCleaning';
+import HighPressureWashing from './pages/HighPressureWashing';
 
 const Routes = () => {
     return (
@@ -17,6 +18,7 @@ const Routes = () => {
                 <Route path="/contact" component={Contact} />
                 <Route path="/carpet-cleaning" component={CarpetCleaning} />
                 <Route path="/gutter-cleaning" component={GutterCleaning} />
+                <Route path="/high-pressure-washing" component={HighPressureWashing} />
             </Switch>
         </Router>
     );
