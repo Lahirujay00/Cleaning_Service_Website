@@ -13,7 +13,7 @@ module.exports = {
         gry: '#333333',
         lightgreen: '#F0F9FF',
         blue: '#0A3D62',
-        darkgreen: '#0A3D62',
+        darkgreen: '#0D7D8A',
       },
       borderRadius: {
         'xl': '1rem',

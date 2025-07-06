@@ -76,11 +76,6 @@ button:hover {
     @apply border border-gray-300 rounded-lg p-2 w-full;
 }
 
-.footer {
-    @apply p-4;
-    background-color: #0A3D62;
-    color: white;
-}
 
 /* Custom utilities for our color palette */
 .bg-primary {
