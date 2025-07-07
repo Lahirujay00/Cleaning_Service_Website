@@ -1,27 +1,28 @@
 import React from 'react';
 import ServiceCard from '../components/ServiceCard';
-import { ReactComponent as ResidentialIcon } from '../assets/images/service-icons/residential.svg';
-import { ReactComponent as CommercialIcon } from '../assets/images/service-icons/commercial.svg';
-import { ReactComponent as SpecializedIcon } from '../assets/images/service-icons/specialized.svg';
+import { Link } from 'react-router-dom';
 
 const servicesData = [
     {
         id: 1,
-        icon: <ResidentialIcon className="w-16 h-16 mb-4" />,
+        iconPath: '/src/assets/images/service-icons/residential.svg',
         title: 'Residential Cleaning',
-        description: 'Thorough cleaning services for your home, ensuring a spotless environment for you and your family.'
+        description: 'Thorough cleaning services for your home, ensuring a spotless environment for you and your family.',
+        link: '/residential-cleaning'
     },
     {
         id: 2,
-        icon: <CommercialIcon className="w-16 h-16 mb-4" />,
+        iconPath: '/src/assets/images/service-icons/commercial.svg',
         title: 'Commercial Cleaning',
-        description: 'Professional cleaning solutions for offices and commercial spaces, tailored to your business needs.'
+        description: 'Professional cleaning solutions for offices and commercial spaces, tailored to your business needs.',
+        link: '/office-cleaning'
     },
     {
         id: 3,
-        icon: <SpecializedIcon className="w-16 h-16 mb-4" />,
+        iconPath: '/src/assets/images/service-icons/specialized.svg',
         title: 'Specialized Cleaning',
-        description: 'Custom cleaning services for unique situations, including post-construction and deep cleaning.'
+        description: 'Custom cleaning services for unique situations, including post-construction and deep cleaning.',
+        link: '/carpet-cleaning' // Assuming specialized cleaning links to carpet for now, adjust as needed
     }
 ];
 
@@ -31,7 +32,9 @@ const Services = () => {
             <h2 className="text-3xl font-bold text-center mb-8">Our Services</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {servicesData.map(service => (
-                    <ServiceCard key={service.id} icon={service.icon} title={service.title} description={service.description} />
+                    <Link to={service.link} key={service.id} className="block">
+                        <ServiceCard iconPath={service.iconPath} title={service.title} description={service.description} />
+                    </Link>
                 ))}
             </div>
         </div>

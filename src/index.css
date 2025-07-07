@@ -40,6 +40,16 @@ button:hover {
     background-color: #218393;
 }
 
+header a:hover,
+header a:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline-width: 0 !important;
+    outline-style: none !important;
+    outline-offset: 0 !important;
+}
+
 /* Card button styling - new class */
 .card-button {
     @apply inline-flex items-center justify-center gap-2 py-2.5 px-6 rounded-lg font-medium transition-all duration-300;

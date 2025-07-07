@@ -8,7 +8,8 @@ const Header = () => {
     const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false); // New state for dropdown
     const location = useLocation();
     
-    const isHomePage = location.pathname === '/';
+    // isHomePage will now always be false for styling purposes to ensure solid header
+    const isHomePage = false; 
     
     useEffect(() => {
         const handleScroll = () => {
@@ -24,10 +25,9 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const textColor = isHomePage && !isScrolled ? 'text-white' : 'text-gray-600';
-    const activeTextColor = isHomePage && !isScrolled 
-        ? 'text-white font-semibold' 
-        : 'text-[#0A3D62] font-semibold';
+    // Text colors are now fixed for solid header
+    const textColor = 'text-gray-600';
+    const activeTextColor = 'text-[#0A3D62] font-semibold';
     
     const isActiveRoute = (path) => {
         if (path === '/') {
@@ -62,19 +62,17 @@ const Header = () => {
     
     return (
         <header 
-            className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-                isScrolled || !isHomePage ? 'bg-white shadow-lg' : 'bg-transparent'
-            } py-3`}
+            // Header is always solid white with shadow
+            className={`fixed w-full top-0 z-50 transition-all duration-300 bg-white shadow-lg py-3`}
         >
             <div className="container mx-auto px-4 flex justify-between items-center">
                 <Link to="/" className="flex items-center group">
-                    <motion.span 
-                        className={`text-2xl font-bold ${isScrolled || !isHomePage ? 'text-[#0A3D62]' : 'text-white'}`}
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    <span 
+                        // Text color fixed for solid header
+                        className={`text-2xl font-bold text-[#0A3D62]`}
                     >
                         SparkWise
-                    </motion.span>
+                    </span>
                 </Link>
                 
                 {/* Desktop Navigation */}
@@ -90,7 +88,7 @@ const Header = () => {
                                 <div // Changed from Link to div
                                     className={`relative inline-block py-2 cursor-pointer ${
                                         isActiveRoute(item.path) ? activeTextColor : textColor
-                                    } hover:${isHomePage && !isScrolled ? 'text-white/80' : 'text-[#0A3D62]'} transition-colors`}
+                                    } hover:text-[#0A3D62] transition-colors`}
                                 >
                                     <span className="flex items-center">
                                         {item.label}
@@ -105,25 +103,22 @@ const Header = () => {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                                         </svg>
                                     </span>
-                                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
-                                        isHomePage && !isScrolled ? 'bg-white' : 'bg-[#0A3D62]'
-                                    } transition-all group-hover:w-full ${
+                                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-[#0A3D62] transition-all group-hover:w-full ${
                                         isActiveRoute(item.path) ? 'w-full' : ''
                                     }`}></span>
                                 </div>
                             ) : (
                                 <Link 
                                     to={item.path}
-                                    className={`relative inline-block py-2 ${
+                                    className={`header-nav relative inline-block py-2 ${
                                         isActiveRoute(item.path) ? activeTextColor : textColor
-                                    } hover:${isHomePage && !isScrolled ? 'text-white/80' : 'text-[#0A3D62]'} transition-colors`}
+                                    } hover:text-[#0A3D62] transition-colors`}
+                                    style={{ outline: 'none !important', boxShadow: 'none !important', border: 'none !important' }}
                                 >
                                     <span className="flex items-center">
                                         {item.label}
                                     </span>
-                                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
-                                        isHomePage && !isScrolled ? 'bg-white' : 'bg-[#0A3D62]'
-                                    } transition-all group-hover:w-full ${
+                                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-[#0A3D62] transition-all group-hover:w-full ${
                                         isActiveRoute(item.path) ? 'w-full' : ''
                                     }`}></span>
                                 </Link>
@@ -137,11 +132,13 @@ const Header = () => {
                                             <Link
                                                 key={subItem.path}
                                                 to={subItem.path}
-                                                className={`block px-4 py-2.5 text-sm ${
+                                                className={`header-nav block px-4 py-2.5 text-sm ${
                                                     location.pathname === subItem.path
                                                         ? 'text-[#0A3D62] bg-gray-50 font-semibold' 
                                                         : 'text-gray-600'
-                                                } hover:text-[#0A3D62] hover:bg-gray-50 transition-colors`}
+                                                } hover:text-[#0A3D62] hover:bg-gray-50 transition-colors rounded-lg pl-3`}
+                                                    onClick={() => setIsMobileMenuOpen(false)}
+                                                    style={{ outline: 'none !important', boxShadow: 'none !important', border: 'none !important' }}
                                             >
                                                 {subItem.label}
                                             </Link>
@@ -161,7 +158,7 @@ const Header = () => {
                     aria-label="Toggle menu"
                 >
                     <svg 
-                        className={`w-6 h-6 ${isHomePage && !isScrolled ? 'text-white' : 'text-gray-600'}`} 
+                        className={`w-6 h-6 text-gray-600`} 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
@@ -190,12 +187,13 @@ const Header = () => {
                                 <div key={item.path}>
                                     <Link 
                                         to={item.path}
-                                        className={`block py-2 ${
+                                        className={`header-nav block py-2 ${
                                             isActiveRoute(item.path)
                                                 ? 'text-[#0A3D62] font-semibold' 
                                                 : 'text-gray-600'
                                         } hover:text-[#0A3D62] transition-colors`}
                                         onClick={() => !item.subItems && setIsMobileMenuOpen(false)}
+                                        style={{ outline: 'none !important', boxShadow: 'none !important', border: 'none !important' }}
                                     >
                                         {item.label}
                                     </Link>
@@ -205,7 +203,7 @@ const Header = () => {
                                                 <Link
                                                     key={subItem.path}
                                                     to={subItem.path}
-                                                    className={`block py-2.5 text-sm ${
+                                                    className={`block py-2.5 text-sm focus:outline-none ${
                                                         location.pathname === subItem.path
                                                             ? 'text-[#0A3D62] bg-gray-50 font-semibold' 
                                                             : 'text-gray-600'
