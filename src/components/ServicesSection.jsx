@@ -136,7 +136,7 @@ const ServicesSection = () => {
     ];
 
     return (
-        <section id="services" className="py-20 px-4 bg-[#F0F9FF]">
+        <section id="services" className="py-20 px-4 bg-lightgreen">
             <div className="max-w-7xl mx-auto">
                 {/* Add animated underline for heading */}
                 <div className="text-center mb-16" data-aos="fade-down">

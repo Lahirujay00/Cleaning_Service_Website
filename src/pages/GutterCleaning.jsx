@@ -130,7 +130,7 @@ const GutterCleaning = () => {
             {/* Hero Section */}
             <section className="relative min-h-screen bg-gradient-to-br from-[#F8FAFC] via-[#E2E8F0] to-[#CBD5E1]">
                 {/* Background Pattern */}
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBfiWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6IiBzdHJva2U9InJnYmEoMCwwLDAsMC4xKSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==')] opacity-5"></div>
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBfiWxsPSJub25lIiBfiWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6IiBzdHJva2U9InJnYmEoMCwwLDAsMC4xKSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==')] opacity-5"></div>
 
                 {/* Content Container */}
                 <div className="relative container mx-auto px-4 h-screen flex items-center">
@@ -329,7 +329,7 @@ const GutterCleaning = () => {
             </section>
 
             {/* Ideal For Section */}
-            <section className="py-20 bg-[#F0F9FF]">
+            <section className="py-20 bg-lightgreen">
                 <div className="container mx-auto px-4">
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <motion.h2 
@@ -371,7 +371,7 @@ const GutterCleaning = () => {
                                     className="bg-white rounded-xl shadow-lg p-8 text-center relative overflow-hidden"
                                 >
                                     <div className="absolute top-0 left-0 right-0 h-2" style={{ backgroundColor: item.color }}></div>
-                                    <div className="rounded-full bg-[#F0F9FF] p-6 w-20 h-20 flex items-center justify-center mx-auto mb-6 text-[#2CA2B0]">
+                                    <div className="rounded-full bg-lightgreen p-6 w-20 h-20 flex items-center justify-center mx-auto mb-6 text-[#2CA2B0]">
                                         <span className="text-3xl">{item.icon}</span>
                                     </div>
                                     <h3 className="text-xl font-bold mb-4 text-[#333333]">{item.title}</h3>
@@ -508,7 +508,7 @@ const GutterCleaning = () => {
             {/* Call to Action Section */}
             <section id="contact-us" className="py-24 bg-gradient-to-br from-white to-cyan/5 relative overflow-hidden">
                 {/* Background Pattern */}
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBfiWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6IiBzdHJva2U9InJnYmEoMCwwLDAsMC4xKSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==')] opacity-5"></div>
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCI xeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBfiWxsPSJub25lIiBfiWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6IiBzdHJva2U9InJnYmEoMCwwLDAsMC4xKSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==')] opacity-5"></div>
                 
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-6xl mx-auto">
@@ -559,7 +559,8 @@ const GutterCleaning = () => {
                                 {/* CTA Button */}
                                 <a
                                     href="/contact"
-                                    className="inline-flex items-center bg-cyan text-white hover:bg-darkgreen hover:text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all group"
+                                    className="inline-flex items-center bg-cyan text-white hover:bg-darkgreen hover:text-white px-8 py-4 rounded-lg 
+                                             font-semibold transition-all flex items-center group shadow-lg hover:shadow-xl"
                                 >
                                     Book Your Cleaning
                                     <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -591,7 +592,7 @@ const GutterCleaning = () => {
                                             "SparkWise Cleaning did an amazing job with our gutters! Professional, efficient, and they left the area spotless."
                                         </p>
                                         <div className="flex items-center space-x-3">
-                                            <div className="w-10 h-10 bg-cyan/20 rounded-full flex items-center justify-center">
+                                            <div className="w-10 h-10 bg-cyan/20 rounded-full flex items-center justify-center text-cyan">
                                                 <span className="text-cyan font-semibold">JD</span>
                                             </div>
                                             <div>

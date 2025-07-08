@@ -45,7 +45,7 @@ const AboutUs = () => {
                 {/* Removed problematic inline SVG background to fix syntax errors */}
                 
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
+                    <div className="max-w-3xl mx-auto text-center">
                         <motion.span
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -119,7 +119,7 @@ const AboutUs = () => {
                             <div className="absolute -bottom-8 -right-8 bg-white rounded-xl p-6 shadow-xl max-w-xs">
                                 <div className="text-cyan text-3xl mb-2">"</div>
                                 <p className="text-gray-700 italic mb-4">
-                                    Our goal is to exceed expectations with every clean, making your space shine while giving you more time for what matters most.
+                                    "Our goal is to exceed expectations with every clean, making your space shine while giving you more time for what matters most."
                                 </p>
                                 <div className="flex items-center">
                                     <span className="font-bold text-gray-800">Jane Smith</span>
@@ -133,7 +133,7 @@ const AboutUs = () => {
             </section>
 
             {/* Our Values Section */}
-            <section className="py-20 bg-[#F0F9FF]">
+            <section className="py-20 bg-lightgreen">
                 <div className="container mx-auto px-4">
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <motion.h2 
@@ -215,11 +215,11 @@ const AboutUs = () => {
 
                             {/* Team Stats */}
                             <div className="grid grid-cols-2 gap-6 mt-8">
-                                <div className="bg-[#F0F9FF] p-6 rounded-xl">
+                                <div className="bg-lightgreen p-6 rounded-xl">
                                     <div className="text-3xl font-bold text-cyan mb-2">15+</div>
                                     <p className="text-gray-700">Professional Cleaners</p>
                                 </div>
-                                <div className="bg-[#F0F9FF] p-6 rounded-xl">
+                                <div className="bg-lightgreen p-6 rounded-xl">
                                     <div className="text-3xl font-bold text-cyan mb-2">5+</div>
                                     <p className="text-gray-700">Years Experience</p>
                                 </div>
@@ -230,7 +230,7 @@ const AboutUs = () => {
             </section>
 
             {/* Why Choose Us */}
-            <section className="py-20 bg-[#F0F9FF]">
+            <section className="py-20 bg-lightgreen">
                 <div className="container mx-auto px-4">
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <motion.h2 

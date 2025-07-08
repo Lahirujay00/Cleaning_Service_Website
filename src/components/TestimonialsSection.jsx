@@ -22,7 +22,7 @@ const TestimonialsSection = () => {
             
             <div className="space-y-4 mb-6">
               <div className="flex items-start">
-                <div className="flex-shrink-0 bg-[#F0F9FF] p-2 rounded-lg mr-3 shadow-sm">
+                <div className="flex-shrink-0 bg-lightgreen p-2 rounded-lg mr-3 shadow-sm">
                   <svg className="w-5 h-5 text-[#2CA2B0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="flex-shrink-0 bg-[#F0F9FF] p-2 rounded-lg mr-3 shadow-sm">
+                <div className="flex-shrink-0 bg-lightgreen p-2 rounded-lg mr-3 shadow-sm">
                   <svg className="w-5 h-5 text-[#2CA2B0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>

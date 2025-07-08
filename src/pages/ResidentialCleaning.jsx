@@ -96,29 +96,8 @@ const ResidentialCleaning = () => {
             icon: (
                 <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
                     {/* House Base */}
-                    <path d="M20 48L48 20L76 48V80H20V48Z" fill="#E6F7FF"/>
-                    <path d="M20 48L48 20L76 48V80H20V48Z" stroke="#2CA2B0" strokeWidth="2"/>
-                    
-                    {/* Windows */}
-                    <rect x="30" y="52" width="12" height="12" fill="white" stroke="#2CA2B0" strokeWidth="2"/>
-                    <rect x="54" y="52" width="12" height="12" fill="white" stroke="#2CA2B0" strokeWidth="2"/>
-                    
-                    {/* Door */}
-                    <path d="M44 80V64H52V80" fill="white" stroke="#2CA2B0" strokeWidth="2"/>
-                    
-                    {/* Cleaning Elements */}
-                    <circle cx="36" y="58" r="2" fill="#2CA2B0" fillOpacity="0.5"/>
-                    <circle cx="60" y="58" r="2" fill="#2CA2B0" fillOpacity="0.5"/>
-                    
-                    {/* Calendar Elements */}
-                    <rect x="28" y="30" width="40" height="6" fill="#2CA2B0" rx="2"/>
-                    <rect x="28" y="36" width="40" height="30" fill="white" stroke="#2CA2B0" strokeWidth="2"/>
-                    <path d="M35 42V62M48 42V62M61 42V62" stroke="#2CA2B0" strokeWidth="1" strokeDasharray="2 2"/>
-                    <path d="M32 48H64M32 54H64" stroke="#2CA2B0" strokeWidth="1" strokeDasharray="2 2"/>
-                    
-                    {/* Checkmark */}
-                    <circle cx="70" cy="26" r="10" fill="#2CA2B0" fillOpacity="0.2"/>
-                    <path d="M65 26L69 30L75 24" stroke="#2CA2B0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M20 48L48 20L76 48V80H20V48Z" fill="#E6F7FF" stroke="#2CA2B0" strokeWidth="2"/>
+                    <path d="M36 56H60V80H36V56Z" fill="#2CA2B0" stroke="#2CA2B0" strokeWidth="2"/>
                 </svg>
             ),
             title: "Regular Home Maintenance",
@@ -129,7 +108,7 @@ const ResidentialCleaning = () => {
             icon: (
                 <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
                     {/* Room Layout */}
-                    <rect x="16" y="16" width="64" height="64" rx="4" fill="#E6F7FF"/>
+                    <rect x="16" y="16" width="64" height="64" rx="4" fill="#E6F7FF" stroke="#2CA2B0" strokeWidth="2"/>
                     
                     {/* Deep Clean Elements */}
                     {/* Vacuum Lines */}
@@ -178,9 +157,9 @@ const ResidentialCleaning = () => {
                     <path d="M24 36V46M72 36V46" stroke="#2CA2B0" strokeWidth="2"/>
                     
                     {/* Cleaning Elements */}
-                    <circle cx="32" cy="24" r="2" fill="#2CA2B0" fillOpacity="0.5"/>
-                    <circle cx="48" cy="20" r="2" fill="#2CA2B0" fillOpacity="0.5"/>
-                    <circle cx="64" cy="24" r="2" fill="#2CA2B0" fillOpacity="0.5"/>
+                    <circle cx="32" cy="24" r="2" fill="#2CA2B0" fillOpacity="0.6"/>
+                    <circle cx="48" cy="20" r="2" fill="#2CA2B0" fillOpacity="0.6"/>
+                    <circle cx="64" cy="24" r="2" fill="#2CA2B0" fillOpacity="0.6"/>
                     
                     {/* Arrow Indicating Movement */}
                     <path d="M75 65L85 65" stroke="#2CA2B0" strokeWidth="2" strokeLinecap="round"/>
@@ -422,7 +401,7 @@ const ResidentialCleaning = () => {
             </section>
             
             {/* Ideal For Section */}
-            <section className="py-20 bg-[#F0F9FF]">
+            <section className="py-20 bg-lightgreen">
                 <div className="container mx-auto px-4">
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <motion.h2 
@@ -465,7 +444,7 @@ const ResidentialCleaning = () => {
                                     className="bg-white rounded-xl shadow-lg p-8 text-center relative overflow-hidden"
                                 >
                                     <div className="absolute top-0 left-0 right-0 h-2" style={{ backgroundColor: item.color }}></div>
-                                    <div className="rounded-full bg-[#F0F9FF] p-6 w-20 h-20 flex items-center justify-center mx-auto mb-6 text-[#2CA2B0]">
+                                    <div className="rounded-full bg-lightgreen p-6 w-20 h-20 flex items-center justify-center mx-auto mb-6 text-[#2CA2B0]">
                                         <span className="text-3xl">{item.icon}</span>
                                     </div>
                                     <h3 className="text-xl font-bold mb-4 text-[#333333]">{item.title}</h3>
@@ -602,7 +581,7 @@ const ResidentialCleaning = () => {
             {/* Call to Action Section */}
             <section id="contact-us" className="py-24 bg-gradient-to-br from-white to-cyan/5 relative overflow-hidden">
                 {/* Background Pattern */}
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6IiBzdHJva2U9InJnYmEoMCwwLDAsMC4xKSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==')] opacity-5"></div>
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCI yeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBfiWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6IiBzdHJva2U9InJnYmEoMCwwLDAsMC4xKSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==')] opacity-5"></div>
                 
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-6xl mx-auto">
@@ -653,7 +632,7 @@ const ResidentialCleaning = () => {
                                 {/* CTA Button */}
                                 <a
                                     href="/contact"
-                                    className="inline-flex items-center bg-cyan text-white hover:bg-darkgreen hover:text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all group"
+                                    className="inline-flex items-center bg-cyan text-white hover:bg-darkgreen hover:text-white px-8 py-4 rounded-xl font-semibold transition-all flex items-center group shadow-lg hover:shadow-xl"
                                 >
                                     Book Your Cleaning
                                     <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -685,7 +664,7 @@ const ResidentialCleaning = () => {
                                             "The cleaning service was exceptional! They transformed my home and their attention to detail was impressive."
                                         </p>
                                         <div className="flex items-center space-x-3">
-                                            <div className="w-10 h-10 bg-cyan/20 rounded-full flex items-center justify-center">
+                                            <div className="w-10 h-10 bg-cyan/20 rounded-full flex items-center justify-center text-cyan">
                                                 <span className="text-cyan font-semibold">SJ</span>
                                             </div>
                                             <div>

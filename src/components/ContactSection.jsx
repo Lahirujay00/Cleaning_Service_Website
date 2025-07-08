@@ -53,7 +53,7 @@ const ContactSection = () => {
             </form>
           </div>
           
-          <div className="bg-[#F0F9FF] rounded-xl p-8" data-aos="fade-left">
+          <div className="bg-lightgreen rounded-xl p-8" data-aos="fade-left">
             <h3 className="text-2xl font-bold mb-6 text-[#333333]">Get In Touch</h3>
             
             <div className="space-y-6">

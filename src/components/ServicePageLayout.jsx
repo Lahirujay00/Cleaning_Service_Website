@@ -6,7 +6,7 @@ const ServicePageLayout = ({ service }) => {
     const { title, description, image, content, features } = service;
     
     return (
-        <div className="bg-[#F0F9FF] min-h-screen flex flex-col">
+        <div className="bg-lightgreen min-h-screen flex flex-col">
             <Header />
             
             {/* Hero section */}
@@ -47,7 +47,7 @@ const ServicePageLayout = ({ service }) => {
                                 <div className="grid md:grid-cols-2 gap-6">
                                     {features.map((feature, index) => (
                                         <div key={index} className="flex items-start">
-                                            <div className="flex-shrink-0 bg-[#F0F9FF] p-3 rounded-full mr-4">
+                                            <div className="flex-shrink-0 bg-lightgreen p-3 rounded-full mr-4">
                                                 <svg className="w-6 h-6 text-[#2CA2B0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                                 </svg>
