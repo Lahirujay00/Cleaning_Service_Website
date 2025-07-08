@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { 
     FiCalendar,
     FiStar,
@@ -651,34 +650,7 @@ const HighPressureWashing = () => {
                 </div>
             </section>
 
-            {/* Contact Details Footer Banner */}
-            <div className="bg-cyan/5 py-4">
-                <div className="container mx-auto px-4">
-                    <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-                        <a href="tel:0413636785" className="flex items-center space-x-2 text-gray-600 hover:text-cyan">
-                            <FiPhone className="text-cyan" />
-                            <span>Call/WhatsApp: 0413 636 785</span>
-                        </a>
-                        <a href="mailto:sparkwisecleaning@gmail.com" className="flex items-center space-x-2 text-gray-600 hover:text-cyan">
-                            <FiMail className="text-cyan" />
-                            <span>sparkwisecleaning@gmail.com</span>
-                        </a>
-                        <a 
-                            href="https://www.facebook.com/SparkWise8?mibextid=ZbWKwL" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="flex items-center space-x-2 text-gray-600 hover:text-cyan"
-                        >
-                            <svg className="w-4 h-4 text-cyan" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                            </svg>
-                            <span>Follow us on Facebook</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
 
-            <Footer />
         </div>
     );
 };

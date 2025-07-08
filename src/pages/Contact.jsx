@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { FiMapPin, FiPhone, FiMail, FiClock, FiSend, FiUser, FiMessageSquare } from 'react-icons/fi';
 
 const Contact = () => {
@@ -213,8 +212,6 @@ const Contact = () => {
                     ></iframe>
                 </div>
             </div>
-            
-            <Footer />
         </div>
     );
 };
