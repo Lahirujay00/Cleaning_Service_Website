@@ -52,7 +52,7 @@ const TestimonialsSection = () => {
             <div className="mt-6">
               <a 
                 href="#contact" 
-                className="inline-flex items-center px-5 py-3 bg-[#2CA2B0] text-white rounded-lg hover:bg-[#0A3D62] transition-colors duration-300"
+                className="inline-flex items-center px-5 py-3 bg-cyan text-white rounded-lg hover:bg-darkgreen hover:text-white transition-colors duration-300"
               >
                 <span className="mr-2">Schedule a Service</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

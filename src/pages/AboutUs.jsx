@@ -281,7 +281,7 @@ const AboutUs = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 bg-gradient-to-r from-[#0A3D62] to-cyan relative overflow-hidden">
+            <section className="py-20 bg-gradient-to-r from-blue to-cyan relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
                     <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full"></div>
                     <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/5 rounded-full"></div>
