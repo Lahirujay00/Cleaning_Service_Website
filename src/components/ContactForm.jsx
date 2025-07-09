@@ -16,10 +16,28 @@ const ContactForm = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         // Handle form submission logic here
-        console.log('Form submitted:', formData);
+        try {
+            const response = await fetch('http://localhost:3001/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                alert('Message sent successfully!');
+                setFormData({ name: '', email: '', phone: '', message: '' });
+            } else {
+                alert('Failed to send message. Please try again later.');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('An error occurred. Please try again later.');
+        }
     };
 
     return (
