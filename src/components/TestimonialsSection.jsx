@@ -18,12 +18,12 @@ const TestimonialsSection = () => {
             className="lg:col-span-2 bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
             data-aos="fade-right"
           >
-            <h3 className="text-2xl font-bold mb-4 text-[#0A3D62]">Areas We Serve</h3>
+            <h3 className="text-2xl font-bold mb-4 text-blue">Areas We Serve</h3>
             
             <div className="space-y-4 mb-6">
               <div className="flex items-start">
                 <div className="flex-shrink-0 bg-lightgreen p-2 rounded-lg mr-3 shadow-sm">
-                  <svg className="w-5 h-5 text-[#2CA2B0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                   </svg>
@@ -37,7 +37,7 @@ const TestimonialsSection = () => {
               
               <div className="flex items-start">
                 <div className="flex-shrink-0 bg-lightgreen p-2 rounded-lg mr-3 shadow-sm">
-                  <svg className="w-5 h-5 text-[#2CA2B0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
