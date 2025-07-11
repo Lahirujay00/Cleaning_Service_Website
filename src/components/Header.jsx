@@ -191,7 +191,7 @@ const Header = () => {
                     ))}
                     {/* CTA Button */}
                     <Link to="/contact" className="ml-6">
-                        <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                        <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-md transition duration-300 ease-in-out hover:shadow-lg">
                             Get a Free Quote
                         </button>
                     </Link>
@@ -268,7 +268,7 @@ const Header = () => {
                             ))}
                             {/* Mobile CTA Button */}
                             <Link to="/contact" className="mt-4 block">
-                                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-md transition duration-300 ease-in-out hover:shadow-lg">
                                     Get a Free Quote
                                 </button>
                             </Link>
