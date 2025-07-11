@@ -8,6 +8,8 @@ import {
     FiStar,
     FiShield
 } from 'react-icons/fi';
+import teamImage from '../assets/images/team.jpeg'; // Adjust the path as necessary
+import mythree from '../assets/images/mythree.jpg'; // Adjust the path as necessary
 
 const AboutUs = () => {
     useEffect(() => {
@@ -109,7 +111,7 @@ const AboutUs = () => {
                         >
                             <div className="bg-gray-100 rounded-2xl p-6 h-[400px] flex items-center justify-center">
                                 <img 
-                                    src="/my3.jpg" 
+                                    src={mythree} 
                                     alt="Our Founder" 
                                     className="rounded-xl shadow-lg object-cover w-full h-full"
                                 />
@@ -122,7 +124,7 @@ const AboutUs = () => {
                                     "Our goal is to exceed expectations with every clean, making your space shine while giving you more time for what matters most."
                                 </p>
                                 <div className="flex items-center">
-                                    <span className="font-bold text-gray-800">Jane Smith</span>
+                                    <span className="font-bold text-gray-800">Mythree</span>
                                     <span className="mx-2">·</span>
                                     <span className="text-gray-600">Founder</span>
                                 </div>
@@ -190,7 +192,7 @@ const AboutUs = () => {
                         >
                             <div className="bg-gray-100 rounded-2xl p-6 h-[400px] flex items-center justify-center">
                                 <img 
-                                    src="/src/assets/images/herobg.JPG" 
+                                    src={teamImage}
                                     alt="Our Team" 
                                     className="rounded-xl shadow-lg object-cover w-full h-full"
                                 />
