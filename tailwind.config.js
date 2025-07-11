@@ -1,6 +1,6 @@
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
@@ -42,7 +42,15 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      // Enable hover, focus, active variants by default
+      backgroundColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+      textColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+      borderColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+      boxShadow: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+      transform: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
+      opacity: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
+    },
   },
   plugins: [],
 }
