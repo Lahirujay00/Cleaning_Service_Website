@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-size: 90%; /* Scale down overall UI by 10% to match previous 90% browser zoom appearance at 100% browser zoom */
+}
+
 :root {
   --primary-color: #2CA2B0;
   --primary-dark: #0A3D62;
