@@ -6,224 +6,459 @@ import {
     FiHeart, 
     FiCheck,
     FiStar,
-    FiShield
+    FiShield,
+    FiTarget,
+    FiTrendingUp,
+    FiClock,
+    FiZap,
+    FiEye,
+    FiArrowRight
 } from 'react-icons/fi';
-import teamImage from '../assets/images/team.jpeg'; // Adjust the path as necessary
-import mythree from '../assets/images/mythree.jpg'; // Adjust the path as necessary
+import teamImage from '../assets/images/team.jpeg';
+import mythree from '../assets/images/mythree.jpg';
 
 const AboutUs = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
+    const stats = [
+        { number: '500+', label: 'Happy Clients', icon: <FiUsers /> },
+        { number: '15+', label: 'Team Members', icon: <FiUsers /> },
+        { number: '7+', label: 'Years Experience', icon: <FiClock /> },
+        { number: '98%', label: 'Satisfaction Rate', icon: <FiStar /> }
+    ];
+
     const values = [
         { 
             icon: <FiHeart />,
-            title: "Care & Commitment",
-            description: "We treat every home and office with the utmost care, as if it were our own."
-        },
-        { 
-            icon: <FiAward />,
-            title: "Quality Service",
-            description: "We maintain the highest standards of cleaning and customer satisfaction."
+            title: "Excellence First",
+            description: "We pursue perfection in every detail, treating each space as our masterpiece.",
+            color: "from-red-100 to-pink-100"
         },
         { 
             icon: <FiShield />,
-            title: "Reliability",
-            description: "Count on us to be there when scheduled, with consistent and dependable service."
+            title: "Trust & Reliability",
+            description: "Consistent, dependable service you can count on, every single time.",
+            color: "from-blue-100 to-cyan-100"
         },
         { 
-            icon: <FiUsers />,
-            title: "Customer Focus",
-            description: "Your specific needs and preferences are always our top priority."
+            icon: <FiZap />,
+            title: "Innovation",
+            description: "Latest techniques and eco-friendly solutions for superior results.",
+            color: "from-yellow-100 to-orange-100"
+        },
+        { 
+            icon: <FiEye />,
+            title: "Attention to Detail",
+            description: "No corner unturned, no surface overlooked in our meticulous approach.",
+            color: "from-green-100 to-emerald-100"
         }
     ];
 
+    const milestones = [
+        { year: '2018', title: 'Company Founded', description: 'Started with a vision to revolutionize cleaning services' },
+        { year: '2020', title: 'Team Expansion', description: 'Grew to 15+ professional cleaning specialists' },
+        { year: '2022', title: 'Commercial Success', description: 'Expanded into commercial and office cleaning services' },
+        { year: '2025', title: 'Industry Leader', description: 'Recognized as the premier cleaning service in the region' }
+    ];
+
     return (
-        <div className="flex flex-col min-h-screen">
-            {/* Hero Section */}
-            <section className="relative py-32 bg-gradient-to-br from-[#F8FAFC] via-[#E2E8F0] to-[#CBD5E1]">
-                {/* Background Pattern */}
-                {/* Removed problematic inline SVG background to fix syntax errors */}
+        <div className="flex flex-col min-h-screen bg-white">
+            {/* Hero Section - Modern Gradient */}
+            <section className="relative py-24 md:py-32 overflow-hidden">
+                {/* Animated Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900"></div>
+                <div className="absolute inset-0 opacity-20">
+                    <div className="absolute inset-0" style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+                    }}></div>
+                </div>
+                
+                {/* Floating Elements */}
+                <div className="absolute top-20 left-10 w-20 h-20 bg-cyan-400/10 rounded-full blur-xl animate-pulse"></div>
+                <div className="absolute bottom-20 right-10 w-32 h-32 bg-blue-400/10 rounded-full blur-xl animate-pulse delay-1000"></div>
                 
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <motion.span
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="inline-block bg-cyan text-white px-4 py-1 rounded-full text-sm font-semibold mb-6"
-                        >
-                            OUR STORY
-                        </motion.span>
-
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-800"
-                        >
-                            About <span className="text-cyan">SparkWise</span> Cleaning
-                        </motion.h1>
-                        
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="text-xl text-gray-700 leading-relaxed mb-8"
-                        >
-                            Dedicated to creating cleaner, healthier spaces for homes and businesses across the community.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
-
-            {/* Our Story Section */}
-            <section className="py-20 bg-white">
-                <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div className="max-w-4xl mx-auto text-center">
                         <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
                             className="space-y-6"
                         >
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Our Journey</h2>
-                            <div className="h-1 w-20 bg-cyan"></div>
-                            <p className="text-gray-700">
-                                SparkWise Cleaning was founded in 2018 with a simple mission: to provide exceptional cleaning services that make a real difference in people's lives. What began as a small, local operation has grown into a trusted name in residential and commercial cleaning.
-                            </p>
-                            <p className="text-gray-700">
-                                Our founder, with over 15 years of experience in the cleaning industry, recognized a gap in the market for a service that truly cares about the details. We've built our reputation on thoroughness, reliability, and a genuine commitment to our clients' satisfaction.
-                            </p>
-                            <p className="text-gray-700">
-                                Today, we're proud to serve hundreds of homes and businesses, maintaining the same level of personalized care and attention to detail that defined us from day one.
-                            </p>
-                        </motion.div>
+                            <span className="inline-block bg-gradient-to-r from-cyan-400 to-blue-400 text-transparent bg-clip-text px-4 py-2 rounded-full text-sm font-bold tracking-wider uppercase border border-cyan-400/30">
+                                About Our Company
+                            </span>
 
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="relative"
-                        >
-                            <div className="bg-gray-100 rounded-2xl p-6 h-[400px] flex items-center justify-center">
-                                <img 
-                                    src={mythree} 
-                                    alt="Our Founder" 
-                                    className="rounded-xl shadow-lg object-cover w-full h-full"
-                                />
-                            </div>
+                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                                <span className="text-white">Redefining</span>{' '}
+                                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 text-transparent bg-clip-text">
+                                    Clean
+                                </span>
+                            </h1>
                             
-                            {/* Testimonial quote */}
-                            <div className="absolute -bottom-8 -right-8 bg-white rounded-xl p-6 shadow-xl max-w-xs">
-                                <div className="text-cyan text-3xl mb-2">"</div>
-                                <p className="text-gray-700 italic mb-4">
-                                    "Our goal is to exceed expectations with every clean, making your space shine while giving you more time for what matters most."
-                                </p>
-                                <div className="flex items-center">
-                                    <span className="font-bold text-gray-800">Mythree</span>
-                                    <span className="mx-2">·</span>
-                                    <span className="text-gray-600">Founder</span>
-                                </div>
+                            <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
+                                Where precision meets passion. We don't just clean spaces—we transform them into 
+                                environments that inspire, comfort, and energize.
+                            </p>
+
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+                                >
+                                    Our Services <FiArrowRight />
+                                </motion.button>
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="border border-cyan-400 text-cyan-400 px-8 py-4 rounded-full font-semibold hover:bg-cyan-400/10 transition-all duration-300"
+                                >
+                                    Contact Us
+                                </motion.button>
                             </div>
                         </motion.div>
                     </div>
                 </div>
-            </section>
 
-            {/* Our Values Section */}
-            <section className="py-20 bg-lightgreen">
-                <div className="container mx-auto px-4">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <motion.h2 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
-                            className="text-3xl md:text-4xl font-bold mb-6 text-gray-800"
-                        >
-                            Our <span className="text-cyan">Values</span>
-                        </motion.h2>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                            className="text-lg text-gray-600"
-                        >
-                            The principles that guide everything we do at SparkWise Cleaning
-                        </motion.p>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                        {values.map((value, index) => (
+                {/* Stats Section */}
+                <div className="container mx-auto px-4 mt-20">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                        {stats.map((stat, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300"
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                                className="text-center"
                             >
-                                <div className="bg-cyan/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                                    <span className="text-2xl text-cyan">{value.icon}</span>
+                                <div className="text-cyan-400 text-2xl mb-2 flex justify-center">
+                                    {stat.icon}
                                 </div>
-                                <h3 className="text-xl font-bold mb-4 text-gray-800">{value.title}</h3>
-                                <p className="text-gray-600">{value.description}</p>
+                                <div className="text-3xl md:text-4xl font-bold text-white mb-1">
+                                    {stat.number}
+                                </div>
+                                <div className="text-slate-400 text-sm uppercase tracking-wider">
+                                    {stat.label}
+                                </div>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Our Team Section */}
-            <section className="py-20 bg-white">
+            {/* Our Story Section - Modern Design */}
+            <section className="py-24 bg-gradient-to-b from-slate-50 to-white relative">
                 <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
+                            initial={{ opacity: 0, x: -40 }}
+                            whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="order-2 lg:order-1"
+                            transition={{ duration: 0.8 }}
+                            className="space-y-8"
                         >
-                            <div className="bg-gray-100 rounded-2xl p-6 h-[400px] flex items-center justify-center">
-                                <img 
-                                    src={teamImage}
-                                    alt="Our Team" 
-                                    className="rounded-xl shadow-lg object-cover w-full h-full"
-                                />
+                            <div className="space-y-4">
+                                <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-wider">Our Story</span>
+                                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                                    Built on <span className="text-cyan-600">Excellence</span>
+                                </h2>
+                                <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></div>
+                            </div>
+                            
+                            <div className="space-y-6 text-gray-700 leading-relaxed">
+                                <p className="text-lg">
+                                    Founded in 2018, SparkWise Cleaning emerged from a simple yet powerful vision: to revolutionize 
+                                    the cleaning industry through unwavering commitment to excellence and innovation.
+                                </p>
+                                <p>
+                                    What started as a small local operation has transformed into the region's most trusted cleaning 
+                                    service. Our growth isn't measured just in numbers, but in the countless smiles of satisfied 
+                                    clients and the pristine spaces we create every day.
+                                </p>
+                                <p>
+                                    Today, we proudly serve over 500 homes and businesses, maintaining the personal touch and 
+                                    attention to detail that has been our hallmark from day one.
+                                </p>
+                            </div>
+
+                            {/* Mission & Vision Cards */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+                                <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                                    <div className="text-cyan-600 mb-3">
+                                        <FiTarget size={24} />
+                                    </div>
+                                    <h3 className="font-bold text-gray-900 mb-2">Our Mission</h3>
+                                    <p className="text-gray-600 text-sm">Creating spotless spaces that enhance lives and productivity.</p>
+                                </div>
+                                <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                                    <div className="text-cyan-600 mb-3">
+                                        <FiEye size={24} />
+                                    </div>
+                                    <h3 className="font-bold text-gray-900 mb-2">Our Vision</h3>
+                                    <p className="text-gray-600 text-sm">To be the most trusted name in professional cleaning services.</p>
+                                </div>
                             </div>
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: 30 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="relative"
+                        >
+                            <div className="relative z-10">
+                                <div className="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-3xl p-8">
+                                    <img 
+                                        src={mythree} 
+                                        alt="Our Founder" 
+                                        className="rounded-2xl shadow-2xl object-cover w-full h-[500px]"
+                                    />
+                                </div>
+                                
+                                {/* Floating Quote Card */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.8, delay: 0.3 }}
+                                    className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-8 shadow-2xl max-w-xs border border-gray-100"
+                                >
+                                    <div className="text-cyan-600 text-4xl mb-4 font-serif">"</div>
+                                    <p className="text-gray-700 italic mb-6 leading-relaxed">
+                                        Excellence isn't just our standard—it's our promise. Every clean should exceed expectations.
+                                    </p>
+                                    <div className="flex items-center border-t border-gray-100 pt-4">
+                                        <div>
+                                            <span className="font-bold text-gray-900 block">Mythree</span>
+                                            <span className="text-cyan-600 text-sm">Founder & CEO</span>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            </div>
+                            
+                            {/* Background Decorations */}
+                            <div className="absolute -top-6 -right-6 w-24 h-24 bg-cyan-200 rounded-full opacity-20 animate-pulse"></div>
+                            <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-blue-200 rounded-full opacity-20 animate-pulse delay-1000"></div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Our Values Section - Enhanced */}
+            <section className="py-24 bg-white relative overflow-hidden">
+                {/* Background Elements */}
+                <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-50 to-blue-50 rounded-full -translate-y-48 translate-x-48"></div>
+                <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-cyan-50 to-blue-50 rounded-full translate-y-48 -translate-x-48"></div>
+                
+                <div className="container mx-auto px-4 relative z-10">
+                    <div className="text-center max-w-4xl mx-auto mb-20">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="space-y-6"
+                        >
+                            <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-wider">Our Values</span>
+                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                                What <span className="text-cyan-600">Drives</span> Us
+                            </h2>
+                            <p className="text-xl text-gray-600 leading-relaxed">
+                                Our core values shape every interaction, every service, and every relationship we build
+                            </p>
+                        </motion.div>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                        {values.map((value, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: index * 0.15 }}
+                                whileHover={{ y: -8 }}
+                                className="group cursor-pointer"
+                            >
+                                <div className={`bg-gradient-to-br ${value.color} p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 h-full border border-white/50`}>
+                                    <div className="bg-white p-4 rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                                        <span className="text-2xl text-cyan-600 group-hover:scale-110 transition-transform duration-300">
+                                            {value.icon}
+                                        </span>
+                                    </div>
+                                    <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">
+                                        {value.title}
+                                    </h3>
+                                    <p className="text-gray-700 text-center leading-relaxed">
+                                        {value.description}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Timeline Section */}
+            <section className="py-24 bg-gradient-to-br from-slate-50 to-gray-100">
+                <div className="container mx-auto px-4">
+                    <div className="text-center max-w-3xl mx-auto mb-20">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="space-y-6"
+                        >
+                            <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-wider">Our Journey</span>
+                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                                Milestones of <span className="text-cyan-600">Growth</span>
+                            </h2>
+                        </motion.div>
+                    </div>
+
+                    <div className="max-w-4xl mx-auto">
+                        <div className="space-y-12">
+                            {milestones.map((milestone, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                                    className={`flex items-center gap-8 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                                >
+                                    <div className="flex-1">
+                                        <div className={`bg-white rounded-2xl p-8 shadow-lg ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+                                            <div className="text-cyan-600 text-3xl font-bold mb-2">{milestone.year}</div>
+                                            <h3 className="text-xl font-bold text-gray-900 mb-3">{milestone.title}</h3>
+                                            <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="flex-shrink-0">
+                                        <div className="w-4 h-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full relative">
+                                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full animate-ping opacity-20"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="flex-1"></div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Our Team Section - Enhanced */}
+            <section className="py-24 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="order-2 lg:order-1 relative"
+                        >
+                            <div className="relative z-10">
+                                <div className="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-3xl p-8">
+                                    <img 
+                                        src={teamImage}
+                                        alt="Our Team" 
+                                        className="rounded-2xl shadow-2xl object-cover w-full h-[500px]"
+                                    />
+                                </div>
+                            </div>
+                            
+                            {/* Floating Statistics */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.3 }}
+                                className="absolute -top-6 -right-6 bg-white rounded-2xl p-6 shadow-2xl border border-gray-100"
+                            >
+                                <div className="text-center">
+                                    <div className="text-3xl font-bold text-cyan-600 mb-1">98%</div>
+                                    <div className="text-sm text-gray-600">Client Satisfaction</div>
+                                </div>
+                            </motion.div>
+                            
+                            {/* Background Decorations */}
+                            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-cyan-200 rounded-full opacity-20 animate-pulse"></div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 40 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="space-y-6 order-1 lg:order-2"
+                            transition={{ duration: 0.8 }}
+                            className="space-y-8 order-1 lg:order-2"
                         >
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Meet Our Team</h2>
-                            <div className="h-1 w-20 bg-cyan"></div>
-                            <p className="text-gray-700">
-                                Our team consists of dedicated professionals who share our passion for cleanliness and service excellence. Each member undergoes comprehensive training to ensure they deliver consistent, high-quality results.
-                            </p>
-                            <p className="text-gray-700">
-                                We carefully select our cleaning specialists not just for their skills, but also for their attention to detail and customer-oriented mindset. Many of our team members have been with us for years, bringing valuable experience and a deep understanding of our clients' needs.
-                            </p>
+                            <div className="space-y-4">
+                                <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-wider">Our Team</span>
+                                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                                    Meet the <span className="text-cyan-600">Experts</span>
+                                </h2>
+                                <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></div>
+                            </div>
+                            
+                            <div className="space-y-6 text-gray-700 leading-relaxed">
+                                <p className="text-lg">
+                                    Our team consists of carefully selected professionals who share our passion for excellence. 
+                                    Each member brings unique skills and dedication to creating exceptional results.
+                                </p>
+                                <p>
+                                    We invest heavily in training and development, ensuring our team stays current with the latest 
+                                    cleaning techniques, safety protocols, and eco-friendly practices.
+                                </p>
+                            </div>
 
-                            {/* Team Stats */}
-                            <div className="grid grid-cols-2 gap-6 mt-8">
-                                <div className="bg-lightgreen p-6 rounded-xl">
-                                    <div className="text-3xl font-bold text-cyan mb-2">15+</div>
-                                    <p className="text-gray-700">Professional Cleaners</p>
+                            {/* Team Features */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+                                <div className="flex items-start space-x-4">
+                                    <div className="bg-cyan-100 p-2 rounded-lg">
+                                        <FiCheck className="text-cyan-600" size={20} />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold text-gray-900 mb-1">Fully Trained</h4>
+                                        <p className="text-gray-600 text-sm">Comprehensive training programs</p>
+                                    </div>
                                 </div>
-                                <div className="bg-lightgreen p-6 rounded-xl">
-                                    <div className="text-3xl font-bold text-cyan mb-2">5+</div>
-                                    <p className="text-gray-700">Years Experience</p>
+                                
+                                <div className="flex items-start space-x-4">
+                                    <div className="bg-cyan-100 p-2 rounded-lg">
+                                        <FiShield className="text-cyan-600" size={20} />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold text-gray-900 mb-1">Insured & Bonded</h4>
+                                        <p className="text-gray-600 text-sm">Complete protection & peace of mind</p>
+                                    </div>
+                                </div>
+                                
+                                <div className="flex items-start space-x-4">
+                                    <div className="bg-cyan-100 p-2 rounded-lg">
+                                        <FiUsers className="text-cyan-600" size={20} />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold text-gray-900 mb-1">Experienced</h4>
+                                        <p className="text-gray-600 text-sm">Years of professional experience</p>
+                                    </div>
+                                </div>
+                                
+                                <div className="flex items-start space-x-4">
+                                    <div className="bg-cyan-100 p-2 rounded-lg">
+                                        <FiHeart className="text-cyan-600" size={20} />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold text-gray-900 mb-1">Passionate</h4>
+                                        <p className="text-gray-600 text-sm">Genuine care for quality results</p>
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
@@ -231,103 +466,157 @@ const AboutUs = () => {
                 </div>
             </section>
 
-            {/* Why Choose Us */}
-            <section className="py-20 bg-lightgreen">
+            {/* Why Choose Us - Modern Cards */}
+            <section className="py-24 bg-gradient-to-br from-slate-50 to-gray-100">
                 <div className="container mx-auto px-4">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <motion.h2 
-                            initial={{ opacity: 0, y: 20 }}
+                    <div className="text-center max-w-4xl mx-auto mb-20">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
-                            className="text-3xl md:text-4xl font-bold mb-6 text-gray-800"
+                            transition={{ duration: 0.8 }}
+                            className="space-y-6"
                         >
-                            Why Choose <span className="text-cyan">SparkWise</span>
-                        </motion.h2>
+                            <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
+                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                                The <span className="text-cyan-600">SparkWise</span> Advantage
+                            </h2>
+                            <p className="text-xl text-gray-600 leading-relaxed">
+                                Discover what sets us apart in the cleaning industry
+                            </p>
+                        </motion.div>
                     </div>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                         {[
                             {
-                                title: "Experienced Team",
-                                description: "Our professionals have years of experience in providing exceptional cleaning services."
+                                icon: <FiAward />,
+                                title: "Award-Winning Service",
+                                description: "Recognized for excellence with multiple industry awards and certifications.",
+                                gradient: "from-yellow-400 to-orange-500"
                             },
                             {
-                                title: "Customer Satisfaction",
-                                description: "We prioritize your happiness, with a satisfaction guarantee on all our services."
+                                icon: <FiHeart />,
+                                title: "Customer-Centric Approach",
+                                description: "Your satisfaction is our priority, with personalized service for every client.",
+                                gradient: "from-pink-400 to-red-500"
                             },
                             {
-                                title: "Eco-Friendly Practices",
-                                description: "We use environmentally responsible cleaning products and methods."
+                                icon: <FiShield />,
+                                title: "Eco-Friendly Solutions",
+                                description: "Safe, green cleaning products that protect your family and the environment.",
+                                gradient: "from-green-400 to-emerald-500"
                             }
                         ].map((item, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                                transition={{ duration: 0.8, delay: index * 0.2 }}
+                                whileHover={{ y: -8 }}
+                                className="group cursor-pointer"
                             >
-                                <div className="flex items-start mb-4">
-                                    <div className="bg-cyan/10 p-2 rounded-full">
-                                        <FiCheck className="text-cyan text-xl" />
+                                <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 h-full border border-gray-100">
+                                    <div className={`bg-gradient-to-r ${item.gradient} p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                                        <span className="text-2xl text-white">
+                                            {item.icon}
+                                        </span>
                                     </div>
-                                    <h3 className="text-xl font-bold ml-4 text-gray-800">{item.title}</h3>
+                                    <h3 className="text-xl font-bold mb-4 text-gray-900">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-gray-600 leading-relaxed">
+                                        {item.description}
+                                    </p>
                                 </div>
-                                <p className="text-gray-600 pl-10">{item.description}</p>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="py-20 bg-gradient-to-r from-blue to-cyan relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-                    <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full"></div>
-                    <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/5 rounded-full"></div>
+            {/* CTA Section - Modern Design */}
+            <section className="py-24 relative overflow-hidden">
+                {/* Advanced Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900"></div>
+                <div className="absolute inset-0 bg-black/20"></div>
+                
+                {/* Animated Elements */}
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+                    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-400/5 rounded-full animate-pulse"></div>
+                    <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-400/5 rounded-full animate-pulse delay-1000"></div>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-400/3 to-blue-400/3 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
                 </div>
                 
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
-                        <motion.h2 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
-                            className="text-3xl md:text-4xl font-bold mb-6 text-white"
-                        >
-                            Ready to Experience the SparkWise Difference?
-                        </motion.h2>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                            className="text-xl text-white/90 mb-10"
-                        >
-                            Contact us today to learn more about our services or to schedule your cleaning.
-                        </motion.p>
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="flex flex-col sm:flex-row justify-center gap-4"
+                            transition={{ duration: 0.8 }}
+                            className="space-y-8"
                         >
-                            <a
-                                href="/contact"
-                                className="bg-white text-[#0A3D62] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all shadow-lg inline-block text-center"
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                                Ready to Experience
+                                <br />
+                                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 text-transparent bg-clip-text">
+                                    Excellence?
+                                </span>
+                            </h2>
+                            
+                            <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
+                                Join hundreds of satisfied clients who trust SparkWise Cleaning 
+                                for their residential and commercial cleaning needs.
+                            </p>
+
+                            <div className="flex flex-col sm:flex-row justify-center gap-6 pt-8">
+                                <motion.a
+                                    href="/contact"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 group"
+                                >
+                                    Get Free Quote 
+                                    <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                                </motion.a>
+                                
+                                <motion.a
+                                    href="/services"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="border-2 border-cyan-400 text-cyan-400 px-10 py-5 rounded-full font-bold text-lg hover:bg-cyan-400/10 transition-all duration-300 flex items-center justify-center gap-3"
+                                >
+                                    View Services
+                                </motion.a>
+                            </div>
+
+                            {/* Trust Indicators */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.3 }}
+                                className="flex flex-wrap justify-center items-center gap-8 pt-12 border-t border-white/10"
                             >
-                                Contact Us
-                            </a>
-                            <a
-                                href="/services"
-                                className="bg-transparent border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-all shadow-lg inline-block text-center"
-                            >
-                                Our Services
-                            </a>
+                                <div className="text-center">
+                                    <div className="text-2xl font-bold text-white">500+</div>
+                                    <div className="text-slate-400 text-sm">Happy Clients</div>
+                                </div>
+                                <div className="text-center">
+                                    <div className="text-2xl font-bold text-white">98%</div>
+                                    <div className="text-slate-400 text-sm">Satisfaction Rate</div>
+                                </div>
+                                <div className="text-center">
+                                    <div className="text-2xl font-bold text-white">7+</div>
+                                    <div className="text-slate-400 text-sm">Years Experience</div>
+                                </div>
+                                <div className="text-center">
+                                    <div className="text-2xl font-bold text-white">24/7</div>
+                                    <div className="text-slate-400 text-sm">Customer Support</div>
+                                </div>
+                            </motion.div>
                         </motion.div>
                     </div>
                 </div>
