@@ -13,6 +13,7 @@ module.exports = {
         },
         accent: '#10B981', // A vibrant teal for calls-to-action
         cyan: '#2CA2B0', // Re-add cyan for the header
+        lightgreen: '#f0f9ff', // Light green for feature icons
       },
       borderRadius: {
         'xl': '1rem',
