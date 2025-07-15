@@ -22,13 +22,6 @@ const AboutUs = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    const stats = [
-        { number: '500+', label: 'Happy Clients', icon: <FiUsers /> },
-        { number: '15+', label: 'Team Members', icon: <FiUsers /> },
-        { number: '7+', label: 'Years Experience', icon: <FiClock /> },
-        { number: '98%', label: 'Satisfaction Rate', icon: <FiStar /> }
-    ];
-
     const values = [
         { 
             icon: <FiHeart />,
@@ -64,90 +57,35 @@ const AboutUs = () => {
     ];
 
     return (
-        <div className="flex flex-col min-h-screen bg-white">
-            {/* Hero Section - Modern Gradient */}
-            <section className="relative py-24 md:py-32 overflow-hidden">
-                {/* Animated Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900"></div>
-                <div className="absolute inset-0 opacity-20">
-                    <div className="absolute inset-0" style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-                    }}></div>
-                </div>
-                
-                {/* Floating Elements */}
-                <div className="absolute top-20 left-10 w-20 h-20 bg-cyan-400/10 rounded-full blur-xl animate-pulse"></div>
-                <div className="absolute bottom-20 right-10 w-32 h-32 bg-blue-400/10 rounded-full blur-xl animate-pulse delay-1000"></div>
-                
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="space-y-6"
+        <div className="flex flex-col min-h-screen bg-neutral-light" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/gplay.png')" }}>
+            {/* Hero Section - Redesigned */}
+            <section className="relative bg-primary text-white py-40">
+                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/src/assets/images/about-image.jpg')" }}></div>
+                <div className="absolute inset-0 bg-black opacity-60"></div>
+                <div className="container mx-auto px-4 relative z-10 text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-4 text-white">
+                            About SparkWise Cleaning
+                        </h1>
+                        <p className="text-xl md:text-2xl text-neutral-light leading-relaxed max-w-3xl mx-auto mb-8">
+                            Your trusted partner in creating clean, healthy, and inspiring environments.
+                        </p>
+                        <motion.a
+                            href="/contact"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-cyan text-white font-medium px-8 py-4 rounded-lg shadow-lg hover:bg-opacity-90 hover:shadow-xl transition-all duration-300 inline-flex items-center gap-2"
                         >
-                            <span className="inline-block bg-gradient-to-r from-cyan-400 to-blue-400 text-transparent bg-clip-text px-4 py-2 rounded-full text-sm font-bold tracking-wider uppercase border border-cyan-400/30">
-                                About Our Company
-                            </span>
-
-                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                                <span className="text-white">Redefining</span>{' '}
-                                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 text-transparent bg-clip-text">
-                                    Clean
-                                </span>
-                            </h1>
-                            
-                            <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
-                                Where precision meets passion. We don't just clean spaces—we transform them into 
-                                environments that inspire, comfort, and energize.
-                            </p>
-
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
-                                >
-                                    Our Services <FiArrowRight />
-                                </motion.button>
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="border border-cyan-400 text-cyan-400 px-8 py-4 rounded-full font-semibold hover:bg-cyan-400/10 transition-all duration-300"
-                                >
-                                    Contact Us
-                                </motion.button>
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-
-                {/* Stats Section */}
-                <div className="container mx-auto px-4 mt-20">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-                        {stats.map((stat, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                                className="text-center"
-                            >
-                                <div className="text-cyan-400 text-2xl mb-2 flex justify-center">
-                                    {stat.icon}
-                                </div>
-                                <div className="text-3xl md:text-4xl font-bold text-white mb-1">
-                                    {stat.number}
-                                </div>
-                                <div className="text-slate-400 text-sm uppercase tracking-wider">
-                                    {stat.label}
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
+                            Get a Free Quote <FiArrowRight />
+                        </motion.a>
+                    </motion.div>
                 </div>
             </section>
+
 
             {/* Our Story Section - Modern Design */}
             <section className="py-24 bg-gradient-to-b from-slate-50 to-white relative">
@@ -161,14 +99,14 @@ const AboutUs = () => {
                             className="space-y-8"
                         >
                             <div className="space-y-4">
-                                <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-wider">Our Story</span>
-                                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                                    Built on <span className="text-cyan-600">Excellence</span>
+                                <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider">Our Story</span>
+                                <h2 className="text-4xl md:text-5xl font-bold text-neutral-dark leading-tight">
+                                    Built on <span className="text-primary">Excellence</span>
                                 </h2>
-                                <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></div>
+                                <div className="w-20 h-1 bg-secondary rounded-full"></div>
                             </div>
                             
-                            <div className="space-y-6 text-gray-700 leading-relaxed">
+                            <div className="space-y-6 text-neutral leading-relaxed">
                                 <p className="text-lg">
                                     Founded in 2018, SparkWise Cleaning emerged from a simple yet powerful vision: to revolutionize 
                                     the cleaning industry through unwavering commitment to excellence and innovation.
@@ -187,18 +125,18 @@ const AboutUs = () => {
                             {/* Mission & Vision Cards */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
                                 <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                                    <div className="text-cyan-600 mb-3">
+                                    <div className="text-primary mb-3">
                                         <FiTarget size={24} />
                                     </div>
-                                    <h3 className="font-bold text-gray-900 mb-2">Our Mission</h3>
-                                    <p className="text-gray-600 text-sm">Creating spotless spaces that enhance lives and productivity.</p>
+                                    <h3 className="font-bold text-neutral-dark mb-2">Our Mission</h3>
+                                    <p className="text-neutral text-sm">Creating spotless spaces that enhance lives and productivity.</p>
                                 </div>
                                 <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                                    <div className="text-cyan-600 mb-3">
+                                    <div className="text-primary mb-3">
                                         <FiEye size={24} />
                                     </div>
-                                    <h3 className="font-bold text-gray-900 mb-2">Our Vision</h3>
-                                    <p className="text-gray-600 text-sm">To be the most trusted name in professional cleaning services.</p>
+                                    <h3 className="font-bold text-neutral-dark mb-2">Our Vision</h3>
+                                    <p className="text-neutral text-sm">To be the most trusted name in professional cleaning services.</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -227,14 +165,14 @@ const AboutUs = () => {
                                     transition={{ duration: 0.8, delay: 0.3 }}
                                     className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-8 shadow-2xl max-w-xs border border-gray-100"
                                 >
-                                    <div className="text-cyan-600 text-4xl mb-4 font-serif">"</div>
-                                    <p className="text-gray-700 italic mb-6 leading-relaxed">
+                                    <div className="text-primary text-4xl mb-4 font-serif">"</div>
+                                    <p className="text-neutral italic mb-6 leading-relaxed">
                                         Excellence isn't just our standard—it's our promise. Every clean should exceed expectations.
                                     </p>
                                     <div className="flex items-center border-t border-gray-100 pt-4">
                                         <div>
-                                            <span className="font-bold text-gray-900 block">Mythree</span>
-                                            <span className="text-cyan-600 text-sm">Founder & CEO</span>
+                                            <span className="font-bold text-neutral-dark block">Mythree</span>
+                                            <span className="text-primary text-sm">Founder & CEO</span>
                                         </div>
                                     </div>
                                 </motion.div>
@@ -263,11 +201,11 @@ const AboutUs = () => {
                             transition={{ duration: 0.8 }}
                             className="space-y-6"
                         >
-                            <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-wider">Our Values</span>
-                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-                                What <span className="text-cyan-600">Drives</span> Us
+                            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider">Our Values</span>
+                            <h2 className="text-4xl md:text-5xl font-bold text-neutral-dark">
+                                What <span className="text-primary">Drives</span> Us
                             </h2>
-                            <p className="text-xl text-gray-600 leading-relaxed">
+                            <p className="text-xl text-neutral leading-relaxed">
                                 Our core values shape every interaction, every service, and every relationship we build
                             </p>
                         </motion.div>
@@ -286,14 +224,14 @@ const AboutUs = () => {
                             >
                                 <div className={`bg-gradient-to-br ${value.color} p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 h-full border border-white/50`}>
                                     <div className="bg-white p-4 rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                                        <span className="text-2xl text-cyan-600 group-hover:scale-110 transition-transform duration-300">
+                                        <span className="text-2xl text-primary group-hover:scale-110 transition-transform duration-300">
                                             {value.icon}
                                         </span>
                                     </div>
-                                    <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">
+                                    <h3 className="text-xl font-bold mb-4 text-neutral-dark text-center">
                                         {value.title}
                                     </h3>
-                                    <p className="text-gray-700 text-center leading-relaxed">
+                                    <p className="text-neutral text-center leading-relaxed">
                                         {value.description}
                                     </p>
                                 </div>
@@ -314,9 +252,9 @@ const AboutUs = () => {
                             transition={{ duration: 0.8 }}
                             className="space-y-6"
                         >
-                            <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-wider">Our Journey</span>
-                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-                                Milestones of <span className="text-cyan-600">Growth</span>
+                            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider">Our Journey</span>
+                            <h2 className="text-4xl md:text-5xl font-bold text-neutral-dark">
+                                Milestones of <span className="text-primary">Growth</span>
                             </h2>
                         </motion.div>
                     </div>
@@ -334,9 +272,9 @@ const AboutUs = () => {
                                 >
                                     <div className="flex-1">
                                         <div className={`bg-white rounded-2xl p-8 shadow-lg ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
-                                            <div className="text-cyan-600 text-3xl font-bold mb-2">{milestone.year}</div>
-                                            <h3 className="text-xl font-bold text-gray-900 mb-3">{milestone.title}</h3>
-                                            <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
+                                            <div className="text-primary text-3xl font-bold mb-2">{milestone.year}</div>
+                                            <h3 className="text-xl font-bold text-neutral-dark mb-3">{milestone.title}</h3>
+                                            <p className="text-neutral leading-relaxed">{milestone.description}</p>
                                         </div>
                                     </div>
                                     
@@ -366,28 +304,27 @@ const AboutUs = () => {
                             className="order-2 lg:order-1 relative"
                         >
                             <div className="relative z-10">
-                                <div className="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-3xl p-8">
+                                <div className="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-3xl p-8 relative">
                                     <img 
                                         src={teamImage}
                                         alt="Our Team" 
                                         className="rounded-2xl shadow-2xl object-cover w-full h-[500px]"
                                     />
+                                    {/* Floating Statistics */}
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.8, delay: 0.3 }}
+                                        className="absolute -top-6 -right-6 bg-white rounded-2xl p-6 shadow-2xl border border-gray-100"
+                                    >
+                                        <div className="text-center">
+                                            <div className="text-3xl font-bold text-primary mb-1">98%</div>
+                                            <div className="text-sm text-neutral">Client Satisfaction</div>
+                                        </div>
+                                    </motion.div>
                                 </div>
                             </div>
-                            
-                            {/* Floating Statistics */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8, delay: 0.3 }}
-                                className="absolute -top-6 -right-6 bg-white rounded-2xl p-6 shadow-2xl border border-gray-100"
-                            >
-                                <div className="text-center">
-                                    <div className="text-3xl font-bold text-cyan-600 mb-1">98%</div>
-                                    <div className="text-sm text-gray-600">Client Satisfaction</div>
-                                </div>
-                            </motion.div>
                             
                             {/* Background Decorations */}
                             <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-cyan-200 rounded-full opacity-20 animate-pulse"></div>
@@ -401,14 +338,14 @@ const AboutUs = () => {
                             className="space-y-8 order-1 lg:order-2"
                         >
                             <div className="space-y-4">
-                                <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-wider">Our Team</span>
-                                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                                    Meet the <span className="text-cyan-600">Experts</span>
+                                <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider">Our Team</span>
+                                <h2 className="text-4xl md:text-5xl font-bold text-neutral-dark leading-tight">
+                                    Meet the <span className="text-primary">Experts</span>
                                 </h2>
-                                <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></div>
+                                <div className="w-20 h-1 bg-secondary rounded-full"></div>
                             </div>
                             
-                            <div className="space-y-6 text-gray-700 leading-relaxed">
+                            <div className="space-y-6 text-neutral leading-relaxed">
                                 <p className="text-lg">
                                     Our team consists of carefully selected professionals who share our passion for excellence. 
                                     Each member brings unique skills and dedication to creating exceptional results.
@@ -423,41 +360,41 @@ const AboutUs = () => {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
                                 <div className="flex items-start space-x-4">
                                     <div className="bg-cyan-100 p-2 rounded-lg">
-                                        <FiCheck className="text-cyan-600" size={20} />
+                                        <FiCheck className="text-primary" size={20} />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">Fully Trained</h4>
-                                        <p className="text-gray-600 text-sm">Comprehensive training programs</p>
+                                        <h4 className="font-semibold text-neutral-dark mb-1">Fully Trained</h4>
+                                        <p className="text-neutral text-sm">Comprehensive training programs</p>
                                     </div>
                                 </div>
                                 
                                 <div className="flex items-start space-x-4">
                                     <div className="bg-cyan-100 p-2 rounded-lg">
-                                        <FiShield className="text-cyan-600" size={20} />
+                                        <FiShield className="text-primary" size={20} />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">Insured & Bonded</h4>
-                                        <p className="text-gray-600 text-sm">Complete protection & peace of mind</p>
+                                        <h4 className="font-semibold text-neutral-dark mb-1">Insured & Bonded</h4>
+                                        <p className="text-neutral text-sm">Complete protection & peace of mind</p>
                                     </div>
                                 </div>
                                 
                                 <div className="flex items-start space-x-4">
                                     <div className="bg-cyan-100 p-2 rounded-lg">
-                                        <FiUsers className="text-cyan-600" size={20} />
+                                        <FiUsers className="text-primary" size={20} />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">Experienced</h4>
-                                        <p className="text-gray-600 text-sm">Years of professional experience</p>
+                                        <h4 className="font-semibold text-neutral-dark mb-1">Experienced</h4>
+                                        <p className="text-neutral text-sm">Years of professional experience</p>
                                     </div>
                                 </div>
                                 
                                 <div className="flex items-start space-x-4">
                                     <div className="bg-cyan-100 p-2 rounded-lg">
-                                        <FiHeart className="text-cyan-600" size={20} />
+                                        <FiHeart className="text-primary" size={20} />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">Passionate</h4>
-                                        <p className="text-gray-600 text-sm">Genuine care for quality results</p>
+                                        <h4 className="font-semibold text-neutral-dark mb-1">Passionate</h4>
+                                        <p className="text-neutral text-sm">Genuine care for quality results</p>
                                     </div>
                                 </div>
                             </div>
@@ -477,11 +414,11 @@ const AboutUs = () => {
                             transition={{ duration: 0.8 }}
                             className="space-y-6"
                         >
-                            <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
-                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-                                The <span className="text-cyan-600">SparkWise</span> Advantage
+                            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
+                            <h2 className="text-4xl md:text-5xl font-bold text-neutral-dark">
+                                The <span className="text-primary">SparkWise</span> Advantage
                             </h2>
-                            <p className="text-xl text-gray-600 leading-relaxed">
+                            <p className="text-xl text-neutral leading-relaxed">
                                 Discover what sets us apart in the cleaning industry
                             </p>
                         </motion.div>
@@ -523,10 +460,10 @@ const AboutUs = () => {
                                             {item.icon}
                                         </span>
                                     </div>
-                                    <h3 className="text-xl font-bold mb-4 text-gray-900">
+                                    <h3 className="text-xl font-bold mb-4 text-neutral-dark">
                                         {item.title}
                                     </h3>
-                                    <p className="text-gray-600 leading-relaxed">
+                                    <p className="text-neutral leading-relaxed">
                                         {item.description}
                                     </p>
                                 </div>
@@ -536,89 +473,31 @@ const AboutUs = () => {
                 </div>
             </section>
 
-            {/* CTA Section - Modern Design */}
-            <section className="py-24 relative overflow-hidden">
-                {/* Advanced Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900"></div>
-                <div className="absolute inset-0 bg-black/20"></div>
-                
-                {/* Animated Elements */}
-                <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-                    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-400/5 rounded-full animate-pulse"></div>
-                    <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-400/5 rounded-full animate-pulse delay-1000"></div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-400/3 to-blue-400/3 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
-                </div>
-                
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="space-y-8"
+            {/* CTA Section - Redesigned */}
+            <section className="py-24 bg-primary">
+                <div className="container mx-auto px-4 text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <h2 className="text-4xl md:text-5xl font-bold text-white">
+                            Ready to Experience Excellence?
+                        </h2>
+                        <p className="text-xl text-neutral-light mt-4 mb-8">
+                            Join hundreds of satisfied clients who trust SparkWise Cleaning.
+                        </p>
+                        <motion.a
+                            href="/contact"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-cyan text-white font-medium px-8 py-4 rounded-lg shadow-lg hover:bg-opacity-90 hover:shadow-xl transition-all duration-300 inline-flex items-center gap-2"
                         >
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                                Ready to Experience
-                                <br />
-                                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 text-transparent bg-clip-text">
-                                    Excellence?
-                                </span>
-                            </h2>
-                            
-                            <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
-                                Join hundreds of satisfied clients who trust SparkWise Cleaning 
-                                for their residential and commercial cleaning needs.
-                            </p>
-
-                            <div className="flex flex-col sm:flex-row justify-center gap-6 pt-8">
-                                <motion.a
-                                    href="/contact"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 group"
-                                >
-                                    Get Free Quote 
-                                    <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-                                </motion.a>
-                                
-                                <motion.a
-                                    href="/services"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="border-2 border-cyan-400 text-cyan-400 px-10 py-5 rounded-full font-bold text-lg hover:bg-cyan-400/10 transition-all duration-300 flex items-center justify-center gap-3"
-                                >
-                                    View Services
-                                </motion.a>
-                            </div>
-
-                            {/* Trust Indicators */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8, delay: 0.3 }}
-                                className="flex flex-wrap justify-center items-center gap-8 pt-12 border-t border-white/10"
-                            >
-                                <div className="text-center">
-                                    <div className="text-2xl font-bold text-white">500+</div>
-                                    <div className="text-slate-400 text-sm">Happy Clients</div>
-                                </div>
-                                <div className="text-center">
-                                    <div className="text-2xl font-bold text-white">98%</div>
-                                    <div className="text-slate-400 text-sm">Satisfaction Rate</div>
-                                </div>
-                                <div className="text-center">
-                                    <div className="text-2xl font-bold text-white">7+</div>
-                                    <div className="text-slate-400 text-sm">Years Experience</div>
-                                </div>
-                                <div className="text-center">
-                                    <div className="text-2xl font-bold text-white">24/7</div>
-                                    <div className="text-slate-400 text-sm">Customer Support</div>
-                                </div>
-                            </motion.div>
-                        </motion.div>
-                    </div>
+                            Get Free Quote
+                            <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                        </motion.a>
+                    </motion.div>
                 </div>
             </section>
         </div>

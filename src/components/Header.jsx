@@ -31,57 +31,40 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Dynamic text colors based on scroll and page
+    // Simplified color logic
     const getLogoColor = () => {
         if (isHomePage && !isScrolled) {
             return 'text-white';
         }
-        return 'text-blue-800';
+        return 'text-cyan';
     };
-
-    // Helper function to generate classes for nav links
     const getNavLinkClasses = (itemPath, isMobile = false) => {
         const isActive = isActiveRoute(itemPath);
-        
-        let baseClasses = 'py-2 font-medium transition-colors duration-200';
-        let currentTextColorClass = '';
-        let currentHoverClass = '';
-        let currentUnderlineColor = '';
+        let textColorClass;
 
-        if (isHomePage && !isScrolled) {
-            currentTextColorClass = isActive ? 'text-white font-semibold' : 'text-gray-200';
-            currentHoverClass = 'hover:text-cyan'; // Changed to cyan
-            currentUnderlineColor = 'bg-cyan'; // Changed to cyan
+        if (isHomePage && !isScrolled && !isMobile) {
+            textColorClass = isActive ? 'text-cyan font-semibold' : 'text-white';
         } else {
-            currentTextColorClass = isActive ? 'text-blue-700 font-semibold' : 'text-gray-700';
-            currentHoverClass = 'hover:text-cyan'; // Changed to cyan
-            currentUnderlineColor = 'bg-cyan'; // Changed to cyan
+            textColorClass = isActive ? 'text-cyan font-semibold' : 'text-neutral-dark';
         }
 
-        if (isMobile) {
-            baseClasses = 'block py-2 text-lg font-medium transition-colors duration-200';
-            // Mobile specific colors, overriding desktop transparent logic
-            currentTextColorClass = isActive ? 'text-blue-700 font-semibold' : 'text-gray-700';
-            currentHoverClass = 'hover:text-cyan'; // Mobile hover is always cyan
-        } else {
-            baseClasses += ' relative inline-block'; // Desktop specific
-        }
-        
+        const baseClasses = isMobile
+            ? 'block py-2 text-lg font-medium transition-colors duration-200'
+            : 'py-2 font-medium transition-colors duration-200 relative inline-block';
+        const hoverClass = 'hover:text-cyan';
+        const underlineClass = `absolute -bottom-0.5 left-0 h-0.5 bg-cyan transition-all duration-300 group-hover:w-full ${isActive ? 'w-full' : 'w-0'}`;
+
         return {
-            text: `${baseClasses} ${currentTextColorClass} ${currentHoverClass}`,
-            underline: `absolute -bottom-0.5 left-0 h-0.5 ${currentUnderlineColor} transition-all duration-300 group-hover:w-full ${isHomePage && !isScrolled && isActive ? 'w-full' : 'w-0'}`, // White underline for active links on transparent homepage
-            icon: `${currentTextColorClass} hover:text-cyan` // For the FaChevronDown icon, explicitly setting hover to cyan
+            text: `${baseClasses} ${textColorClass} ${hoverClass}`,
+            underline: underlineClass,
+            icon: `${textColorClass} ${hoverClass}`,
         };
     };
-
-    // Helper function for dropdown link classes
     const getSubLinkClasses = (subItemPath) => {
         const isActive = location.pathname === subItemPath;
-        const baseClasses = 'block px-4 py-2 text-base transition-colors duration-150 rounded-md';
-        const textColorClass = isActive ? 'text-cyan bg-blue-50 font-semibold' : 'text-gray-700'; // Changed active background to blue-50 for consistency
-        const hoverClasses = 'hover:text-cyan hover:bg-blue-50'; // Changed to cyan
-
-        return `${baseClasses} ${textColorClass} ${hoverClasses}`;
+        return `block px-4 py-2 text-base transition-colors duration-150 rounded-md ${
+            isActive ? 'text-cyan bg-neutral-light font-semibold' : 'text-neutral-dark'
+        } hover:text-cyan hover:bg-neutral-light`;
     };
     
     const isActiveRoute = (path) => {
@@ -191,7 +174,7 @@ const Header = () => {
                     ))}
                     {/* CTA Button */}
                     <Link to="/contact" className="ml-6">
-                        <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-md transition duration-300 ease-in-out hover:shadow-lg">
+                        <button className="bg-cyan hover:bg-opacity-90 text-white font-bold py-2.5 px-6 rounded-lg shadow-md transition duration-300 ease-in-out hover:shadow-lg">
                             Get a Free Quote
                         </button>
                     </Link>
@@ -268,7 +251,7 @@ const Header = () => {
                             ))}
                             {/* Mobile CTA Button */}
                             <Link to="/contact" className="mt-4 block">
-                                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-md transition duration-300 ease-in-out hover:shadow-lg">
+                                <button className="w-full bg-cyan hover:bg-opacity-90 text-white font-bold py-2.5 px-6 rounded-lg shadow-md transition duration-300 ease-in-out hover:shadow-lg">
                                     Get a Free Quote
                                 </button>
                             </Link>

@@ -4,16 +4,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          light: '#3b82f6',
-          DEFAULT: '#1d4ed8',
-          dark: '#1e40af',
+        primary: '#1E40AF', // A professional blue
+        secondary: '#F59E0B', // A warm gold for accents
+        neutral: {
+          light: '#F3F4F6',
+          DEFAULT: '#6B7280',
+          dark: '#1F2937',
         },
-        cyan: '#2CA2B0',
-        gry: '#333333',
-        lightgreen: '#F0F9FF',
-        blue: '#0A3D62',
-        darkgreen: '#0D7D8A',
+        accent: '#10B981', // A vibrant teal for calls-to-action
+        cyan: '#2CA2B0', // Re-add cyan for the header
       },
       borderRadius: {
         'xl': '1rem',
