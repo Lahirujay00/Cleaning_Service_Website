@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/AboutUs';
 import Services from './pages/Services';
@@ -13,16 +13,16 @@ import AboutUs from './pages/AboutUs';
 const Routes = () => {
     return (
         <Router>
-            <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/about" component={AboutUs} />
-                <Route path="/services" component={Services} />
-                <Route path="/contact" component={Contact} />
-                <Route path="/carpet-cleaning" component={CarpetCleaning} />
-                <Route path="/gutter-cleaning" component={GutterCleaning} />
-                <Route path="/high-pressure-washing" component={HighPressureWashing} />
-                <Route path="/window-cleaning" component={WindowCleaning} />
-            </Switch>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<AboutUs />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/carpet-cleaning" element={<CarpetCleaning />} />
+                <Route path="/gutter-cleaning" element={<GutterCleaning />} />
+                <Route path="/high-pressure-washing" element={<HighPressureWashing />} />
+                <Route path="/window-cleaning" element={<WindowCleaning />} />
+            </Routes>
         </Router>
     );
 };
