@@ -50,10 +50,17 @@ const HeroSection = () => {
                     <div className="flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-buttons">
                         <a
                             href="#contact"
-                            className="bg-[#2CA2B0] text-white font-medium px-8 py-4 rounded-lg shadow-lg hover:bg-[#218393] hover:shadow-xl transition-all duration-300 hover-float relative overflow-hidden"
+                            className="group relative bg-white/15 backdrop-blur-lg text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/25 transform hover:scale-105 transition-all duration-300 overflow-hidden"
+                            style={{
+                                background: 'rgba(255, 255, 255, 0.2)',
+                                backdropFilter: 'blur(20px)',
+                                WebkitBackdropFilter: 'blur(20px)',
+                                border: '2px solid rgba(255, 255, 255, 0.5)',
+                                boxShadow: '0 4px 16px 0 rgba(255, 255, 255, 0.15)'
+                            }}
                         >
                             <span className="relative z-10">Get a Free Quote</span>
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#2CA2B0] to-[#218393] opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/5 to-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </a>
                         <a
                             href="#services"
