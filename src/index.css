@@ -44,6 +44,33 @@ button:hover {
     background-color: #218393;
 }
 
+/* Glass button hover effect */
+.button-glass:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2) !important;
+    border: 2px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+.button-glass:active {
+    transform: translateY(-1px) !important;
+}
+
+/* Keep text white on glass button */
+.button-glass,
+.button-glass:hover,
+.button-glass:focus,
+.button-glass:active {
+    color: white !important;
+}
+
+.button-glass span,
+.button-glass:hover span,
+.button-glass:focus span,
+.button-glass:active span {
+    color: white !important;
+}
+
 header a:hover,
 header a:focus {
     outline: none !important;

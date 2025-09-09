@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import heroBg from '../assets/images/herobg.JPG';
 import img4182 from '../assets/images/IMG_4182.JPG';
 import img4183 from '../assets/images/IMG_4183.JPG';
@@ -48,20 +49,19 @@ const HeroSection = () => {
                         We make your space shine so you can focus on what matters most.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-buttons">
-                        <a
-                            href="#contact"
-                            className="group relative bg-white/15 backdrop-blur-lg text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/25 transform hover:scale-105 transition-all duration-300 overflow-hidden"
+                        <Link
+                            to="/contact"
+                            className="button-glass group relative text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 cursor-pointer"
                             style={{
-                                background: 'rgba(255, 255, 255, 0.2)',
+                                background: 'rgba(255, 255, 255, 0.15)',
                                 backdropFilter: 'blur(20px)',
                                 WebkitBackdropFilter: 'blur(20px)',
-                                border: '2px solid rgba(255, 255, 255, 0.5)',
-                                boxShadow: '0 4px 16px 0 rgba(255, 255, 255, 0.15)'
+                                border: '2px solid rgba(255, 255, 255, 0.3)',
+                                boxShadow: '0 4px 15px rgba(255, 255, 255, 0.1)'
                             }}
                         >
                             <span className="relative z-10">Get a Free Quote</span>
-                            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/5 to-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </a>
+                        </Link>
                         <a
                             href="#services"
                             className="bg-transparent text-white border-2 border-white font-medium px-8 py-4 rounded-lg hover:bg-white hover:text-[#2CA2B0] transform hover-float transition-all duration-300"
